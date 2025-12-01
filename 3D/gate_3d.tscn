@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://doppwh8rfyld7"]
+
+[ext_resource type="Script" uid="uid://0f6l2bqj85lf" path="res://3D/gate_3d.gd" id="1_qr0mf"]
+
+[node name="Gate3D" type="Node3D"]
+script = ExtResource("1_qr0mf")

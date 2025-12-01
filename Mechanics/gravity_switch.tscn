@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://blo6ai1rp6jps"]
+
+[ext_resource type="Script" uid="uid://cjrw2c2ophw7l" path="res://Mechanics/gravity_switch.gd" id="1_58lsq"]
+
+[sub_resource type="GDScript" id="GDScript_wm836"]
+script/source = "extends Area2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lsvfb"]
+size = Vector2(10, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w4int"]
+size = Vector2(10, 20)
+
+[node name="Gravity switch" type="Node2D"]
+script = ExtResource("1_58lsq")
+
+[node name="Gravity Enabler" type="Area2D" parent="."]
+position = Vector2(-14, 0)
+script = SubResource("GDScript_wm836")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gravity Enabler"]
+position = Vector2(5, 0)
+shape = SubResource("RectangleShape2D_lsvfb")
+
+[node name="Gravity Disabler" type="Area2D" parent="."]
+position = Vector2(14, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gravity Disabler"]
+position = Vector2(-5, 0)
+shape = SubResource("RectangleShape2D_w4int")
+
+[connection signal="area_entered" from="Gravity Enabler" to="." method="_on_gravity_enabler_area_entered"]
+[connection signal="body_entered" from="Gravity Enabler" to="." method="_on_gravity_enabler_body_entered"]
+[connection signal="area_entered" from="Gravity Disabler" to="." method="_on_gravity_disabler_area_entered"]
+[connection signal="body_entered" from="Gravity Disabler" to="." method="_on_gravity_disabler_body_entered"]

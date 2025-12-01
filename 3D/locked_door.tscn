@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://d4kye4gb52bx6"]
+
+[ext_resource type="Script" uid="uid://couiylq30apdk" path="res://addons/level_block/level_block_node.gd" id="1_woio7"]
+[ext_resource type="Script" uid="uid://d2dlia4ysmpol" path="res://3D/locked_door.gd" id="1_y72y3"]
+[ext_resource type="Material" uid="uid://c4avtsmp1f3gc" path="res://addons/level_block/default_material.tres" id="2_y72y3"]
+[ext_resource type="Texture2D" uid="uid://bkly3gsx5jy5g" path="res://addons/level_block/example2.png" id="3_csjcs"]
+[ext_resource type="PackedScene" uid="uid://b36ffhv416il1" path="res://3D/3d_dialogue.tscn" id="4_6yuu1"]
+[ext_resource type="PackedScene" uid="uid://cgeedqhohwa5g" path="res://Global/inventory_item_3d.tscn" id="6_6yuu1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_woio7"]
+size = Vector3(4, 2, 2)
+
+[node name="Locked Door" type="Node3D"]
+script = ExtResource("1_y72y3")
+locked_text = Array[String](["The door is locked shut"])
+
+[node name="LevelBlock" type="Node3D" parent="."]
+script = ExtResource("1_woio7")
+material = ExtResource("2_y72y3")
+texture_sheet = ExtResource("3_csjcs")
+top_face = 12
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="Area3D" type="Area3D" parent="LevelBlock"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LevelBlock/Area3D"]
+shape = SubResource("BoxShape3D_woio7")
+
+[node name="3DDialogue" parent="." instance=ExtResource("4_6yuu1")]
+transform = Transform3D(2.28, 0, 0, 0, 2.28, 0, 0, 0, 2.28, 0, 0, 0)
+visible = false
+dialogue_text = Array[String]([])
+
+[node name="Key" parent="." instance=ExtResource("6_6yuu1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.629904, 0)
+visible = false
+item_type = "Key"
+item_name = "Key"
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_woio7")
+
+[connection signal="body_entered" from="LevelBlock/Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="LevelBlock/Area3D" to="." method="_on_area_3d_body_exited"]
+[connection signal="body_entered" from="Area3D" to="3DDialogue" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="3DDialogue" method="_on_area_3d_body_exited"]

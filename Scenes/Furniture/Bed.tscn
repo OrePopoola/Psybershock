@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwvw33lhnnly6"]
+
+[ext_resource type="Texture2D" uid="uid://b8jt4shxtsvas" path="res://Assets/Art/Furniture/Bed.png" id="1_8xxnc"]
+[ext_resource type="Script" uid="uid://bshn8vdussjl0" path="res://Scenes/Furniture/furniture.gd" id="2_sgon0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yhnyt"]
+size = Vector2(64, 20)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="FurnitureImage" type="Sprite2D" parent="."]
+texture = ExtResource("1_8xxnc")
+script = ExtResource("2_sgon0")
+dialogueLines = Array[String](["This is my bed. Not much more to say about it."])
+
+[node name="StaticBody2D" type="StaticBody2D" parent="FurnitureImage"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FurnitureImage/StaticBody2D"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_yhnyt")

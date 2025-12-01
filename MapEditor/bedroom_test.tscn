@@ -1,0 +1,121 @@
+[gd_scene load_steps=14 format=3 uid="uid://c238lcdkkduid"]
+
+[ext_resource type="PackedScene" uid="uid://bcciikwr1i5ae" path="res://Scenes/bedroom.tscn" id="1_e7gol"]
+[ext_resource type="PackedScene" uid="uid://dgdpm7dgu2fu2" path="res://Assets/Rooms/Aquarium/aquariumRoom.tscn" id="2_py78a"]
+[ext_resource type="PackedScene" uid="uid://c0r8t8osv5jft" path="res://Global/Inventory_Item.tscn" id="3_hgppx"]
+[ext_resource type="PackedScene" uid="uid://b0k2g3y57yr65" path="res://Scenes/camera/camera_module.tscn" id="3_una2b"]
+[ext_resource type="PackedScene" uid="uid://blo6ai1rp6jps" path="res://Mechanics/gravity_switch.tscn" id="4_hgppx"]
+[ext_resource type="Texture2D" uid="uid://bs37o4d4uuh5n" path="res://Assets/Art/equipment/crowbar.png" id="4_jfien"]
+[ext_resource type="Script" uid="uid://bgadyjoicaxyx" path="res://Mechanics/teleporter_1.gd" id="6_yts3s"]
+[ext_resource type="Texture2D" uid="uid://d2pq77o8kpk6s" path="res://Assets/wall.png" id="7_c2q6u"]
+[ext_resource type="PackedScene" uid="uid://img02bbm4ymo" path="res://Scenes/stairRoom/stairRoom.tscn" id="7_jfien"]
+[ext_resource type="PackedScene" uid="uid://b2nvmiu2kn65" path="res://Scenes/twinChoices/twinChoices.tscn" id="8_d3o22"]
+[ext_resource type="PackedScene" uid="uid://pan8ofujera" path="res://Scenes/mailRoom/mail_room.tscn" id="9_4v4m4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yts3s"]
+size = Vector2(53, 9.81345)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c2q6u"]
+size = Vector2(54.5, 14.602)
+
+[node name="bedroomTest" type="Node2D"]
+
+[node name="stairRoom" parent="." instance=ExtResource("7_jfien")]
+position = Vector2(698, 76)
+scale = Vector2(2.195, 2.195)
+
+[node name="aquarium" parent="." instance=ExtResource("2_py78a")]
+position = Vector2(28, 9)
+scale = Vector2(2.435, 2.435)
+
+[node name="Gravity switch" parent="." instance=ExtResource("4_hgppx")]
+position = Vector2(90, 181)
+rotation = 3.14159
+scale = Vector2(1.04018, 11.129)
+
+[node name="twinChoices" parent="." instance=ExtResource("8_d3o22")]
+position = Vector2(554, 632)
+scale = Vector2(1.515, 1.62)
+
+[node name="mailRoom" parent="." instance=ExtResource("9_4v4m4")]
+position = Vector2(86.955, 599)
+scale = Vector2(1.98, 1.975)
+
+[node name="Athenas room" parent="." instance=ExtResource("1_e7gol")]
+position = Vector2(-415, 294)
+scale = Vector2(2.55, 2.55)
+
+[node name="Crowbar" parent="Athenas room" instance=ExtResource("3_hgppx")]
+position = Vector2(94.6636, 52.4362)
+item_type = "Tool"
+item_name = "Crowbar"
+item_texture = ExtResource("4_jfien")
+item_effect = "Sparkle"
+
+[node name="Camera Module7" parent="." instance=ExtResource("3_una2b")]
+position = Vector2(76, 616)
+scale = Vector2(0.459, 0.587)
+zoom = Vector2(3.46, 2.93)
+
+[node name="Camera Module" parent="." instance=ExtResource("3_una2b")]
+position = Vector2(397, 163)
+scale = Vector2(0.535, 0.427)
+zoom = Vector2(3.075, 3.6)
+
+[node name="Camera Module2" parent="." instance=ExtResource("3_una2b")]
+position = Vector2(-263, 205)
+scale = Vector2(0.549, 0.41)
+enabled = true
+zoom = Vector2(3.135, 4.135)
+
+[node name="Camera Module3" parent="." instance=ExtResource("3_una2b")]
+position = Vector2(910, 207)
+scale = Vector2(0.295, 0.38)
+zoom = Vector2(4.785, 4.19)
+
+[node name="Camera Module4" parent="." instance=ExtResource("3_una2b")]
+position = Vector2(905, 429)
+scale = Vector2(0.314, 0.334)
+zoom = Vector2(4.9, 4.085)
+
+[node name="Camera Module5" parent="." instance=ExtResource("3_una2b")]
+position = Vector2(909, 641)
+scale = Vector2(0.334, 0.322)
+zoom = Vector2(4.565, 4.125)
+
+[node name="Camera Module6" parent="." instance=ExtResource("3_una2b")]
+position = Vector2(549, 646)
+scale = Vector2(0.312, 0.539)
+zoom = Vector2(4.935, 3.365)
+
+[node name="Gravity switch2" parent="." instance=ExtResource("4_hgppx")]
+position = Vector2(342, 639)
+rotation = 3.14159
+scale = Vector2(2.06, 8.176)
+
+[node name="Teleporter1" type="Area2D" parent="."]
+position = Vector2(505, 682.69)
+rotation = -3.14159
+scale = Vector2(1, 6.265)
+script = ExtResource("6_yts3s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporter1"]
+shape = SubResource("RectangleShape2D_yts3s")
+
+[node name="Sprite2D" type="Sprite2D" parent="Teleporter1/CollisionShape2D"]
+scale = Vector2(0.175, 0.175)
+texture = ExtResource("7_c2q6u")
+
+[node name="Teleporter2" type="Area2D" parent="."]
+position = Vector2(289, 622)
+rotation = -3.14159
+scale = Vector2(0.535337, 6.32113)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporter2"]
+position = Vector2(-99.003, -0.949184)
+shape = SubResource("RectangleShape2D_c2q6u")
+
+[connection signal="body_entered" from="Teleporter1" to="Teleporter1" method="_on_body_entered"]
+[connection signal="body_exited" from="Teleporter1" to="Teleporter1" method="_on_body_exited"]
+[connection signal="body_entered" from="Teleporter2" to="Teleporter1" method="_on_teleporter_2_body_entered"]
+[connection signal="body_exited" from="Teleporter2" to="Teleporter1" method="_on_teleporter_2_body_exited"]

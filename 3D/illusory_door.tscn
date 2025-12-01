@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://c20no0ka1vjie"]
+
+[ext_resource type="Script" uid="uid://k4mw6egfrqch" path="res://illusory_door.gd" id="1_xeown"]
+[ext_resource type="Script" uid="uid://couiylq30apdk" path="res://addons/level_block/level_block_node.gd" id="2_jbds8"]
+[ext_resource type="Material" uid="uid://c4avtsmp1f3gc" path="res://addons/level_block/default_material.tres" id="3_bfaqp"]
+[ext_resource type="Texture2D" uid="uid://bkly3gsx5jy5g" path="res://addons/level_block/example2.png" id="4_2auue"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ekjt7"]
+size = Vector3(3.75, 2, 2)
+
+[node name="Illusory Door" type="Node3D"]
+script = ExtResource("1_xeown")
+
+[node name="LevelBlock" type="Node3D" parent="."]
+script = ExtResource("2_jbds8")
+material = ExtResource("3_bfaqp")
+texture_sheet = ExtResource("4_2auue")
+west_face = 0
+top_face = 12
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="Area3D" type="Area3D" parent="LevelBlock"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LevelBlock/Area3D"]
+shape = SubResource("BoxShape3D_ekjt7")
+
+[connection signal="body_entered" from="LevelBlock/Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="LevelBlock/Area3D" to="." method="_on_area_3d_body_exited"]

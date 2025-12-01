@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://cr8t7ehabbkfe"]
+
+[ext_resource type="Script" uid="uid://bmrq15pcdw4jd" path="res://UI/dialogue_line.gd" id="1_a0mqx"]
+
+[node name="DialogueLine" type="Panel"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_a0mqx")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Speaker Icon" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2

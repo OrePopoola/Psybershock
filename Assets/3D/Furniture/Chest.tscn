@@ -1,0 +1,100 @@
+[gd_scene load_steps=12 format=3 uid="uid://cyoojwej1o3nf"]
+
+[ext_resource type="Texture2D" uid="uid://ccsvh6qnafe71" path="res://Assets/3D/Furniture/Chest_closed.png" id="1_84hb3"]
+[ext_resource type="Script" uid="uid://rqjbpus3l5uh" path="res://Assets/3D/Furniture/chest.gd" id="1_nbap6"]
+[ext_resource type="Texture2D" uid="uid://bmf7a6lsgtnxt" path="res://Assets/3D/Furniture/chest_opened.png" id="2_8x6xw"]
+[ext_resource type="PackedScene" uid="uid://b36ffhv416il1" path="res://3D/3d_dialogue.tscn" id="3_1tord"]
+[ext_resource type="PackedScene" uid="uid://doppwh8rfyld7" path="res://3D/gate_3d.tscn" id="4_eceqt"]
+[ext_resource type="PackedScene" uid="uid://cgeedqhohwa5g" path="res://Global/inventory_item_3d.tscn" id="5_b3ygx"]
+[ext_resource type="Texture2D" uid="uid://brccj3oguo8fx" path="res://Assets/3D/miscellaneous/Key.png" id="6_nbap6"]
+[ext_resource type="Texture2D" uid="uid://bs37o4d4uuh5n" path="res://Assets/Art/equipment/crowbar.png" id="7_f3bad"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eceqt"]
+size = Vector3(2, 2, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wlspd"]
+size = Vector3(6, 3, 6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f3bad"]
+size = Vector3(2.5, 2.5, 2.5)
+
+[node name="Chest" type="Node3D"]
+script = ExtResource("1_nbap6")
+reward_data = {
+"damage": 4,
+"effect": "\"\"",
+"name": "Crowbar",
+"quantity": 1,
+"scene": "\"\"",
+"swing_style": "hammer",
+"texture": "res://Assets/Art/equipment/crowbar.png",
+"type": "weapon"
+}
+key_item_type = "Key"
+key_item_name = "Key"
+locked_text = Array[String](["This chest needs a key..."])
+unlocked_text = Array[String](["The chest is begging to be opened..."])
+
+[node name="Unopened" type="Sprite3D" parent="."]
+transform = Transform3D(2.355, 0, 0, 0, 2.355, 0, 0, 0, 2.355, 0, 0, 0)
+billboard = 1
+shaded = true
+texture_filter = 0
+texture = ExtResource("1_84hb3")
+
+[node name="Opened" type="Sprite3D" parent="."]
+transform = Transform3D(2.35, 0, 0, 0, 2.35, 0, 0, 0, 2.35, 0, 0, 0)
+visible = false
+billboard = 1
+shaded = true
+texture_filter = 0
+texture = ExtResource("2_8x6xw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.945, 0, 0, 0, 0.945, 0, 0, 0, 0.945, 0, 0, 0)
+shape = SubResource("BoxShape3D_eceqt")
+
+[node name="3DDialogue" parent="StaticBody3D" instance=ExtResource("3_1tord")]
+transform = Transform3D(2.395, 0, 0, 0, 2.395, 0, 0, 0, 2.395, 0, -0.0066305995, 0)
+visible = false
+dialogue_text = Array[String](["The chest is begging to be opened"])
+
+[node name="ChestArea3D" type="Area3D" parent="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D/ChestArea3D"]
+shape = SubResource("BoxShape3D_wlspd")
+
+[node name="Area3D" type="Area3D" parent="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D/Area3D"]
+transform = Transform3D(0.93, 0, 0, 0, 0.93, 0, 0, 0, 0.93, 0, 0, 0)
+shape = SubResource("BoxShape3D_f3bad")
+
+[node name="Gate3D" parent="." node_paths=PackedStringArray("unopened", "opened", "inventoryItem") instance=ExtResource("4_eceqt")]
+unopened = NodePath("../Unopened")
+opened = NodePath("../Opened")
+locked_text = Array[String](["This chest needs a key to open"])
+unlocked_text = Array[String](["The chest opens its secrets"])
+inventoryItem = NodePath("../Key")
+
+[node name="Rewards" parent="." instance=ExtResource("5_b3ygx")]
+visible = false
+item_type = "weapon"
+item_name = "Crowbar"
+item_texture = ExtResource("7_f3bad")
+item_effect = "Slashing"
+
+[node name="Key" parent="." instance=ExtResource("5_b3ygx")]
+visible = false
+item_type = "Key"
+item_name = "Key"
+item_texture = ExtResource("6_nbap6")
+
+[connection signal="area_entered" from="StaticBody3D/ChestArea3D" to="." method="_on_chest_area_3d_area_entered"]
+[connection signal="area_exited" from="StaticBody3D/ChestArea3D" to="." method="_on_chest_area_3d_area_exited"]
+[connection signal="body_entered" from="StaticBody3D/ChestArea3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="StaticBody3D/ChestArea3D" to="." method="_on_area_3d_body_exited"]
+[connection signal="body_entered" from="StaticBody3D/Area3D" to="StaticBody3D/3DDialogue" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="StaticBody3D/Area3D" to="StaticBody3D/3DDialogue" method="_on_area_3d_body_exited"]

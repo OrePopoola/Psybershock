@@ -1,0 +1,107 @@
+[gd_scene load_steps=13 format=3 uid="uid://ccdt4o87ffvmc"]
+
+[ext_resource type="Script" uid="uid://hyjik0kvrq3e" path="res://3D/enemy_3d.gd" id="1_xnb21"]
+[ext_resource type="PackedScene" uid="uid://g54f2l4gqq8s" path="res://Assets/3D/Enemies/Goblin/Goblin2/Goblin2.gltf" id="2_d17ls"]
+[ext_resource type="Texture2D" uid="uid://d4mpw6wpaooyr" path="res://Assets/3D/Enemies/Placeholder goblin.png" id="2_o4ip3"]
+[ext_resource type="Texture2D" uid="uid://dwv7iyg1rl0hb" path="res://Assets/3D/Enemies/goblin_hit.png" id="3_o4ip3"]
+[ext_resource type="AudioStream" uid="uid://qjrsd5ousyq" path="res://Assets/sound/enemy_hit.mp3" id="4_c0hb2"]
+[ext_resource type="Texture2D" uid="uid://bp2pi5ymipm6r" path="res://Assets/3D/Enemies/dagger.png" id="5_o4ip3"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_d17ls"]
+radius = 3.278
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lprjh"]
+radius = 1.386
+height = 2.887
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_8q4j0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h40qp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xorit"]
+size = Vector3(1.465, 1.66, 1.615)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o4ip3"]
+
+[node name="Enemy3D" type="CharacterBody3D" groups=["Enemy"]]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+script = ExtResource("1_xnb21")
+move_speed = 2.645
+attack_cooldown = 3.965
+
+[node name="Goblin" parent="." instance=ExtResource("2_d17ls")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
+
+[node name="Area3D" type="Area3D" parent="." groups=["Enemy"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" groups=["Enemy"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.755, 0)
+shape = SubResource("SphereShape3D_d17ls")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["Enemy"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8940581, 0)
+shape = SubResource("CapsuleShape3D_lprjh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D" groups=["Enemy"]]
+visible = false
+mesh = SubResource("CapsuleMesh_8q4j0")
+surface_material_override/0 = SubResource("StandardMaterial3D_h40qp")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(2.43, 0, 0, 0, 2.43, 0, 0, 0, 2.43, 0, -0.4300313, 0)
+visible = false
+billboard = 1
+shaded = true
+texture_filter = 0
+texture = ExtResource("2_o4ip3")
+
+[node name="Area3D2" type="Area3D" parent="." groups=["Enemy"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2" groups=["Enemy"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.775, 0)
+shape = SubResource("BoxShape3D_xorit")
+
+[node name="LeftRay" type="RayCast3D" parent="."]
+target_position = Vector3(-2, 0, 0)
+
+[node name="RightRay" type="RayCast3D" parent="."]
+target_position = Vector3(2, 0, 0)
+
+[node name="FrontRay" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, -2)
+
+[node name="BackRay" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, 2)
+
+[node name="hit_sprite" type="Sprite3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -0.39262235, 0)
+visible = false
+billboard = 2
+texture_filter = 0
+texture = ExtResource("3_o4ip3")
+
+[node name="HitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_c0hb2")
+volume_db = -16.991
+
+[node name="DaggerNode" type="Node3D" parent="."]
+visible = false
+
+[node name="DaggerSprite" type="Sprite3D" parent="DaggerNode"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.0063872337, -0.58806497, -0.14521095)
+texture_filter = 0
+texture = ExtResource("5_o4ip3")
+
+[node name="DaggerArea" type="Area3D" parent="DaggerNode"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.45702934, -0.21943402)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DaggerNode/DaggerArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.20990908, 0)
+shape = SubResource("BoxShape3D_o4ip3")
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[connection signal="area_entered" from="Area3D2" to="." method="_on_area_3d_2_area_entered"]
+[connection signal="area_exited" from="Area3D2" to="." method="_on_area_3d_2_area_exited"]
+[connection signal="body_entered" from="Area3D2" to="." method="_on_area_3d_2_body_entered"]
+[connection signal="body_entered" from="DaggerNode/DaggerArea" to="." method="_on_dagger_area_body_entered"]

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c55w0nyu2lprx"]
+
+[ext_resource type="Texture2D" uid="uid://bng8r3fs42s3u" path="res://Assets/Art/Furniture/maintenance_hatch.png" id="1_efiww"]
+
+[node name="Maintenance Hatch" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_efiww")

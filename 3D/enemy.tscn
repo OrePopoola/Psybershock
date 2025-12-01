@@ -1,0 +1,68 @@
+[gd_scene load_steps=9 format=3 uid="uid://c2b7uliq87uoq"]
+
+[ext_resource type="Script" uid="uid://cblgbiyqbc13e" path="res://3D/enemy.gd" id="1_oiwoj"]
+[ext_resource type="Texture2D" uid="uid://d4mpw6wpaooyr" path="res://Assets/3D/Enemies/Placeholder goblin.png" id="2_a5xem"]
+[ext_resource type="Texture2D" uid="uid://dwv7iyg1rl0hb" path="res://Assets/3D/Enemies/goblin_hit.png" id="3_s1bpm"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_a5xem"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_oiwoj"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_a5xem"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a5xem"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a5xem"]
+
+[node name="Enemy" type="CharacterBody3D" groups=["Enemy"]]
+transform = Transform3D(3.9, 0, 0, 0, 3.9, 0, 0, 0, 3.9, 0, 0, 0)
+script = ExtResource("1_oiwoj")
+
+[node name="Area3D" type="Area3D" parent="." groups=["Enemy"]]
+transform = Transform3D(1.265, 0, 0, 0, 1.265, 0, 0, 0, 1.265, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" groups=["Enemy"]]
+transform = Transform3D(4.515, 0, 0, 0, 4.515, 0, 0, 0, 4.515, 0, 0, 0)
+shape = SubResource("SphereShape3D_a5xem")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.62, 0, 0, 0, 0.62, 0, 0, 0, 0.62, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_oiwoj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+visible = false
+mesh = SubResource("CapsuleMesh_a5xem")
+surface_material_override/0 = SubResource("StandardMaterial3D_a5xem")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(2.0000005, 0, 0, 0, 2.0000005, 0, 0, 0, 2.0000005, 0, -0.18971743, 0)
+billboard = 2
+shaded = true
+texture_filter = 0
+texture = ExtResource("2_a5xem")
+
+[node name="Area3D2" type="Area3D" parent="." groups=["Enemy"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2" groups=["Enemy"]]
+transform = Transform3D(1.12, 0, 0, 0, 1.12, 0, 0, 0, 1.12, 0, 0, 0)
+shape = SubResource("BoxShape3D_a5xem")
+
+[node name="LeftRay" type="RayCast3D" parent="."]
+target_position = Vector3(-2, 0, 0)
+
+[node name="RightRay" type="RayCast3D" parent="."]
+target_position = Vector3(2, 0, 0)
+
+[node name="FrontRay" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, -2)
+
+[node name="BackRay" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, 2)
+
+[node name="hit_sprite" type="Sprite3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+visible = false
+texture_filter = 0
+texture = ExtResource("3_s1bpm")
+
+[connection signal="area_entered" from="Area3D2" to="." method="_on_area_3d_2_area_entered"]

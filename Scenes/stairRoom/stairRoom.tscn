@@ -1,0 +1,129 @@
+[gd_scene load_steps=18 format=3 uid="uid://img02bbm4ymo"]
+
+[ext_resource type="Texture2D" uid="uid://boh6x8oigl56a" path="res://Assets/Rooms/stairRoom/stairRoom.png" id="1_jgf5m"]
+[ext_resource type="Texture2D" uid="uid://c8jvw0pgjkhfe" path="res://Assets/Rooms/openSesame.png" id="3_3k4su"]
+[ext_resource type="PackedScene" uid="uid://nhrc6fa1rcrv" path="res://Scenes/gate.tscn" id="4_7ldps"]
+[ext_resource type="PackedScene" uid="uid://c0r8t8osv5jft" path="res://Global/Inventory_Item.tscn" id="5_vfjxi"]
+[ext_resource type="Texture2D" uid="uid://bs37o4d4uuh5n" path="res://Assets/Art/equipment/crowbar.png" id="6_asy8f"]
+[ext_resource type="PackedScene" uid="uid://b44anmab3dacu" path="res://Global/dialogue.tscn" id="6_i3cnt"]
+[ext_resource type="PackedScene" uid="uid://coco0qi2eimj6" path="res://Mechanics/ladder.tscn" id="6_vfjxi"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_5pvxv"]
+a = Vector2(61, 11)
+b = Vector2(-14, 10)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_vfjxi"]
+a = Vector2(42, 10)
+b = Vector2(-13, 10)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_asy8f"]
+a = Vector2(-12, 101)
+b = Vector2(15, 101)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_i3cnt"]
+a = Vector2(-12, 101)
+b = Vector2(6, 101)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ev2ob"]
+a = Vector2(-12, 101)
+b = Vector2(8, 101)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_sk508"]
+a = Vector2(-29, 116)
+b = Vector2(15, 101)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_r6xud"]
+a = Vector2(-50, 118)
+b = Vector2(15, 101)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_j3rvt"]
+a = Vector2(-25, 112)
+b = Vector2(-3.61401, 102.425)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_87kwt"]
+a = Vector2(-22.14, 153.655)
+b = Vector2(2.56375, 102.442)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vfjxi"]
+load_path = "res://.godot/imported/openSesame.png-d733e8c6219dfe3f84bb640f43bca403.ctex"
+
+[node name="Node2D" type="Node2D"]
+
+[node name="StairRoom" type="Sprite2D" parent="."]
+position = Vector2(83, 161)
+texture = ExtResource("1_jgf5m")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(98, 93)
+texture = ExtResource("3_3k4su")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Floor" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(17, 107)
+shape = SubResource("SegmentShape2D_5pvxv")
+
+[node name="Floor2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(120, 108)
+shape = SubResource("SegmentShape2D_vfjxi")
+
+[node name="Floor3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(89, 86)
+shape = SubResource("SegmentShape2D_asy8f")
+
+[node name="Floor4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(119, 96)
+shape = SubResource("SegmentShape2D_i3cnt")
+
+[node name="Floor5" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(138, 111)
+shape = SubResource("SegmentShape2D_ev2ob")
+
+[node name="Floor6" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(147, 135)
+shape = SubResource("SegmentShape2D_sk508")
+
+[node name="Floor7" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(30, 199)
+shape = SubResource("SegmentShape2D_r6xud")
+
+[node name="Floor8" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(63, 363)
+rotation = 3.40339
+shape = SubResource("SegmentShape2D_j3rvt")
+
+[node name="Floor9" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(142, 176)
+rotation = 0.523589
+shape = SubResource("SegmentShape2D_87kwt")
+
+[node name="Gate" parent="." node_paths=PackedStringArray("inventoryItem") instance=ExtResource("4_7ldps")]
+position = Vector2(95, 105)
+scale = Vector2(1.085, 1.085)
+opened = SubResource("CompressedTexture2D_vfjxi")
+locked_text = Array[String](["It looks like the trapdoor is locked up", "Perhaps I can pry it open if I had a tool"])
+unlocked_text = Array[String](["The crowbar pries it open", " with the last of your strength", "What could be underneath?"])
+inventoryItem = NodePath("../Crowbar")
+
+[node name="Crowbar2" parent="." instance=ExtResource("5_vfjxi")]
+position = Vector2(152, 99)
+item_type = "Tool"
+item_name = "Crowbar"
+item_texture = ExtResource("6_asy8f")
+item_effect = "Sparkle"
+
+[node name="Dialogue" parent="Crowbar2" instance=ExtResource("6_i3cnt")]
+position = Vector2(-105, -5)
+dialogue_text = Array[String](["I cant get past this trapdoor", "Maybe I could jump?", "Press space to jump"])
+
+[node name="Crowbar" parent="." instance=ExtResource("5_vfjxi")]
+position = Vector2(336, 176)
+item_type = "Tool"
+item_name = "Crowbar"
+item_texture = ExtResource("6_asy8f")
+item_effect = "Sparkle"
+
+[node name="Ladder" parent="." instance=ExtResource("6_vfjxi")]
+position = Vector2(92, 152)
+scale = Vector2(1.28, 3.325)

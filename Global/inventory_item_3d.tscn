@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgeedqhohwa5g"]
+
+[ext_resource type="Script" uid="uid://c6ys7p2rxm8mb" path="res://Global/inventory_item_3d.gd" id="1_di2q1"]
+[ext_resource type="Texture2D" uid="uid://tlr87wya8nym" path="res://Assets/Art/equipment/screwdriver.png" id="2_3bf05"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3bf05"]
+
+[node name="Inventory_Item3D" type="Node3D"]
+script = ExtResource("1_di2q1")
+item_texture = ExtResource("2_3bf05")
+item_description = null
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_3bf05")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+shaded = true
+texture_filter = 0
+texture = ExtResource("2_3bf05")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

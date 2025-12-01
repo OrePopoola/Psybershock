@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="itemInventory" load_steps=3 format=3 uid="uid://dw5yya0wqvpgc"]
+
+[ext_resource type="Texture2D" uid="uid://tlr87wya8nym" path="res://Assets/Art/equipment/screwdriver.png" id="1_exs6f"]
+[ext_resource type="Script" uid="uid://cxdr0i2h2v87f" path="res://Items/itemResource.gd" id="2_dklw6"]
+
+[resource]
+script = ExtResource("2_dklw6")
+item_texture = ExtResource("1_exs6f")
+item_name = "Bloody Screwdriver"
+item_type = "evidence"
+description = "A seemingly normal screwdriver with blood flaking off the top."

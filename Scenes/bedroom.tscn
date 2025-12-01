@@ -1,0 +1,174 @@
+[gd_scene load_steps=24 format=3 uid="uid://bcciikwr1i5ae"]
+
+[ext_resource type="Texture2D" uid="uid://bky71cygkfml7" path="res://Assets/Art/scenes/Scene1.png" id="1_f1y2t"]
+[ext_resource type="PackedScene" uid="uid://edem38lkd5s8" path="res://Player/player.tscn" id="2_6o44b"]
+[ext_resource type="Texture2D" uid="uid://d1e0dyhgiiv88" path="res://Assets/Art/Furniture/AthenasComputer.png" id="3_ikyv6"]
+[ext_resource type="Texture2D" uid="uid://bpa5dh2d1klnl" path="res://Assets/Art/Furniture/computer_wake_up_0.png" id="4_h0rdu"]
+[ext_resource type="Texture2D" uid="uid://c1grbf4h4fb5x" path="res://Assets/Art/Furniture/computer_wake_up_1.png" id="5_xillq"]
+[ext_resource type="Texture2D" uid="uid://5xl0w6usb820" path="res://Assets/Art/Furniture/computer_wake_up_2.png" id="6_78mm4"]
+[ext_resource type="Texture2D" uid="uid://cgivftjq5b1oa" path="res://Assets/Art/Furniture/computer_wake_up_3.png" id="7_or2p7"]
+[ext_resource type="Texture2D" uid="uid://bwqrbfbwamftr" path="res://Assets/Art/Furniture/computer_wake_up_4.png" id="8_1p8sh"]
+[ext_resource type="Texture2D" uid="uid://dl7ggmol61t7v" path="res://Assets/Art/Furniture/computer_wake_up_5.png" id="9_lb3aw"]
+[ext_resource type="Texture2D" uid="uid://dxy0xf127j6e1" path="res://Assets/Art/Furniture/computer_wake_up_6.png" id="10_f1yob"]
+[ext_resource type="Script" uid="uid://c62tvwphdc5gc" path="res://Scenes/animate_furniture.gd" id="11_h0rdu"]
+[ext_resource type="PackedScene" uid="uid://dwvw33lhnnly6" path="res://Scenes/Furniture/Bed.tscn" id="12_h0rdu"]
+[ext_resource type="PackedScene" uid="uid://b44anmab3dacu" path="res://Global/dialogue.tscn" id="12_xillq"]
+
+[sub_resource type="Gradient" id="Gradient_eywb6"]
+offsets = PackedFloat32Array(0.103896, 0.493506, 0.87013)
+colors = PackedColorArray(0, 0, 0, 1, 0.936937, 0.936937, 0.936937, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0pmmu"]
+gradient = SubResource("Gradient_eywb6")
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_33m24"]
+cull_mode = 2
+polygon = PackedVector2Array(0.875, 0.665)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qjsww"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ikyv6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_h0rdu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xillq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_78mm4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_or2p7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_1p8sh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_lb3aw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_f1yob")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rvryo"]
+size = Vector2(21, 23)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h0rdu"]
+radius = 22.0
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_xillq"]
+a = Vector2(-78, -1)
+b = Vector2(199, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_78mm4"]
+a = Vector2(43, -1.00016)
+b = Vector2(-72, -0.999741)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_or2p7"]
+a = Vector2(20, 7.62939e-05)
+b = Vector2(-95, -0.000335693)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_h0rdu"]
+a = Vector2(126, 0.000324249)
+b = Vector2(-51, -1.00013)
+
+[node name="Athenas room" type="Node2D"]
+
+[node name="Scene" type="Sprite2D" parent="."]
+position = Vector2(62, -45)
+texture = ExtResource("1_f1y2t")
+
+[node name="PointLight2D" type="PointLight2D" parent="Scene"]
+position = Vector2(-14, -21)
+scale = Vector2(0.311523, 60.75)
+color = Color(1, 0, 0, 1)
+energy = 4.32
+texture = SubResource("GradientTexture1D_0pmmu")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Scene"]
+position = Vector2(-23, -10)
+occluder = SubResource("OccluderPolygon2D_33m24")
+
+[node name="Shadows" type="DirectionalLight2D" parent="Scene"]
+energy = 0.4
+blend_mode = 1
+
+[node name="AnimatedFurniture" type="AnimatedSprite2D" parent="Scene"]
+position = Vector2(66, -16)
+sprite_frames = SubResource("SpriteFrames_qjsww")
+frame = 1
+script = ExtResource("11_h0rdu")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Scene/AnimatedFurniture"]
+visible = false
+position = Vector2(-108, 53)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scene/AnimatedFurniture/CharacterBody2D"]
+position = Vector2(107.5, -49.5)
+shape = SubResource("RectangleShape2D_rvryo")
+
+[node name="playerDetector" type="Area2D" parent="Scene/AnimatedFurniture"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scene/AnimatedFurniture/playerDetector"]
+position = Vector2(-2, 11)
+shape = SubResource("CircleShape2D_h0rdu")
+
+[node name="Dialogue" parent="Scene/AnimatedFurniture" instance=ExtResource("12_xillq")]
+visible = false
+position = Vector2(-1, 18)
+dialogue_text = Array[String](["This is my computer", "It screams to me messages from hell"])
+
+[node name="Bed" parent="." instance=ExtResource("12_h0rdu")]
+position = Vector2(-33, -2)
+
+[node name="Dialogue" parent="Bed" instance=ExtResource("12_xillq")]
+position = Vector2(12, 1)
+scale = Vector2(1.475, 0.955)
+dialogue_text = Array[String](["This is my bed. It is quite beddish to be honest", "I think I might have overslept a bit."])
+
+[node name="Player" parent="." instance=ExtResource("2_6o44b")]
+position = Vector2(-36, -46)
+collision_layer = 3
+collision_mask = 3
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(8, 15)
+
+[node name="Y Boundary" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
+shape = SubResource("SegmentShape2D_xillq")
+
+[node name="X Boundary 1" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
+position = Vector2(-77, -46)
+rotation = 1.5708
+shape = SubResource("SegmentShape2D_78mm4")
+
+[node name="X Boundary 2" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
+position = Vector2(186, 27)
+rotation = -1.5708
+shape = SubResource("SegmentShape2D_or2p7")
+
+[node name="Y Boundary2" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
+position = Vector2(53, -79)
+rotation = 3.14159
+shape = SubResource("SegmentShape2D_h0rdu")
+
+[node name="Dialogue" parent="." instance=ExtResource("12_xillq")]
+position = Vector2(57, -7)
+scale = Vector2(2.17563, 0.912025)
+dialogue_text = Array[String](["Press R to advance dialogue", "And press E to interact!"])
+
+[connection signal="area_entered" from="Scene/AnimatedFurniture/playerDetector" to="Scene/AnimatedFurniture" method="_on_player_detector_area_entered"]
+[connection signal="body_entered" from="Scene/AnimatedFurniture/playerDetector" to="Scene/AnimatedFurniture" method="_on_player_detector_body_entered"]
+[connection signal="body_exited" from="Scene/AnimatedFurniture/playerDetector" to="Scene/AnimatedFurniture" method="_on_player_detector_body_exited"]

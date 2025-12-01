@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://ch1fqfh6d7x78"]
+
+[ext_resource type="Script" uid="uid://dsnrvmancnhdl" path="res://3D/sword.gd" id="1_bav8w"]
+[ext_resource type="Texture2D" uid="uid://pctg4xbglmq0" path="res://Assets/3D/weapons/sword.png" id="2_njnl6"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_p5g2x"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_njnl6"]
+
+[node name="Sword" type="StaticBody3D"]
+script = ExtResource("1_bav8w")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_p5g2x")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(2.395, 0, 0, 0, 2.395, 0, 0, 0, 2.395, 0, 0, 0)
+billboard = 1
+shaded = true
+texture_filter = 0
+texture = ExtResource("2_njnl6")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_njnl6")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://b36ffhv416il1"]
+
+[ext_resource type="Script" uid="uid://cqllpakljvpm3" path="res://3D/3d_dialogue.gd" id="1_n4g4u"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_v731f"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n4g4u"]
+
+[node name="3DDialogue" type="Node3D"]
+script = ExtResource("1_n4g4u")
+dialogue_text = Array[String](["Hello World!", "This is all I have to say!", ""])
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
+mesh = SubResource("BoxMesh_v731f")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1.205, 0, 0, 0, 1.205, 0, 0, 0, 1.205, 0, 0, 0)
+shape = SubResource("BoxShape3D_n4g4u")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

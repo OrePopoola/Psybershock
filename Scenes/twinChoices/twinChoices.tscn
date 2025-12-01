@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2nvmiu2kn65"]
+
+[ext_resource type="Texture2D" uid="uid://h81kewp1c171" path="res://Assets/Rooms/twinChoices/mailExitRoom.png" id="1_j4qps"]
+[ext_resource type="PackedScene" uid="uid://b44anmab3dacu" path="res://Global/dialogue.tscn" id="2_luan3"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_j4qps"]
+a = Vector2(51.7826, 29.5699)
+b = Vector2(-282.266, 26.8817)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="MailExitRoom" type="Sprite2D" parent="."]
+texture = ExtResource("1_j4qps")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(71, 71)
+scale = Vector2(0.984887, 1.116)
+shape = SubResource("SegmentShape2D_j4qps")
+
+[node name="Dialogue" parent="." instance=ExtResource("2_luan3")]
+position = Vector2(70, 68)
+dialogue_text = Array[String](["The door handle is ripped beyond", "comprehension.  Forget work, you need a way out."])
+
+[node name="Dialogue2" parent="." instance=ExtResource("2_luan3")]
+position = Vector2(-60, 69)
+dialogue_text = Array[String](["The mail room, maybe something could help you in there", "Its foor is your only bet"])

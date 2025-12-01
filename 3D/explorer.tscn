@@ -1,0 +1,182 @@
+[gd_scene load_steps=11 format=3 uid="uid://bj6bvh86phvhe"]
+
+[ext_resource type="Script" uid="uid://cktm3hagbt7bg" path="res://3D/explorer.gd" id="1_elec1"]
+[ext_resource type="FontFile" uid="uid://fmbpcembvddm" path="res://Assets/Art/Font/Adventurer.ttf" id="2_q0xqt"]
+[ext_resource type="PackedScene" uid="uid://c16mt3qs6iq3f" path="res://Player/inventory_ui.tscn" id="3_nytcp"]
+[ext_resource type="Texture2D" uid="uid://pctg4xbglmq0" path="res://Assets/3D/weapons/sword.png" id="4_nytcp"]
+[ext_resource type="Script" uid="uid://c2gh53bne0vsx" path="res://3D/health_text.gd" id="5_2h6is"]
+[ext_resource type="PackedScene" uid="uid://daec4ygilxlry" path="res://Scenes/inventory_hotbar.tscn" id="5_ntcrc"]
+[ext_resource type="PackedScene" uid="uid://b0g3gpskn3t85" path="res://UI/health_bar_ui.tscn" id="7_2dqxv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q0xqt"]
+size = Vector3(1, 1, 1.2)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i8tw6"]
+radius = 0.2
+height = 1.2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2h6is"]
+size = Vector3(1, 1, 2.8840332)
+
+[node name="explorer" type="CharacterBody3D" groups=["Player"]]
+script = ExtResource("1_elec1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["Player"]]
+transform = Transform3D(1.095, 0, 0, 0, 1.095, 0, 0, 0, 1.095, 0, 0, 0)
+shape = SubResource("BoxShape3D_q0xqt")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.120833755)
+current = true
+
+[node name="LeftRay" type="RayCast3D" parent="."]
+target_position = Vector3(-2, 0, 0)
+
+[node name="RightRay" type="RayCast3D" parent="."]
+target_position = Vector3(2, 0, 0)
+
+[node name="FrontRay" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, -2)
+
+[node name="BackRay" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, 2)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_color = Color(1.269618, 0.4178053, 0.21100684, 1)
+light_indirect_energy = 0.5
+light_size = 0.056
+omni_range = 3.0
+
+[node name="InteractUI" type="CanvasLayer" parent="." groups=["Player"]]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="InteractUI"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -50.0
+grow_horizontal = 0
+grow_vertical = 0
+color = Color(0.192157, 0.376471, 0.176471, 1)
+
+[node name="Label" type="Label" parent="InteractUI/ColorRect"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("2_q0xqt")
+theme_override_font_sizes/font_size = 30
+text = "Press \"F\" to Pick Up"
+
+[node name="DialogueUI" type="CanvasLayer" parent="." groups=["Player"]]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="DialogueUI" groups=["Player"]]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1151.0
+offset_top = -283.0
+offset_right = -186.0
+offset_bottom = -164.0
+grow_horizontal = 0
+grow_vertical = 0
+color = Color(0.192157, 0.376471, 0.176471, 1)
+
+[node name="Label" type="Label" parent="DialogueUI/ColorRect"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 11.0
+offset_right = 836.0
+offset_bottom = 105.0
+theme_override_fonts/font = ExtResource("2_q0xqt")
+theme_override_font_sizes/font_size = 30
+text = "Press E to advance Text"
+
+[node name="InventoryUI" type="CanvasLayer" parent="."]
+visible = false
+offset = Vector2(0, 0.1)
+transform = Transform2D(1, 0, 0, 1, 0, 0.1)
+
+[node name="ColorRect" type="ColorRect" parent="InventoryUI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.192157, 0.376471, 0.321569, 1)
+
+[node name="Label" type="Label" parent="InventoryUI/ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -126.0
+offset_top = 20.900002
+offset_right = 122.0
+offset_bottom = 80.9
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_q0xqt")
+theme_override_font_sizes/font_size = 60
+text = "Inventory"
+
+[node name="Inventory_Ui" parent="InventoryUI/ColorRect" instance=ExtResource("3_nytcp")]
+layout_mode = 0
+offset_left = 219.0
+offset_top = -0.1
+offset_right = 259.0
+offset_bottom = 39.9
+
+[node name="SwordPivot" type="Node3D" parent="." groups=["Weapon_Player"]]
+transform = Transform3D(0.9612619, -0.2756372, 0, 0.23426223, 0.81696886, 0.526956, -0.14524874, -0.50654215, 0.849893, -0.445, 0.29, 0.125)
+visible = false
+
+[node name="Sprite3D" type="Sprite3D" parent="SwordPivot" groups=["Player", "Weapon_Player"]]
+transform = Transform3D(5.065, -2.9802322e-08, 1.1920929e-07, 2.3841858e-07, 5.59, 0, 0, 0, 5.065001, 1.231833, 0.16505146, -0.76393604)
+texture_filter = 0
+texture = ExtResource("4_nytcp")
+
+[node name="Area3D" type="Area3D" parent="SwordPivot" groups=["Weapon_Player"]]
+transform = Transform3D(1, -7.771145e-09, -2.4156255e-16, 7.771145e-09, 1, 3.1084554e-08, -2.646978e-23, -3.1084554e-08, 1, 1.219, 0, -0.79)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SwordPivot/Area3D" groups=["Weapon_Player"]]
+transform = Transform3D(0.7253744, 0.6883549, -4.7683716e-07, -0.6883546, 0.72537494, -3.2782555e-07, -8.940697e-08, -1.4901161e-07, 1, -0.16520607, -0.065145165, 0.035130262)
+shape = SubResource("CapsuleShape3D_i8tw6")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HUD"]
+offset_right = 40.0
+offset_bottom = 40.0
+fill_mode = 3
+
+[node name="Label" type="Label" parent="HUD"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Health: "
+script = ExtResource("5_2h6is")
+
+[node name="InventoryHotbar" type="CanvasLayer" parent="."]
+
+[node name="Inventory_Hotbar" parent="InventoryHotbar" instance=ExtResource("5_ntcrc")]
+offset_left = 186.0
+offset_right = 220.0
+
+[node name="HealthBarUI" parent="." instance=ExtResource("7_2dqxv")]
+
+[node name="WeaponPivot" type="Node3D" parent="." groups=["Weapon_Player"]]
+
+[node name="Area3D" type="Area3D" parent="WeaponPivot" groups=["Weapon_Player"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.1730785)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WeaponPivot/Area3D" groups=["Weapon_Player"]]
+transform = Transform3D(0.405, 0, 0, 0, 0.405, 0, 0, 0, 0.405, 0, 0, -0.041083336)
+shape = SubResource("BoxShape3D_2h6is")
+
+[connection signal="health_changed" from="." to="HealthBarUI" method="_on_player_health_changed"]
+[connection signal="body_entered" from="SwordPivot/Area3D" to="." method="_on_area_3d_body_entered"]

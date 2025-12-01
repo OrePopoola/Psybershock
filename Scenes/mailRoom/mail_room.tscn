@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://pan8ofujera"]
+
+[ext_resource type="Texture2D" uid="uid://b5n1jwe0sbrxb" path="res://Scenes/mailRoom/mailRoom1.png" id="1_f3bls"]
+[ext_resource type="PackedScene" uid="uid://c0r8t8osv5jft" path="res://Global/Inventory_Item.tscn" id="2_ailff"]
+[ext_resource type="Texture2D" uid="uid://tlr87wya8nym" path="res://Assets/Art/equipment/screwdriver.png" id="2_tv5yn"]
+[ext_resource type="PackedScene" uid="uid://b44anmab3dacu" path="res://Global/dialogue.tscn" id="4_c762r"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_tv5yn"]
+a = Vector2(-90.6667, 12.6667)
+b = Vector2(95.3333, 12.6667)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ailff"]
+a = Vector2(-114, 16)
+b = Vector2(137, 17)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_c762r"]
+a = Vector2(267, 247)
+b = Vector2(264, 71.5001)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="MailRoom1" type="Sprite2D" parent="."]
+position = Vector2(-3, 4)
+texture = ExtResource("1_f3bls")
+
+[node name="Screwdriver" parent="." instance=ExtResource("2_ailff")]
+position = Vector2(8, 36)
+scale = Vector2(1.5, 1.5)
+item_type = "tool"
+item_name = "Screwdriver"
+item_texture = ExtResource("2_tv5yn")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(5, 34)
+scale = Vector2(1.5, 1.5)
+
+[node name="Floor" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-9.33333, 34)
+shape = SubResource("SegmentShape2D_tv5yn")
+
+[node name="Floor2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-23.3333, -39.3333)
+scale = Vector2(0.666667, 0.666667)
+shape = SubResource("SegmentShape2D_ailff")
+
+[node name="Floor3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-218, -62)
+scale = Vector2(0.444445, 0.444445)
+shape = SubResource("SegmentShape2D_c762r")
+
+[node name="Dialogue" parent="." instance=ExtResource("4_c762r")]
+position = Vector2(-103, 24)
+scale = Vector2(1.185, 1.185)
+dialogue_text = Array[String](["The book looms there, impressive but unreadable", "This will not be coming along your journey"])
