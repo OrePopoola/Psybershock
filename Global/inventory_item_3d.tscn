@@ -7,8 +7,11 @@
 
 [node name="Inventory_Item3D" type="Node3D"]
 script = ExtResource("1_di2q1")
+item_type = "Artifact"
+item_name = "Screwdriver"
 item_texture = ExtResource("2_3bf05")
-item_description = null
+item_effect = "Artifact"
+item_description = "A bloody screwdriver"
 
 [node name="Area3D" type="Area3D" parent="."]
 

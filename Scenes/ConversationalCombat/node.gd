@@ -14,7 +14,9 @@ var enemy_ego: int = 100   # Killer's ego to break
 @onready var player_portrait = $"../UI/playerPortrait"
 
 func _ready() -> void:
+	print("Screwdriver :" + str(screwdriver))
 	screwdriver.pickup_item()
+	
 	next_turn()
 	
 #

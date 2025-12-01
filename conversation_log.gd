@@ -99,6 +99,7 @@ func _on_dialogue_label_meta_clicked(meta: Variant) -> String:
 		"texture" : item_texture,
 		"effect" : item_effect,
 		"scene_path" : "res://Global/Inventory_Item_3d.tscn",
+		"description" : " The enemy is slipping up",
 	}
 	Global.add_item(item, true)
 	

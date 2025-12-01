@@ -39,13 +39,11 @@ func pickup_item():
 		"scene_path" : scene_path,
 		"description" : item_description,
 	}
-
-
 	print(item)
-	#Global.add_item(item)
+	Global.add_item(item)
 	print(str(Global.player_node))
 	if Global.player_node:
-		Global.add_item(item)
+		#Global.add_item(item)
 		self.queue_free()
 
 

@@ -141,8 +141,7 @@ text = "Craft"
 
 [node name="Bloody screwdriver" parent="TurnManager" instance=ExtResource("6_mi5jt")]
 visible = false
-item_type = "Artifact"
-item_name = "Screwdriver"
+item_description = "A screwdriver drowned in blood"
 
 [node name="Attack Button" type="Button" parent="TurnManager"]
 visible = false
