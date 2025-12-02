@@ -96,7 +96,7 @@ func _physics_process(delta: float) -> void:
 			if current_time - last_direction_change_time >= direction_change_cooldown or tween == null:
 				direction = possible[0]
 				last_direction_change_time = current_time
-				print("Chosen direction: ", direction)
+				#print("Chosen direction: ", direction)
 
 	if direction != Vector3.ZERO:
 		# Movement rotation is overridden by continuous realignment above

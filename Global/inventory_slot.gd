@@ -187,7 +187,7 @@ func _drop_data(_at_pos : Vector2, data: Variant) -> void:
 		"type": "speech",
 		"effect": data,
 		"quantity": 1,
-		"texture": preload("res://ui/speech_bubble.png")
+		#"texture": load("res://UI/speech_bubble.png")
 	}
 	Global.inventory_updated.emit()
 
