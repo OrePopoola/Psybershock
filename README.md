@@ -13,3 +13,4 @@ R to 'Talk'
 J to cancel conversations
 
 Download by clicking the psybershock.console.7z . Extract it and run the Psybershock file, not the psybershock.console .
+<img width="1149" height="650" alt="Screenshot 2025-12-04 095657" src="https://github.com/user-attachments/assets/c6ebae62-ddd4-42ae-bc58-a540a06f6377" />
