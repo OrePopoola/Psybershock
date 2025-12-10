@@ -27,8 +27,8 @@ var grid_size = 1.0
 @onready var inventory_ui = $InventoryUI
 @onready var interact_ui = $InteractUI
 
-var max_health = 99
-var health = 99
+var max_health = 50
+var health = 50
 
 # ------------------------------------------------------------------
 # Public API – called from InventorySlot when the Equip button is pressed

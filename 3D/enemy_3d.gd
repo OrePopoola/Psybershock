@@ -10,7 +10,8 @@ extends Node3D
 @onready var animation_player = $Goblin/AnimationPlayer
 @onready var goblin_mesh = $Goblin/MeshInstance3D
 @export var health: int = 6
-@export var damage: int = 1
+@export var damage: int = 2
+
 var tween: Tween = null
 var last_attack_time: float = -8.0
 var is_attacking: bool = false

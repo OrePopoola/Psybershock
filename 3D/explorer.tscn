@@ -43,6 +43,7 @@ target_position = Vector3(0, 0, 2)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 light_color = Color(1.269618, 0.4178053, 0.21100684, 1)
+light_energy = 1.151
 light_indirect_energy = 0.5
 light_size = 0.056
 omni_range = 3.0

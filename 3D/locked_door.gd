@@ -42,10 +42,10 @@ func _ready() -> void:
 		level_block.east_face = east_face
 		level_block.west_face = west_face
 	dialogue.dialogue_text = locked_text
-	key.item_type = key_item_type
-	key.item_name = key_item_name
-	key.item_texture = key_item_texture
-	key.item_effect = key_item_effect
+	#key.item_type = key_item_type
+	#key.item_name = key_item_name
+	#key.item_texture = key_item_texture
+	#key.item_effect = key_item_effect
 func recheck():
 	var found = false
 	if has_key == true:	
