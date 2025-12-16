@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://d1wmu8v80h3xp"]
+[gd_scene load_steps=17 format=3 uid="uid://d1wmu8v80h3xp"]
 
 [ext_resource type="PackedScene" uid="uid://bj6bvh86phvhe" path="res://3D/explorer.tscn" id="1_88kdb"]
 [ext_resource type="Script" uid="uid://couiylq30apdk" path="res://addons/level_block/level_block_node.gd" id="2_gpx5r"]
+[ext_resource type="Texture2D" uid="uid://bqw4xcbsjnpo0" path="res://Assets/3D/miscellaneous/Iron Key.png" id="2_t4aeu"]
 [ext_resource type="Material" uid="uid://c4avtsmp1f3gc" path="res://addons/level_block/default_material.tres" id="3_wwepn"]
 [ext_resource type="Texture2D" uid="uid://bkly3gsx5jy5g" path="res://addons/level_block/example2.png" id="4_7tk53"]
 [ext_resource type="PackedScene" uid="uid://ch1fqfh6d7x78" path="res://3D/sword.tscn" id="6_wwepn"]
@@ -26,8 +27,16 @@ texture_filter = 0
 
 [node name="Node3D" type="Node3D"]
 
+[node name="Iron Key" parent="." instance=ExtResource("10_kqbma")]
+transform = Transform3D(0.67920685, 0, -0.16934583, 0, 0.7, 0, 0.16934583, 0, 0.67920685, -34.31659, 0.09954071, 12.965968)
+item_type = "Chest Key"
+item_name = "Iron Key"
+item_texture = ExtResource("2_t4aeu")
+item_effect = "Key"
+item_description = "A key only for opening chests"
+
 [node name="CopperSword" parent="." groups=["Pickup"] instance=ExtResource("6_wwepn")]
-transform = Transform3D(0.58, 0, 0, 0, 0.58, 0, 0, 0, 0.58, -0.30484033, 0.057596087, 1.5197792)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.7037704, -0.303957, 3.8755481)
 collision_layer = 2
 item_name = "Copper Sword"
 item_description = "An awful chunk of metal. Its more likely to cut you then anyone else +2 Damage"
@@ -53,6 +62,16 @@ key_item_effect = "Opens Doors"
 north_face = -1
 east_face = -1
 
+[node name="LevelBlock4" type="Node3D" parent="."]
+transform = Transform3D(0.99995625, 0.009354828, 0, -0.009354828, 0.99995625, 0, 0, 0, 1, -12, 0, 6)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+east_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
 [node name="Blocks" type="Node3D" parent="."]
 
 [node name="LevelBlock17" type="Node3D" parent="Blocks"]
@@ -74,35 +93,8 @@ top_face = 14
 bottom_face = 12
 metadata/_custom_type_script = "uid://couiylq30apdk"
 
-[node name="LevelBlock16" type="Node3D" parent="Blocks/LevelBlock16"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0011620522, 0, 2.0278382)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-north_face = 0
-east_face = 0
-south_face = 0
-west_face = 0
-top_face = 14
-bottom_face = 12
-flip_faces = true
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock16" type="Node3D" parent="Blocks/LevelBlock16/LevelBlock16"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0126157, 0, 0.07008648)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-north_face = 0
-east_face = 0
-south_face = 0
-west_face = 0
-top_face = 14
-bottom_face = 12
-flip_faces = true
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
 [node name="masterBlock" type="Node3D" parent="Blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.015885353, 0)
 script = ExtResource("2_gpx5r")
 material = ExtResource("3_wwepn")
 texture_sheet = ExtResource("4_7tk53")
@@ -147,95 +139,11 @@ top_face = 14
 bottom_face = 12
 metadata/_custom_type_script = "uid://couiylq30apdk"
 
-[node name="LevelBlock6" type="Node3D" parent="Blocks/LevelBlock6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03906563, 0.0081954, 1.9483299)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock5" type="Node3D" parent="Blocks"]
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
 [node name="LevelBlock3" type="Node3D" parent="Blocks"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
 script = ExtResource("2_gpx5r")
 material = ExtResource("3_wwepn")
 texture_sheet = ExtResource("4_7tk53")
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock3" type="Node3D" parent="Blocks/LevelBlock3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-north_face = 0
-east_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock3" type="Node3D" parent="Blocks/LevelBlock3/LevelBlock3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-north_face = 0
-south_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock3" type="Node3D" parent="Blocks/LevelBlock3/LevelBlock3/LevelBlock3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-north_face = 0
-south_face = 0
-west_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock3" type="Node3D" parent="Blocks/LevelBlock3/LevelBlock3/LevelBlock3/LevelBlock3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-north_face = 0
-south_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock3" type="Node3D" parent="Blocks/LevelBlock3/LevelBlock3/LevelBlock3/LevelBlock3/LevelBlock3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.004, 0, 0)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-north_face = 0
-south_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock3" type="Node3D" parent="Blocks/LevelBlock3/LevelBlock3/LevelBlock3/LevelBlock3/LevelBlock3/LevelBlock3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.004, 0, 0)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-north_face = 0
-south_face = 0
 top_face = 14
 bottom_face = 12
 metadata/_custom_type_script = "uid://couiylq30apdk"
@@ -306,14 +214,6 @@ top_face = 14
 bottom_face = 12
 metadata/_custom_type_script = "uid://couiylq30apdk"
 
-[node name="LevelBlock15" type="Node3D" parent="Blocks"]
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
 [node name="LevelBlock18" type="Node3D" parent="Blocks"]
 transform = Transform3D(0.9998769, 0, -0.015689865, 0, 1, 0, 0.015689865, 0, 0.9998769, 4, 0, 4)
 script = ExtResource("2_gpx5r")
@@ -348,17 +248,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
 script = ExtResource("2_gpx5r")
 material = ExtResource("3_wwepn")
 texture_sheet = ExtResource("4_7tk53")
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock22" type="Node3D" parent="Blocks/LevelBlock22"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.020836353, 0, 2.0393128)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-east_face = 0
-south_face = 0
 top_face = 14
 bottom_face = 12
 metadata/_custom_type_script = "uid://couiylq30apdk"
@@ -472,7 +361,7 @@ bottom_face = 12
 metadata/_custom_type_script = "uid://couiylq30apdk"
 
 [node name="LevelBlock45" type="Node3D" parent="Blocks"]
-transform = Transform3D(1, 0, 0, 0, 0.9999929, 0, 0, 0, 0.9999929, -2.0089953, 0, -31.968887)
+transform = Transform3D(1, 0, 0, 0, 0.9999929, 0, 0, 0, 0.9999929, -2, 0, -31.969)
 script = ExtResource("2_gpx5r")
 material = ExtResource("3_wwepn")
 texture_sheet = ExtResource("4_7tk53")
@@ -493,10 +382,11 @@ bottom_face = 12
 metadata/_custom_type_script = "uid://couiylq30apdk"
 
 [node name="LevelBlock44" type="Node3D" parent="Blocks"]
-transform = Transform3D(1, 0, 0, 0, 0.9961886, -0.08715524, 0, 0.08715524, 0.9961886, 0.0184336, 0.04459071, -31.912989)
+transform = Transform3D(1, 0, 0, 0, 0.99999386, 0, 0, 0, 0.99999386, 0, 0, -32)
 script = ExtResource("2_gpx5r")
 material = ExtResource("3_wwepn")
 texture_sheet = ExtResource("4_7tk53")
+south_face = 0
 top_face = 14
 bottom_face = 12
 metadata/_custom_type_script = "uid://couiylq30apdk"
@@ -512,217 +402,8 @@ top_face = 14
 bottom_face = 12
 metadata/_custom_type_script = "uid://couiylq30apdk"
 
-[node name="LevelBlock43" type="Node3D" parent="Blocks"]
-transform = Transform3D(1, 0, 0, 0, 0.99996173, -0.008726537, 0, 0.008726537, 0.99996173, 1.9403753, 0, -20.008928)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-east_face = 0
-west_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock43" type="Node3D" parent="Blocks/LevelBlock43"]
-transform = Transform3D(1, 0, 0, 0, 0.9999614, -0.008726538, 0, 0.008726538, 0.9999614, 0.007, 0, -1.949)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-east_face = 0
-west_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock43" type="Node3D" parent="Blocks/LevelBlock43/LevelBlock43"]
-transform = Transform3D(1, 0, 0, 0, 0.99999946, 0, 0, 0, 0.99999946, 0.007, 0, -1.949)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-east_face = 0
-west_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock43" type="Node3D" parent="Blocks/LevelBlock43/LevelBlock43/LevelBlock43"]
-transform = Transform3D(1, 0, 0, 0, 0.99999946, 0, 0, 0, 0.99999946, 0.007, 0, -1.949)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-east_face = 0
-west_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock43" type="Node3D" parent="Blocks/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43"]
-transform = Transform3D(1, 0, 0, 0, 0.99999946, 0, 0, 0, 0.99999946, 0.007, 0, -1.949)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-east_face = 0
-west_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock43" type="Node3D" parent="Blocks/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43"]
-transform = Transform3D(1, 0, 0, 0, 0.9999995, 0, 0, 0, 0.9999995, 0.007, 0.001, -2)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-east_face = 0
-west_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock43" type="Node3D" parent="Blocks/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43"]
-transform = Transform3D(1, 0, 0, 0, 1.0000002, 0, 0, 0, 1.0000002, 0, 0.015, -2)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock43" type="Node3D" parent="Blocks/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43"]
-transform = Transform3D(1, 0, 0, 0, 0.99999905, 0, 0, 0, 0.99999905, 2, 0, 0)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-south_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock43" type="Node3D" parent="Blocks/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43"]
-transform = Transform3D(1, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, 2, -0.011786103, 0.0008239746)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-east_face = 0
-south_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock43" type="Node3D" parent="Blocks/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43"]
-transform = Transform3D(1, 0, 0, 0, 0.9999992, 0, 0, 0, 0.9999992, 0, 0, -1.979)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-east_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock43" type="Node3D" parent="Blocks/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43"]
-transform = Transform3D(1, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, -2.017, 0, -0.032)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock43" type="Node3D" parent="Blocks/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43"]
-transform = Transform3D(1, 0, 0, 0, 0.9999993, 0, 0, 0, 0.9999993, -2.018, 0, 0.003)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock43" type="Node3D" parent="Blocks/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43"]
-transform = Transform3D(1, 0, 0, 0, 0.9999993, 0, 0, 0, 0.9999993, -2.0368273, -0.08065796, 0.0032844543)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock43" type="Node3D" parent="Blocks/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43"]
-transform = Transform3D(1, 0, 0, 0, 0.9999993, 0, 0, 0, 0.9999993, -2.018, 0, 0.001)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-west_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock43" type="Node3D" parent="Blocks/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43"]
-transform = Transform3D(1, 0, 0, 0, 0.9999993, 0, 0, 0, 0.9999993, 0.026430368, -0.035054743, -2.0072937)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-north_face = 0
-west_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock43" type="Node3D" parent="Blocks/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43"]
-transform = Transform3D(1, 0, 0, 0, 0.9999993, 0, 0, 0, 0.9999993, 2.02245, 0.00025257468, 0.015460968)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-north_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock43" type="Node3D" parent="Blocks/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43"]
-transform = Transform3D(1, 0, 0, 0, 0.9999993, 0, 0, 0, 0.9999993, 2.02245, 0.00025257468, 0.015460968)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-north_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock43" type="Node3D" parent="Blocks/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43"]
-transform = Transform3D(1, 0, 0, 0, 0.9999993, 0, 0, 0, 0.9999993, 2.02245, 0.00025257468, 0.015460968)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-north_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock43" type="Node3D" parent="Blocks/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43/LevelBlock43"]
-transform = Transform3D(1, 0, 0, 0, 0.9999993, 0, 0, 0, 0.9999993, 2.02245, 0.00025257468, 0.015460968)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-north_face = 0
-east_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
 [node name="LevelBlock23" type="Node3D" parent="Blocks"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.114349, 0, 10.011406)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-north_face = 0
-east_face = 0
-south_face = 0
-west_face = 0
-top_face = 14
-bottom_face = 12
-flip_faces = true
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock48" type="Node3D" parent="Blocks"]
-transform = Transform3D(1.0000017, 0, 0, 0, 1.000006, 0, 0, 0, 1.0000032, -3.98, 0, 14)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0069791973, 0.0081954, 6.007532)
 script = ExtResource("2_gpx5r")
 material = ExtResource("3_wwepn")
 texture_sheet = ExtResource("4_7tk53")
@@ -731,8 +412,17 @@ bottom_face = 12
 metadata/_custom_type_script = "uid://couiylq30apdk"
 
 [node name="3DDialogue" parent="." instance=ExtResource("7_7tk53")]
-transform = Transform3D(1.2099998, -0.00030192273, -0.0006653373, 0.0003020383, 1.2099999, 0.00021008133, 0.00066528475, -0.00021024735, 1.2099998, 2.1165476, -1.3651733, 2.0398796)
+transform = Transform3D(0.99999976, -0.0002495229, -0.0005498655, 0.00024961843, 0.99999994, 0.00017362091, 0.00054982206, -0.00017375812, 0.9999998, 0.015243292, -1.2220693, 3.8975897)
 dialogue_text = Array[String](["Welcome to Grotto One Press R to talk, and F to interact", " Press I to open your inventory, and finally Press J to close any player dialogue", "Also: Q/E to turn, A/D to move right and left", "Its full of bugs, but you have to start somewhere"])
+
+[node name="LevelBlock48" type="Node3D" parent="."]
+transform = Transform3D(0.99957705, 0.029063733, 0.0021643117, -0.02912142, 0.9989743, 0.03484592, -0.0011493333, -0.03489418, 0.99939394, -4.0782204, 0.06407845, 15.997333)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
 
 [node name="Blocks 2" type="Node3D" parent="."]
 
@@ -851,28 +541,6 @@ top_face = 14
 bottom_face = 12
 metadata/_custom_type_script = "uid://couiylq30apdk"
 
-[node name="LevelBlock42" type="Node3D" parent="Blocks 2/LevelBlock42"]
-transform = Transform3D(1, 0, 0, 0, 0.99996173, -0.008726537, 0, 0.008726537, 0.99996173, 0, 0, -2)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-east_face = 0
-west_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock42" type="Node3D" parent="Blocks 2/LevelBlock42/LevelBlock42"]
-transform = Transform3D(1, 0, 0, 0, 0.99996173, -0.008726537, 0, 0.008726537, 0.99996173, 0, 0, -2)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-east_face = 0
-west_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
 [node name="LevelBlock48" type="Node3D" parent="Blocks 2"]
 transform = Transform3D(1.0000013, 0, 0, 0, 1.0000048, 0, 0, 0, 1.0000026, -1.98, 0, 14.006)
 script = ExtResource("2_gpx5r")
@@ -891,98 +559,8 @@ top_face = 14
 bottom_face = 12
 metadata/_custom_type_script = "uid://couiylq30apdk"
 
-[node name="LevelBlock48" type="Node3D" parent="Blocks 2/LevelBlock49"]
-transform = Transform3D(0.99989414, 0.014542785, 0.00095551147, -0.014557215, 0.9997432, 0.017433438, -0.000701735, -0.017445484, 0.9998485, -0.04101658, -0.1021201, 1.9918146)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock48" type="Node3D" parent="Blocks 2/LevelBlock49/LevelBlock48"]
-transform = Transform3D(1.0000004, 0, 0, 0, 1.0000012, 0, 0, 0, 1.0000006, -2, 0, 0)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock48" type="Node3D" parent="Blocks 2/LevelBlock49/LevelBlock48/LevelBlock48"]
-transform = Transform3D(1.0000004, 0, 0, 0, 1.0000012, 0, 0, 0, 1.0000006, -2, 0, 0)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock49" type="Node3D" parent="Blocks 2/LevelBlock49/LevelBlock48"]
-transform = Transform3D(0.99989414, 0.014542785, 0.00095551147, -0.014557215, 0.9997432, 0.017433438, -0.000701735, -0.017445484, 0.9998485, -0.04101658, -0.1021201, 1.9918146)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock48" type="Node3D" parent="Blocks 2/LevelBlock49/LevelBlock48/LevelBlock49"]
-transform = Transform3D(1.0000004, 0, 0, 0, 1.0000012, 0, 0, 0, 1.0000006, -2, 0, 0)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock48" type="Node3D" parent="Blocks 2/LevelBlock49/LevelBlock48/LevelBlock49/LevelBlock48"]
-transform = Transform3D(1.0000004, 0, 0, 0, 1.0000012, 0, 0, 0, 1.0000006, -2, 0, 0)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock49" type="Node3D" parent="Blocks 2/LevelBlock49/LevelBlock48/LevelBlock49/LevelBlock48"]
-transform = Transform3D(1.0000005, 1.5643309e-10, 1.1641532e-10, 8.367351e-11, 1.0000013, 0, 0, -3.7252903e-09, 1.0000006, -4, 0, 0)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock48" type="Node3D" parent="Blocks 2/LevelBlock49/LevelBlock48/LevelBlock49/LevelBlock48/LevelBlock49"]
-transform = Transform3D(1.0000004, 0, 0, 0, 1.0000012, 0, 0, 0, 1.0000006, -2, 0, 0)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock49" type="Node3D" parent="Blocks 2/LevelBlock49/LevelBlock48/LevelBlock49/LevelBlock48/LevelBlock49"]
-transform = Transform3D(1.0000011, 2.1027518e-09, -5.820766e-10, 9.3641574e-09, 1.0000019, 1.8626451e-08, 1.2805685e-09, -1.1175871e-08, 1.0000006, 3.7596912, 0.09858632, 1.9871826)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock48" type="Node3D" parent="Blocks 2/LevelBlock49/LevelBlock48/LevelBlock49/LevelBlock48/LevelBlock49/LevelBlock49"]
-transform = Transform3D(1.0000005, -1.6407284e-09, 0, 1.4551915e-11, 1.0000013, 0, -2.3283064e-10, 0, 1.0000006, -1.9806305, 0.0005632043, 4.196167e-05)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock48" type="Node3D" parent="Blocks 2/LevelBlock49/LevelBlock48/LevelBlock49/LevelBlock48/LevelBlock49/LevelBlock49/LevelBlock48"]
-transform = Transform3D(1.0000004, 0, 0, 0, 1.0000012, 0, 0, 0, 1.0000006, -2, 0, 0)
+[node name="LevelBlock52" type="Node3D" parent="Blocks 2"]
+transform = Transform3D(0.9995762, 0.02906366, 0.002164309, -0.029121395, 0.9989718, 0.034845874, -0.0011493323, -0.03489409, 0.99939275, 1.9192376, -0.11064994, 15.990437)
 script = ExtResource("2_gpx5r")
 material = ExtResource("3_wwepn")
 texture_sheet = ExtResource("4_7tk53")
@@ -1000,76 +578,40 @@ top_face = 14
 bottom_face = 12
 metadata/_custom_type_script = "uid://couiylq30apdk"
 
-[node name="LevelBlock36" type="Node3D" parent="Blocks 2/LevelBlock36"]
-transform = Transform3D(1, 0, 0, 0, 1.0000012, 0, 0, 0, 1.0000012, -0.03370285, -4.768366e-07, -2.0202236)
+[node name="LevelBlock50" type="Node3D" parent="Blocks 2"]
+transform = Transform3D(0.9995767, 0.029063698, 0.0021643103, -0.029121408, 0.99897313, 0.034845896, -0.0011493328, -0.03489414, 0.99939334, -2.0790672, 0.0058356375, 15.995034)
 script = ExtResource("2_gpx5r")
 material = ExtResource("3_wwepn")
 texture_sheet = ExtResource("4_7tk53")
-east_face = 0
-west_face = 0
 top_face = 14
 bottom_face = 12
 metadata/_custom_type_script = "uid://couiylq30apdk"
 
-[node name="LevelBlock36" type="Node3D" parent="Blocks 2/LevelBlock36/LevelBlock36"]
-transform = Transform3D(1, 0, 0, 0, 1.0000012, 0, 0, 0, 1.0000012, -0.03370285, -4.768366e-07, -2.0202236)
+[node name="LevelBlock51" type="Node3D" parent="Blocks 2"]
+transform = Transform3D(0.99957776, 0.029063756, 0.0021643117, -0.02912143, 0.99897504, 0.034845937, -0.0011493332, -0.034894217, 0.99939394, 1.6861987, 0.064078376, 17.97325)
 script = ExtResource("2_gpx5r")
 material = ExtResource("3_wwepn")
 texture_sheet = ExtResource("4_7tk53")
-east_face = 0
-west_face = 0
 top_face = 14
 bottom_face = 12
 metadata/_custom_type_script = "uid://couiylq30apdk"
 
-[node name="LevelBlock29" type="Node3D" parent="Blocks 2"]
-transform = Transform3D(1, 0, 0, 0, 0.9999976, -0.00218166, 0, 0.00218166, 0.9999976, 0, 0, -8)
+[node name="LevelBlock53" type="Node3D" parent="Blocks 2"]
+transform = Transform3D(0.99957824, 0.029063791, 0.002164313, -0.029121444, 0.99897635, 0.03484596, -0.001149334, -0.03489426, 0.99939454, -0.2935791, 0.12232126, 17.975548)
 script = ExtResource("2_gpx5r")
 material = ExtResource("3_wwepn")
 texture_sheet = ExtResource("4_7tk53")
-north_face = 0
-east_face = 0
 top_face = 14
 bottom_face = 12
 metadata/_custom_type_script = "uid://couiylq30apdk"
 
-[node name="LevelBlock30" type="Node3D" parent="Blocks 2"]
-transform = Transform3D(1, 0, 0, 0, 0.9999976, -0.00218166, 0, 0.00218166, 0.9999976, -2, 0, -8)
+[node name="LevelBlock54" type="Node3D" parent="Blocks 2"]
+transform = Transform3D(0.9995786, 0.029063826, 0.0021643145, -0.029121455, 0.99897754, 0.03484598, -0.0011493345, -0.034894302, 0.99939513, -2.2927356, 0.18056415, 17.977846)
 script = ExtResource("2_gpx5r")
 material = ExtResource("3_wwepn")
 texture_sheet = ExtResource("4_7tk53")
-south_face = 0
-west_face = 0
 top_face = 14
 bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock30" type="Node3D" parent="Blocks 2/LevelBlock30"]
-transform = Transform3D(1, 0, 0, 0, 0.9999976, -0.0021816602, 0, 0.0021816602, 0.9999976, 0, 0, 2)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-north_face = 0
-east_face = 0
-south_face = 0
-west_face = 0
-top_face = 14
-bottom_face = 12
-flip_faces = true
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock30" type="Node3D" parent="Blocks 2/LevelBlock30/LevelBlock30"]
-transform = Transform3D(1, 0, 0, 0, 0.99999774, -0.0021816613, 0, 0.0021816613, 0.99999774, 4, 0, 0)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-north_face = 0
-east_face = 0
-south_face = 0
-west_face = 0
-top_face = 14
-bottom_face = 12
-flip_faces = true
 metadata/_custom_type_script = "uid://couiylq30apdk"
 
 [node name="Illusory Door" parent="." instance=ExtResource("11_gg3r6")]
@@ -1082,194 +624,20 @@ bottom_face = 12
 transform = Transform3D(1, 0, 0, 0, 0.9999995, 0, 0, 0, 0.9999995, 2, 0, -18)
 
 [node name="LevelBlock43" type="Node3D" parent="Blocks3"]
-transform = Transform3D(1, 0, 0, 0, 0.9999622, 0.008726541, 0, -0.008726541, 0.9999622, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1.0000002, 0, 0, 0, 1.0000002, 0, 0, 0)
 script = ExtResource("2_gpx5r")
 material = ExtResource("3_wwepn")
 texture_sheet = ExtResource("4_7tk53")
 west_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock43" type="Node3D" parent="Blocks3/LevelBlock43"]
-transform = Transform3D(1, 0, 0, 0, 0.9999617, -0.008726537, 0, 0.008726537, 0.9999617, 0, 0, 0)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
 top_face = 14
 bottom_face = 12
 metadata/_custom_type_script = "uid://couiylq30apdk"
 
 [node name="LevelBlock44" type="Node3D" parent="Blocks3"]
-transform = Transform3D(1, 0, 0, 0, 0.9999622, 0.00872654, 0, -0.00872654, 0.9999622, 1.9720654, 0, 0)
+transform = Transform3D(0.9998866, -0.0150610525, -0.00013143585, 0.015061622, 0.9998488, 0.008725551, 0, -0.008726541, 0.9999622, 1.9720654, 0, 0)
 script = ExtResource("2_gpx5r")
 material = ExtResource("3_wwepn")
 texture_sheet = ExtResource("4_7tk53")
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock43" type="Node3D" parent="Blocks3/LevelBlock44"]
-transform = Transform3D(1, 0, 0, 0, 0.9999617, -0.008726537, 0, 0.008726537, 0.9999617, 0, 0, 0)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-north_face = 0
-south_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock44" type="Node3D" parent="Blocks3/LevelBlock44"]
-transform = Transform3D(1, 0, 0, 0, 0.9999622, 0.00872654, 0, -0.00872654, 0.9999622, 1.9720654, 0, 0)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock43" type="Node3D" parent="Blocks3/LevelBlock44/LevelBlock44"]
-transform = Transform3D(1, 0, 0, 0, 0.9999617, -0.008726537, 0, 0.008726537, 0.9999617, 0, 0, 0)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-east_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock44" type="Node3D" parent="Blocks3/LevelBlock44/LevelBlock44"]
-transform = Transform3D(1, 0, 0, 0, 0.9999622, 0.00872654, 0, -0.00872654, 0.9999622, 0, 0, 2)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-south_face = 0
-west_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock43" type="Node3D" parent="Blocks3/LevelBlock44/LevelBlock44/LevelBlock44"]
-transform = Transform3D(1, 0, 0, 0, 0.9999617, -0.008726537, 0, 0.008726537, 0.9999617, 0, 0, 0)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-south_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock44" type="Node3D" parent="Blocks3/LevelBlock44/LevelBlock44/LevelBlock44"]
-transform = Transform3D(1, 0, 0, 0, 1.0000002, 0, 0, 0, 1.0000002, 0, 0, -4)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-north_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock43" type="Node3D" parent="Blocks3/LevelBlock44/LevelBlock44/LevelBlock44/LevelBlock44"]
-transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-north_face = 0
-west_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock44" type="Node3D" parent="Blocks3/LevelBlock44/LevelBlock44/LevelBlock44/LevelBlock44"]
-transform = Transform3D(1, 0, 0, 0, 1.0000005, 0, 0, 0, 1.0000005, 2.0084515, -0.018432707, 0.073057175)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock43" type="Node3D" parent="Blocks3/LevelBlock44/LevelBlock44/LevelBlock44/LevelBlock44/LevelBlock44"]
-transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-north_face = 0
-south_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock44" type="Node3D" parent="Blocks3/LevelBlock44/LevelBlock44/LevelBlock44/LevelBlock44/LevelBlock44"]
-transform = Transform3D(1, 0, 0, 0, 0.9999626, 0.008726532, 0, -0.008726532, 0.9999626, -0.0032920837, -0.11734006, 3.8563747)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-north_face = 0
-south_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock43" type="Node3D" parent="Blocks3/LevelBlock44/LevelBlock44/LevelBlock44/LevelBlock44/LevelBlock44/LevelBlock44"]
-transform = Transform3D(1, 0, 0, 0, 0.9999617, -0.008726537, 0, 0.008726537, 0.9999617, 0, 0, 0)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-south_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock44" type="Node3D" parent="Blocks3/LevelBlock44/LevelBlock44/LevelBlock44/LevelBlock44/LevelBlock44/LevelBlock44"]
-transform = Transform3D(1, 0, 0, 0, 0.99996257, 0.0087265335, 0, -0.0087265335, 0.99996257, 2.020361, 0.014813006, 0.06271267)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-south_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock44" type="Node3D" parent="Blocks3/LevelBlock44/LevelBlock44/LevelBlock44/LevelBlock44/LevelBlock44/LevelBlock44/LevelBlock44"]
-transform = Transform3D(1, 0, 0, 0, 0.99996287, 0.008726519, 0, -0.008726519, 0.99996287, -0.06281471, 0.10491687, -2.0010033)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-east_face = 0
-west_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock43" type="Node3D" parent="Blocks3/LevelBlock44/LevelBlock44/LevelBlock44/LevelBlock44/LevelBlock44/LevelBlock44/LevelBlock44/LevelBlock44"]
-transform = Transform3D(1, 0, 0, 0, 0.9999617, -0.008726537, 0, 0.008726537, 0.9999617, 0, 0, 0)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock44" type="Node3D" parent="Blocks3/LevelBlock44/LevelBlock44/LevelBlock44/LevelBlock44/LevelBlock44/LevelBlock44/LevelBlock44/LevelBlock44"]
-transform = Transform3D(1, 0, 0, 0, 1.000001, 0, 0, 0, 1.000001, -0.06281471, 0.10491687, -2.0010033)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-north_face = 0
-east_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock43" type="Node3D" parent="Blocks3/LevelBlock44/LevelBlock44/LevelBlock44/LevelBlock44/LevelBlock44/LevelBlock44/LevelBlock44/LevelBlock44/LevelBlock44"]
-transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-north_face = 0
-east_face = 0
 top_face = 14
 bottom_face = 12
 metadata/_custom_type_script = "uid://couiylq30apdk"
@@ -1286,54 +654,6 @@ script = ExtResource("2_gpx5r")
 material = ExtResource("3_wwepn")
 texture_sheet = ExtResource("4_7tk53")
 east_face = 0
-top_face = 14
-bottom_face = 12
-generate_occluders = true
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="masterBlock2" type="Node3D" parent="Blocks3/masterBlock2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0072832108, 4.7683716e-07, -2.0000005)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-east_face = 0
-west_face = 0
-top_face = 14
-bottom_face = 12
-generate_occluders = true
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="masterBlock2" type="Node3D" parent="Blocks3/masterBlock2/masterBlock2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4901161e-08, -2.0000005)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-east_face = 0
-west_face = 0
-top_face = 14
-bottom_face = 12
-generate_occluders = true
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="masterBlock2" type="Node3D" parent="Blocks3/masterBlock2/masterBlock2/masterBlock2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-east_face = 0
-west_face = 0
-top_face = 14
-bottom_face = 12
-generate_occluders = true
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="masterBlock2" type="Node3D" parent="Blocks3/masterBlock2/masterBlock2/masterBlock2/masterBlock2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-east_face = 0
-west_face = 0
 top_face = 14
 bottom_face = 12
 generate_occluders = true
@@ -1385,7 +705,7 @@ eastwest = false
 northsouth = true
 
 [node name="Locked Door" parent="Blocks3" instance=ExtResource("8_4puer")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0379028, -0.11890012, 26.078474)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0379028, -0.0052626156, 26.078472)
 opened_text = Array[String](["You opened this already."])
 key_item_type = "Key"
 key_item_name = "Iron Key"
@@ -1398,10 +718,11 @@ eastwest = false
 northsouth = true
 
 [node name="LevelBlock41" type="Node3D" parent="Blocks3"]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, -8, 0, 32)
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, -8, 0, 32.107445)
 script = ExtResource("2_gpx5r")
 material = ExtResource("3_wwepn")
 texture_sheet = ExtResource("4_7tk53")
+west_face = 0
 top_face = 14
 bottom_face = 12
 metadata/_custom_type_script = "uid://couiylq30apdk"
@@ -1470,6 +791,17 @@ bottom_face = 12
 flip_faces = true
 metadata/_custom_type_script = "uid://couiylq30apdk"
 
+[node name="LevelBlock50" type="Node3D" parent="Blocks3"]
+transform = Transform3D(1, 0, 0, 0, 1.0000008, 0, 0, 0, 1.0000008, 4, 0, -1.999)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+west_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
 [node name="LevelBlock25" type="Node3D" parent="Blocks3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0.13961938, 7.998785)
 script = ExtResource("2_gpx5r")
@@ -1489,6 +821,114 @@ transform = Transform3D(0.99999994, 0, 0, 0, 1.0000006, 0, 0, 0, 1.0000005, -6, 
 script = ExtResource("2_gpx5r")
 material = ExtResource("3_wwepn")
 texture_sheet = ExtResource("4_7tk53")
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock48" type="Node3D" parent="Blocks3"]
+transform = Transform3D(1, 0, 0, 0, 1, -9.31323e-10, 0, 9.31323e-10, 1, 2, 0, 0)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+south_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock51" type="Node3D" parent="Blocks3"]
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock52" type="Node3D" parent="Blocks3"]
+transform = Transform3D(1, 0, 0, 0, 1.0000005, 0, 0, 0, 1.0000005, 3.944131, 0, 0)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+east_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="masterBlock3" type="Node3D" parent="Blocks3"]
+transform = Transform3D(1, 0, 0, 0, 0.9998482, 0.017452423, 0, -0.017452423, 0.9998482, 3.9927168, -0.034904376, 10.000302)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+east_face = 0
+west_face = 0
+top_face = 14
+bottom_face = 12
+generate_occluders = true
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock53" type="Node3D" parent="Blocks3"]
+transform = Transform3D(1, 0, 0, 0, 1.0000002, 0, 0, 0, 1.0000002, 3.944131, 0, 0)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+east_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock54" type="Node3D" parent="Blocks3"]
+transform = Transform3D(1, 0, 0, 0, 1.0000008, 0, 0, 0, 1.0000008, 3.944131, 0.034904838, 1.9996948)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+south_face = 0
+west_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="masterBlock4" type="Node3D" parent="Blocks3"]
+transform = Transform3D(1, 0, 0, 0, 0.9998482, 0.017452423, 0, -0.017452423, 0.9998482, 3.9927168, -0.06980921, 8.000605)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+east_face = 0
+west_face = 0
+top_face = 14
+bottom_face = 12
+generate_occluders = true
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="masterBlock5" type="Node3D" parent="Blocks3"]
+transform = Transform3D(1, 0, 0, 0, 0.9998482, 0.017452423, 0, -0.017452423, 0.9998482, 3.9927168, -0.104714066, 6.000907)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+east_face = 0
+west_face = 0
+top_face = 14
+bottom_face = 12
+generate_occluders = true
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="masterBlock2" type="Node3D" parent="Blocks3/masterBlock5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+east_face = 0
+west_face = 0
+top_face = 14
+bottom_face = 12
+generate_occluders = true
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock55" type="Node3D" parent="Blocks3"]
+transform = Transform3D(1, 0, 0, 0, 0.99984825, 0.017452415, 0, -0.017452415, 0.99984825, 4, 0, 2)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+south_face = 0
 top_face = 14
 bottom_face = 12
 metadata/_custom_type_script = "uid://couiylq30apdk"
@@ -1940,29 +1380,173 @@ top_face = 14
 bottom_face = 21
 metadata/_custom_type_script = "uid://couiylq30apdk"
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.152826, -0.10928297, 4.0023603)
-light_color = Color(0.6710216, 0.00016422212, 0.61179, 1)
-light_energy = 1.005
-light_indirect_energy = 0.28
-shadow_enabled = true
-omni_range = 1.653
+[node name="Node" type="Node" parent="Desert"]
+
+[node name="LevelBlock5" type="Node3D" parent="Desert/Node"]
+transform = Transform3D(1.0000087, 0, 0, 0, 0.9986384, 0.052335914, 0, -0.052336376, 0.99862957, -29.824, 0, 12)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+west_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock51" type="Node3D" parent="Desert/Node"]
+transform = Transform3D(1, 0, 0, 0, 1.0000011, 0, 0, 0, 1.0000011, 7.9525824, -0.086316995, -19.925423)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock43" type="Node3D" parent="Desert/Node"]
+transform = Transform3D(1, 0, 0, 0, 0.99965817, 0.026176974, 0, -0.026176974, 0.99965817, 7.9525824, -0.086316995, -19.925423)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+south_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock44" type="Node3D" parent="Desert/Node"]
+transform = Transform3D(1, 0, 0, 0, 1.0000018, 0, 0, 0, 1.0000018, 8, 0, -16)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+south_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock45" type="Node3D" parent="Desert/Node"]
+transform = Transform3D(1, 0, 0, 0, 0.9996589, 0.026176978, 0, -0.026176978, 0.9996589, 7.9492903, -0.102668725, -16.067293)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+south_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock46" type="Node3D" parent="Desert/Node"]
+transform = Transform3D(1, 0, 0, 0, 1.0000024, 0, 0, 0, 1.0000024, 10, 0, -16.005)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+east_face = 0
+south_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock47" type="Node3D" parent="Desert/Node"]
+transform = Transform3D(1, 0, 0, 0, 1.0000033, 0, 0, 0, 1.0000033, 10, 0, -18.009)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+east_face = 0
+west_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock49" type="Node3D" parent="Desert/Node"]
+transform = Transform3D(1, 0, 0, 0, 1.000004, 0, 0, 0, 1.000004, 9.844022, -0.06809277, -20.023935)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+east_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock50" type="Node3D" parent="Desert/Node"]
+transform = Transform3D(1, 0, 0, 0, 1.0000043, 0, 0, 0, 1.0000043, 10, 0, -23.465048)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+east_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock4" type="Node3D" parent="Desert/Node"]
+transform = Transform3D(1.000007, 0.0017453434, 0, -0.0017453433, 1.0000072, 0, 0, 0, 1, -27.766, 0, 12)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock3" type="Node3D" parent="Desert/Node"]
+transform = Transform3D(1.000008, 0, 0, 0, 1.0000081, 0, 0, 0, 1, -28, 0, 14)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock6" type="Node3D" parent="Desert/Node"]
+transform = Transform3D(1.0000081, 0, 0, 0, 1.0000082, 0, 0, 0, 1, -30, 0, 14)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
 
 [node name="Enemy3D8" parent="." instance=ExtResource("13_1kda3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.260544, -0.8316169, -16.035603)
 move_speed = 2.5
-detection_range = 0.5
+detection_range = 0.25
 
 [node name="Enemy3D4" parent="." instance=ExtResource("13_1kda3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9962173, -0.9145805, -15.976664)
 move_speed = 2.5
-detection_range = 0.5
+detection_range = 0.25
 
 [node name="Enemy3D5" parent="." instance=ExtResource("13_1kda3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.88797903, 14.041544)
 detection_range = 0.5
 
-[node name="LevelBlock28" type="Node3D" parent="."]
+[node name="Node7" type="Node" parent="."]
+
+[node name="LevelBlock26" type="Node3D" parent="Node7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.994811, 0, 18.055481)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+east_face = 0
+south_face = 0
+west_face = 0
+top_face = 14
+bottom_face = 12
+flip_faces = true
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock30" type="Node3D" parent="Node7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.026, 0, -1.953)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock28" type="Node3D" parent="Node7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.026, 0, -1.953)
 script = ExtResource("2_gpx5r")
 material = ExtResource("3_wwepn")
@@ -1973,8 +1557,8 @@ top_face = 14
 bottom_face = 12
 metadata/_custom_type_script = "uid://couiylq30apdk"
 
-[node name="LevelBlock28" type="Node3D" parent="LevelBlock28"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+[node name="LevelBlock29" type="Node3D" parent="Node7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.026, 0, -1.953)
 script = ExtResource("2_gpx5r")
 material = ExtResource("3_wwepn")
 texture_sheet = ExtResource("4_7tk53")
@@ -1984,18 +1568,8 @@ top_face = 14
 bottom_face = 12
 metadata/_custom_type_script = "uid://couiylq30apdk"
 
-[node name="LevelBlock28" type="Node3D" parent="LevelBlock28/LevelBlock28"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-north_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock28" type="Node3D" parent="LevelBlock28/LevelBlock28/LevelBlock28"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+[node name="LevelBlock31" type="Node3D" parent="Node7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.026, 0, -1.953)
 script = ExtResource("2_gpx5r")
 material = ExtResource("3_wwepn")
 texture_sheet = ExtResource("4_7tk53")
@@ -2005,8 +1579,8 @@ top_face = 14
 bottom_face = 12
 metadata/_custom_type_script = "uid://couiylq30apdk"
 
-[node name="LevelBlock28" type="Node3D" parent="LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock28"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+[node name="LevelBlock32" type="Node3D" parent="Node7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.026, 0, -1.953)
 script = ExtResource("2_gpx5r")
 material = ExtResource("3_wwepn")
 texture_sheet = ExtResource("4_7tk53")
@@ -2016,8 +1590,8 @@ top_face = 14
 bottom_face = 12
 metadata/_custom_type_script = "uid://couiylq30apdk"
 
-[node name="LevelBlock28" type="Node3D" parent="LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock28"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+[node name="LevelBlock33" type="Node3D" parent="Node7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.026001, 0, -1.953)
 script = ExtResource("2_gpx5r")
 material = ExtResource("3_wwepn")
 texture_sheet = ExtResource("4_7tk53")
@@ -2027,8 +1601,8 @@ top_face = 14
 bottom_face = 12
 metadata/_custom_type_script = "uid://couiylq30apdk"
 
-[node name="LevelBlock28" type="Node3D" parent="LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock28"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0011253357, 0, -2.0373135)
+[node name="LevelBlock34" type="Node3D" parent="Node7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.024876, 0, -3.9903135)
 script = ExtResource("2_gpx5r")
 material = ExtResource("3_wwepn")
 texture_sheet = ExtResource("4_7tk53")
@@ -2038,17 +1612,7 @@ top_face = 14
 bottom_face = 12
 metadata/_custom_type_script = "uid://couiylq30apdk"
 
-[node name="LevelBlock28" type="Node3D" parent="LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock28"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0011253357, 0, -2.0403576)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-west_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock23" type="Node3D" parent="."]
+[node name="LevelBlock23" type="Node3D" parent="Node7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.114349, 0, 12.011406)
 script = ExtResource("2_gpx5r")
 material = ExtResource("3_wwepn")
@@ -2062,8 +1626,18 @@ bottom_face = 12
 flip_faces = true
 metadata/_custom_type_script = "uid://couiylq30apdk"
 
-[node name="LevelBlock23" type="Node3D" parent="LevelBlock23"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0)
+[node name="LevelBlock35" type="Node3D" parent="Node7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.02375, 0, -6.030671)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+west_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock24" type="Node3D" parent="Node7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.885651, 0, 12.011406)
 script = ExtResource("2_gpx5r")
 material = ExtResource("3_wwepn")
 texture_sheet = ExtResource("4_7tk53")
@@ -2076,8 +1650,8 @@ bottom_face = 12
 flip_faces = true
 metadata/_custom_type_script = "uid://couiylq30apdk"
 
-[node name="LevelBlock23" type="Node3D" parent="LevelBlock23/LevelBlock23"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07030249, 0, 4.1665783)
+[node name="LevelBlock25" type="Node3D" parent="Node7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9559536, 0, 16.177984)
 script = ExtResource("2_gpx5r")
 material = ExtResource("3_wwepn")
 texture_sheet = ExtResource("4_7tk53")
@@ -2090,8 +1664,8 @@ bottom_face = 12
 flip_faces = true
 metadata/_custom_type_script = "uid://couiylq30apdk"
 
-[node name="LevelBlock23" type="Node3D" parent="LevelBlock23/LevelBlock23/LevelBlock23"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9611425, 0, 1.8774967)
+[node name="LevelBlock27" type="Node3D" parent="Node7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.005189, 0, 18.055481)
 script = ExtResource("2_gpx5r")
 material = ExtResource("3_wwepn")
 texture_sheet = ExtResource("4_7tk53")
@@ -2104,8 +1678,8 @@ bottom_face = 12
 flip_faces = true
 metadata/_custom_type_script = "uid://couiylq30apdk"
 
-[node name="LevelBlock23" type="Node3D" parent="LevelBlock23/LevelBlock23/LevelBlock23/LevelBlock23"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0)
+[node name="LevelBlock36" type="Node3D" parent="Node7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.0440464, 0, 16.177984)
 script = ExtResource("2_gpx5r")
 material = ExtResource("3_wwepn")
 texture_sheet = ExtResource("4_7tk53")
@@ -2118,449 +1692,14 @@ bottom_face = 12
 flip_faces = true
 metadata/_custom_type_script = "uid://couiylq30apdk"
 
-[node name="LevelBlock23" type="Node3D" parent="LevelBlock23/LevelBlock23/LevelBlock23/LevelBlock23/LevelBlock23"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8671496, 0, 1.9106693)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-north_face = 0
-east_face = 0
-south_face = 0
-west_face = 0
-top_face = 14
-bottom_face = 12
-flip_faces = true
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock23" type="Node3D" parent="LevelBlock23/LevelBlock23/LevelBlock23/LevelBlock23/LevelBlock23/LevelBlock23"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0261245, 0, 0.10222244)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-north_face = 0
-east_face = 0
-south_face = 0
-west_face = 0
-top_face = 14
-bottom_face = 12
-flip_faces = true
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock23" type="Node3D" parent="LevelBlock23/LevelBlock23/LevelBlock23/LevelBlock23/LevelBlock23/LevelBlock23/LevelBlock23"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0354106, 0, 0.06559372)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-north_face = 0
-east_face = 0
-south_face = 0
-west_face = 0
-top_face = 14
-bottom_face = 12
-flip_faces = true
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock24" type="Node3D" parent="LevelBlock23/LevelBlock23/LevelBlock23"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 0)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-north_face = 0
-east_face = 0
-south_face = 0
-west_face = 0
-top_face = 14
-bottom_face = 12
-flip_faces = true
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock29" type="Node3D" parent="LevelBlock23/LevelBlock23/LevelBlock23"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.138445, 0, -24.271618)
+[node name="LevelBlock37" type="Node3D" parent="Node7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.094398, 0, -8.093634)
 script = ExtResource("2_gpx5r")
 material = ExtResource("3_wwepn")
 texture_sheet = ExtResource("4_7tk53")
 south_face = 0
 top_face = 14
 bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock29" type="Node3D" parent="LevelBlock23/LevelBlock23/LevelBlock23/LevelBlock29"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-south_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock28" type="Node3D" parent="LevelBlock23/LevelBlock23/LevelBlock23/LevelBlock29/LevelBlock29"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0011253357, 0, -2.0373135)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock28" type="Node3D" parent="LevelBlock23/LevelBlock23/LevelBlock23/LevelBlock29/LevelBlock29/LevelBlock28"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0011253357, 0, -2.0373135)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock28" type="Node3D" parent="LevelBlock23/LevelBlock23/LevelBlock23/LevelBlock29/LevelBlock29/LevelBlock28/LevelBlock28"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0011253357, 0, -2.0373135)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-north_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock29" type="Node3D" parent="LevelBlock23/LevelBlock23/LevelBlock23/LevelBlock29/LevelBlock29"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-east_face = 0
-south_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock30" type="Node3D" parent="LevelBlock23/LevelBlock23/LevelBlock23/LevelBlock29"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0022506714, 0, -4.074627)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock28" type="Node3D" parent="LevelBlock23/LevelBlock23/LevelBlock23/LevelBlock29/LevelBlock30"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0011253357, 0, -2.0373135)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-north_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock31" type="Node3D" parent="LevelBlock23/LevelBlock23/LevelBlock23/LevelBlock29/LevelBlock30/LevelBlock28"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0958061, 0, -2.0116653)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-east_face = 0
-west_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock28" type="Node3D" parent="LevelBlock23/LevelBlock23/LevelBlock23/LevelBlock29/LevelBlock30/LevelBlock28/LevelBlock31"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0011253357, 0, -2.0373135)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-east_face = 0
-west_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock28" type="Node3D" parent="LevelBlock23/LevelBlock23/LevelBlock23/LevelBlock29/LevelBlock30/LevelBlock28/LevelBlock31/LevelBlock28"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0011253357, 0, -2.0373135)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-west_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock28" type="Node3D" parent="LevelBlock23/LevelBlock23/LevelBlock23/LevelBlock29/LevelBlock30/LevelBlock28/LevelBlock31/LevelBlock28/LevelBlock28"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9789047, 0, 0.0326519)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-north_face = 0
-south_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock28" type="Node3D" parent="LevelBlock23/LevelBlock23/LevelBlock23/LevelBlock29/LevelBlock30/LevelBlock28/LevelBlock31/LevelBlock28/LevelBlock28/LevelBlock28"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9789047, 0, 0.0326519)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-north_face = 0
-south_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock28" type="Node3D" parent="LevelBlock23/LevelBlock23/LevelBlock23/LevelBlock29/LevelBlock30/LevelBlock28/LevelBlock31/LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock28"]
-transform = Transform3D(0.99995244, 0, 0.009756236, 0, 1, 0, -0.009756236, 0, 0.99995244, 1.9820652, 0.004160762, 0.026275635)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-north_face = 0
-south_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock29" type="Node3D" parent="LevelBlock23/LevelBlock23/LevelBlock23/LevelBlock29/LevelBlock30/LevelBlock28/LevelBlock31/LevelBlock28/LevelBlock28/LevelBlock28"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9789047, 0, 0.0326519)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-north_face = 0
-south_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock28" type="Node3D" parent="LevelBlock23/LevelBlock23/LevelBlock23/LevelBlock29/LevelBlock30/LevelBlock28/LevelBlock31/LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock29"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9316902, 0, 2.0174427)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-north_face = 0
-south_face = 0
-west_face = 0
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock28" type="Node3D" parent="LevelBlock23/LevelBlock23/LevelBlock23/LevelBlock29/LevelBlock30/LevelBlock28/LevelBlock31/LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock29/LevelBlock28"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0071545, 0, 0.0321064)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-north_face = 0
-south_face = 0
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock28" type="Node3D" parent="LevelBlock23/LevelBlock23/LevelBlock23/LevelBlock29/LevelBlock30/LevelBlock28/LevelBlock31/LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock29/LevelBlock28/LevelBlock28"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0071545, 0, 0.0321064)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-north_face = 0
-south_face = 0
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock28" type="Node3D" parent="LevelBlock23/LevelBlock23/LevelBlock23/LevelBlock29/LevelBlock30/LevelBlock28/LevelBlock31/LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock29/LevelBlock28/LevelBlock28/LevelBlock28"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0071545, 0, 0.0321064)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-north_face = 0
-south_face = 0
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock29" type="Node3D" parent="LevelBlock23/LevelBlock23/LevelBlock23/LevelBlock29/LevelBlock30/LevelBlock28/LevelBlock31/LevelBlock28/LevelBlock28"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0011253357, 0, -2.0373135)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-north_face = 0
-west_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock28" type="Node3D" parent="LevelBlock23/LevelBlock23/LevelBlock23/LevelBlock29/LevelBlock30/LevelBlock28/LevelBlock31/LevelBlock28/LevelBlock28/LevelBlock29"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9789047, 0, 0.0326519)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-north_face = 0
-south_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock28" type="Node3D" parent="LevelBlock23/LevelBlock23/LevelBlock23/LevelBlock29/LevelBlock30/LevelBlock28/LevelBlock31/LevelBlock28/LevelBlock28/LevelBlock29/LevelBlock28"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9789047, 0, 0.0326519)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-north_face = 0
-south_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock28" type="Node3D" parent="LevelBlock23/LevelBlock23/LevelBlock23/LevelBlock29/LevelBlock30/LevelBlock28/LevelBlock31/LevelBlock28/LevelBlock28/LevelBlock29/LevelBlock28/LevelBlock28"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9789047, 0, 0.0326519)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-north_face = 0
-south_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock28" type="Node3D" parent="LevelBlock23/LevelBlock23/LevelBlock23/LevelBlock29/LevelBlock30/LevelBlock28/LevelBlock31/LevelBlock28/LevelBlock28/LevelBlock29/LevelBlock28/LevelBlock28/LevelBlock28"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9789047, 0, 0.0326519)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-north_face = 0
-south_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock28" type="Node3D" parent="LevelBlock23/LevelBlock23/LevelBlock23/LevelBlock29/LevelBlock30/LevelBlock28/LevelBlock31/LevelBlock28/LevelBlock28/LevelBlock29/LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock28"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9789047, 0, 0.0326519)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-north_face = 0
-south_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock28" type="Node3D" parent="LevelBlock23/LevelBlock23/LevelBlock23/LevelBlock29/LevelBlock30/LevelBlock28/LevelBlock31/LevelBlock28/LevelBlock28/LevelBlock29/LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock28"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9789047, 0, 0.0326519)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-north_face = 0
-south_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock28" type="Node3D" parent="LevelBlock23/LevelBlock23/LevelBlock23/LevelBlock29/LevelBlock30/LevelBlock28/LevelBlock31/LevelBlock28/LevelBlock28/LevelBlock29/LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock28"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9789047, 0, 0.0326519)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-north_face = 0
-south_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock29" type="Node3D" parent="LevelBlock23/LevelBlock23/LevelBlock23/LevelBlock29/LevelBlock30/LevelBlock28/LevelBlock31/LevelBlock28/LevelBlock28/LevelBlock29/LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock28"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9789047, 0, 0.0326519)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-north_face = 0
-south_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock28" type="Node3D" parent="LevelBlock23/LevelBlock23/LevelBlock23/LevelBlock29/LevelBlock30/LevelBlock28/LevelBlock31/LevelBlock28/LevelBlock28/LevelBlock29/LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock29"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9789047, 0, 0.0326519)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-north_face = 0
-south_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock28" type="Node3D" parent="LevelBlock23/LevelBlock23/LevelBlock23/LevelBlock29/LevelBlock30/LevelBlock28/LevelBlock31/LevelBlock28/LevelBlock28/LevelBlock29/LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock29/LevelBlock28"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9789047, 0, 0.0326519)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-east_face = 0
-south_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock28" type="Node3D" parent="LevelBlock23/LevelBlock23/LevelBlock23/LevelBlock29/LevelBlock30/LevelBlock28/LevelBlock31/LevelBlock28/LevelBlock28/LevelBlock29/LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock29/LevelBlock28/LevelBlock28"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.055671692, 0.07463622, -2.0544243)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-east_face = 0
-west_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock28" type="Node3D" parent="LevelBlock23/LevelBlock23/LevelBlock23/LevelBlock29/LevelBlock30/LevelBlock28/LevelBlock31/LevelBlock28/LevelBlock28/LevelBlock29/LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock29/LevelBlock28/LevelBlock28/LevelBlock28"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.055671692, 0.02847433, -2.0544243)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-east_face = 0
-west_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock28" type="Node3D" parent="LevelBlock23/LevelBlock23/LevelBlock23/LevelBlock29/LevelBlock30/LevelBlock28/LevelBlock31/LevelBlock28/LevelBlock28/LevelBlock29/LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock29/LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock28"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013000488, -0.08544493, -2.053999)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-east_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock28" type="Node3D" parent="LevelBlock23/LevelBlock23/LevelBlock23/LevelBlock29/LevelBlock30/LevelBlock28/LevelBlock31/LevelBlock28/LevelBlock28/LevelBlock29/LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock29/LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock28"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.954, 0, 0.022)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-south_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock28" type="Node3D" parent="LevelBlock23/LevelBlock23/LevelBlock23/LevelBlock29/LevelBlock30/LevelBlock28/LevelBlock31/LevelBlock28/LevelBlock28/LevelBlock29/LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock29/LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock28"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.957, 0, 0.005)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-south_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock28" type="Node3D" parent="LevelBlock23/LevelBlock23/LevelBlock23/LevelBlock29/LevelBlock30/LevelBlock28/LevelBlock31/LevelBlock28/LevelBlock28/LevelBlock29/LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock29/LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock28/LevelBlock28"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.954, 0, -0.014)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-south_face = 0
-west_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock28" type="Node3D" parent="LevelBlock23/LevelBlock23/LevelBlock23/LevelBlock29"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0011253357, 0, -2.0373135)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-north_face = 6
-east_face = 6
-south_face = 6
-west_face = 6
-top_face = 14
-bottom_face = 12
-flip_faces = true
 metadata/_custom_type_script = "uid://couiylq30apdk"
 
 [node name="Node" type="Node" parent="."]
@@ -2685,12 +1824,12 @@ metadata/_custom_type_script = "uid://couiylq30apdk"
 
 [node name="Enemy3D" parent="Node" instance=ExtResource("13_1kda3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.9343, -0.9626968, -2.1755877)
-detection_range = 0.5
+detection_range = 0.33
 attack_cooldown = 2.0
 
 [node name="Enemy3D2" parent="Node" instance=ExtResource("13_1kda3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.090176, -0.83081925, -1.9366047)
-detection_range = 0.5
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.24681, -0.83081925, -1.9366047)
+detection_range = 0.33
 attack_cooldown = 2.0
 
 [node name="LevelBlock39" type="Node3D" parent="Node"]
@@ -2807,7 +1946,7 @@ bottom_face = 12
 metadata/_custom_type_script = "uid://couiylq30apdk"
 
 [node name="Purplish Door Key" parent="Node" instance=ExtResource("10_kqbma")]
-transform = Transform3D(-0.99254596, 0, 0.12186964, 0, 1, 0, -0.12186964, 0, -0.99254596, -5.9161663, 0, -23.300385)
+transform = Transform3D(-0.69478226, 0, 0.08530883, 0, 0.7, 0, -0.08530883, 0, -0.69478226, -5.9161663, 0, -23.300385)
 item_type = "Door Key"
 item_name = "Purplish Door Key"
 item_texture = ExtResource("11_3miru")
@@ -2916,6 +2055,23 @@ top_face = 14
 bottom_face = 12
 metadata/_custom_type_script = "uid://couiylq30apdk"
 
+[node name="Artifact Chest2" parent="Node2" instance=ExtResource("9_kqbma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.681396, -0.5313587, 13.818722)
+reward_data = {
+"damage": 0,
+"description": "A group of friends smiling together. A young tobias can be seen on the right",
+"effect": "\"\"",
+"name": "Photo of Friends",
+"quantity": 1,
+"scene": "\"\"",
+"swing_style": "\"\"",
+"texture": "res://Assets/Art/Artifacts/Artifact_1_2.png",
+"type": "Artifact"
+}
+key_item_type = "Chest Key"
+key_item_name = "Chest Key"
+key_item_effect = "Key"
+
 [node name="Artifact Chest" parent="Node2" instance=ExtResource("9_kqbma")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.920975, -0.5581436, -6.000016)
 reward_data = {
@@ -2951,7 +2107,7 @@ key_item_name = "Chest Key"
 key_item_effect = "Key"
 
 [node name="Door Key" parent="Node2" instance=ExtResource("10_kqbma")]
-transform = Transform3D(0.061048683, 0, 0.9981348, 0, 1, 0, -0.9981348, 0, 0.061048683, 25.866581, 0, -32.196793)
+transform = Transform3D(0.042734038, 0, 0.69869435, 0, 0.7, 0, -0.69869435, 0, 0.042734038, 25.866581, 0, -32.196793)
 item_type = "Door Key"
 item_name = "Door Key"
 item_texture = ExtResource("11_3miru")
@@ -2959,7 +2115,7 @@ item_effect = "Opens Doors"
 item_description = "A dirty, goblin sweat covered key"
 
 [node name="Orichalcum Blade" parent="." groups=["Pickup"] instance=ExtResource("6_wwepn")]
-transform = Transform3D(0.615, 0, 0, 0, 0.615, 0, 0, 0, 0.615, 32.077984, -0.33619368, -10.126497)
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 32.798153, -0.33619368, -10.126497)
 collision_layer = 2
 item_name = "Orichalcum Blade"
 item_description = "A fearsome blade +4 Damage"
@@ -2967,7 +2123,7 @@ item_damage = 4
 texturePath = "res://Assets/3D/weapons/orichalcum_blade.png"
 
 [node name="Artifact Key" parent="." instance=ExtResource("10_kqbma")]
-transform = Transform3D(-0.9925457, 0, 0.12186964, 0, 1, 0, -0.12186964, 0, -0.9925457, 3.8110561, 0, -33.800446)
+transform = Transform3D(-0.69478226, 0, 0.08530883, 0, 0.7, 0, -0.08530883, 0, -0.69478226, 3.8110561, 0, -33.800446)
 item_type = "Chest Key"
 item_name = "Chest Key"
 item_texture = ExtResource("11_3miru")
@@ -2975,7 +2131,7 @@ item_effect = "Key"
 item_description = "A key only for opening chests"
 
 [node name="Chest Key" parent="." instance=ExtResource("10_kqbma")]
-transform = Transform3D(0.061048683, 0, 0.9981348, 0, 1, 0, -0.9981348, 0, 0.061048683, 23.708801, 0, -20.226646)
+transform = Transform3D(0.042734038, 0, 0.69869435, 0, 0.7, 0, -0.69869435, 0, 0.042734038, 23.708801, 0, -20.226646)
 item_type = "Chest Key"
 item_name = "Chest Key"
 item_texture = ExtResource("11_3miru")
@@ -3044,29 +2200,29 @@ metadata/_custom_type_script = "uid://couiylq30apdk"
 
 [node name="Enemy3D2" parent="." instance=ExtResource("13_1kda3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.478542, -0.886143, -30.19097)
-detection_range = 0.5
+detection_range = 0.25
 attack_cooldown = 2.0
 
 [node name="Enemy3D3" parent="." instance=ExtResource("13_1kda3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.595821, -0.9193067, -30.130356)
-detection_range = 0.5
+detection_range = 0.25
 attack_cooldown = 2.0
 
 [node name="Enemy3D6" parent="." instance=ExtResource("13_1kda3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.71165, -0.9193067, -30.130356)
-detection_range = 0.5
+detection_range = 0.25
 attack_cooldown = 2.0
 
 [node name="Enemy3D7" parent="." instance=ExtResource("13_1kda3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.75494, -0.9193067, -30.130356)
-detection_range = 0.5
+detection_range = 0.25
 attack_cooldown = 2.0
 
 [node name="3DDialogue2" parent="." instance=ExtResource("7_7tk53")]
 transform = Transform3D(1.6549988, -0.00082576287, -0.001820126, 0.000826395, 1.6549997, 0.00057445816, 0.0018198391, -0.0005753666, 1.6549989, -0.012272598, -1.8133028, 5.9305954)
 dialogue_text = Array[String](["This door requires a different metal of key..."])
 
-[node name="3DDialogue2" parent="3DDialogue2" instance=ExtResource("7_7tk53")]
+[node name="3DDialog" parent="3DDialogue2" instance=ExtResource("7_7tk53")]
 transform = Transform3D(0.8999996, -0.00044905583, -0.0009897974, 0.00044939958, 0.9000001, 0.00031239414, 0.0009896416, -0.00031288824, 0.89999956, -1.3206629, 0.14494586, -23.975277)
 dialogue_text = Array[String](["The smell of ruined comic books invades the air"])
 
@@ -3082,7 +2238,25 @@ light_indirect_energy = 0.0
 shadow_enabled = true
 omni_range = 4.442
 
-[node name="OmniBlue" type="OmniLight3D" parent="."]
+[node name="Node9" type="Node" parent="."]
+
+[node name="OmniPurple" type="OmniLight3D" parent="Node9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7774105, -0.10928297, 5.6073756)
+light_color = Color(0.6710216, 0.00016422212, 0.61179, 1)
+light_energy = 1.005
+light_indirect_energy = 0.28
+shadow_enabled = true
+omni_range = 1.653
+
+[node name="OmniRed" type="OmniLight3D" parent="Node9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3178196, -0.56024027, -2.309636)
+light_color = Color(0.6862745, 0, 0.0627451, 1)
+light_energy = 2.664
+light_indirect_energy = 1.035
+shadow_enabled = true
+omni_range = 2.396
+
+[node name="OmniBlue" type="OmniLight3D" parent="Node9"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.391236, 0.014005899, -15.995544)
 light_color = Color(0.10653221, 0.31260487, 0.9318399, 1)
 light_energy = 3.419
@@ -3090,23 +2264,7 @@ light_indirect_energy = 1.035
 shadow_enabled = true
 omni_range = 2.396
 
-[node name="OmniBlue" type="OmniLight3D" parent="OmniBlue"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4342518, 0.014005899, -3.2872066)
-light_color = Color(0.10653221, 0.31260487, 0.9318399, 1)
-light_energy = 3.419
-light_indirect_energy = 1.035
-shadow_enabled = true
-omni_range = 2.396
-
-[node name="OmniBlue" type="OmniLight3D" parent="OmniBlue/OmniBlue"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.359632, 0.014005899, -13.497904)
-light_color = Color(0.10653221, 0.31260487, 0.9318399, 1)
-light_energy = 3.419
-light_indirect_energy = 1.035
-shadow_enabled = true
-omni_range = 2.396
-
-[node name="OmniLight3D3" type="OmniLight3D" parent="."]
+[node name="OmniLight3D3" type="OmniLight3D" parent="Node9"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.161486, -0.18444252, -11.402416)
 light_color = Color(0.654902, 0.258824, 0.121569, 1)
 light_energy = 3.419
@@ -3116,88 +2274,88 @@ distance_fade_enabled = true
 omni_range = 2.348
 omni_attenuation = 0.623
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="OmniLight3D3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08473396, -0.07515955, 2.4065304)
+[node name="OmniBlue2" type="OmniLight3D" parent="Node9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.9569845, 0.028011799, -19.282751)
+light_color = Color(0.10653221, 0.31260487, 0.9318399, 1)
+light_energy = 3.419
+light_indirect_energy = 1.035
+shadow_enabled = true
+omni_range = 2.396
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Node9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.076752, -0.25960207, -8.995886)
 light_color = Color(0.654902, 0.258824, 0.121569, 1)
 light_energy = 3.419
 light_indirect_energy = 1.035
 shadow_enabled = true
 omni_range = 1.653
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="OmniLight3D3/OmniLight3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1545029, -0.07515955, -0.9238033)
+[node name="OmniBlue3" type="OmniLight3D" parent="Node9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5973525, 0.0420177, -32.780655)
+light_color = Color(0.10653221, 0.31260487, 0.9318399, 1)
+light_energy = 3.419
+light_indirect_energy = 1.035
+shadow_enabled = true
+omni_range = 2.396
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Node9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.922249, -0.33476162, -9.919689)
 light_color = Color(0.654902, 0.258824, 0.121569, 1)
 light_energy = 3.419
 light_indirect_energy = 1.035
 shadow_enabled = true
 omni_range = 1.653
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="OmniLight3D3/OmniLight3D2/OmniLight3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6969452, -0.07515955, -0.30251312)
+[node name="OmniLight3D5" type="OmniLight3D" parent="Node9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.619194, -0.40992117, -10.222202)
 light_color = Color(0.654902, 0.258824, 0.121569, 1)
 light_energy = 3.419
 light_indirect_energy = 1.035
 shadow_enabled = true
 omni_range = 2.396
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="OmniLight3D3/OmniLight3D2/OmniLight3D2/OmniLight3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6182823, 0.57424617, -9.148077)
-light_color = Color(0.654902, 0.258824, 0.121569, 1)
-light_energy = 3.419
-light_indirect_energy = 1.035
-shadow_enabled = true
-omni_range = 2.396
-
-[node name="OmniBlue" type="OmniLight3D" parent="OmniLight3D3/OmniLight3D2/OmniLight3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.08525, -0.07515955, 7.617282)
+[node name="OmniBlue4" type="OmniLight3D" parent="Node9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.163002, -0.40992117, -2.3024073)
 light_color = Color(0.18460426, 0.3803375, 0.75012356, 1)
 light_energy = 4.325
 light_indirect_energy = 1.035
 shadow_enabled = true
 omni_range = 1.653
 
-[node name="OmniBlue" type="OmniLight3D" parent="OmniLight3D3/OmniLight3D2/OmniLight3D2/OmniBlue"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.240411, -0.07515955, -0.30251312)
+[node name="OmniLight3D6" type="OmniLight3D" parent="Node9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.237476, 0.164325, -19.37028)
+light_color = Color(0.654902, 0.258824, 0.121569, 1)
+light_energy = 3.419
+light_indirect_energy = 1.035
+shadow_enabled = true
+omni_range = 2.396
+
+[node name="OmniBlue5" type="OmniLight3D" parent="Node9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0774088, -0.48508072, -2.6049204)
 light_color = Color(0.010077713, 0.39522466, 0.75577563, 1)
 light_energy = 3.419
 light_indirect_energy = 1.035
 shadow_enabled = true
 omni_range = 2.396
 
-[node name="OmniBlue" type="OmniLight3D" parent="OmniLight3D3/OmniLight3D2/OmniLight3D2/OmniBlue/OmniBlue"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.858499, 0.4778235, -9.148077)
+[node name="OmniBlue7" type="OmniLight3D" parent="Node9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8606911, 0.47056627, -14.025573)
 light_color = Color(0.086109854, 0.35488355, 0.8510433, 1)
 light_energy = 3.419
 light_indirect_energy = 1.035
 shadow_enabled = true
 omni_range = 2.396
 
-[node name="OmniBlue" type="OmniLight3D" parent="OmniLight3D3/OmniLight3D2/OmniLight3D2/OmniBlue/OmniBlue/OmniBlue"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.796599, 0.4778235, -2.2725754)
+[node name="OmniBlue6" type="OmniLight3D" parent="Node9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.935908, -0.007257223, -11.752997)
 light_color = Color(0.086109854, 0.35488355, 0.8510433, 1)
 light_energy = 3.419
 light_indirect_energy = 1.035
 shadow_enabled = true
 omni_range = 2.396
 
-[node name="OmniBlue" type="OmniLight3D" parent="OmniLight3D3/OmniLight3D2/OmniLight3D2/OmniBlue/OmniBlue/OmniBlue/OmniBlue"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.3596573, 0.4778235, 0.05107498)
-light_color = Color(0.086109854, 0.35488355, 0.8510433, 1)
-light_energy = 3.419
-light_indirect_energy = 1.035
-shadow_enabled = true
-omni_range = 2.396
-
-[node name="OmniRed" type="OmniLight3D" parent="OmniLight3D3/OmniLight3D2/OmniLight3D2/OmniBlue/OmniBlue"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.240411, -0.07515955, 0.29528427)
-light_color = Color(0.6862745, 0, 0.0627451, 1)
-light_energy = 2.664
-light_indirect_energy = 1.035
-shadow_enabled = true
-omni_range = 2.396
-
-[node name="LevelBlock36" type="Node3D" parent="OmniLight3D3/OmniLight3D2/OmniLight3D2/OmniBlue/OmniBlue"]
-transform = Transform3D(1, 0, 0, 0, 1.0000143, 0, 0, 0, 1.0000143, -8.160005, 0.4794594, -19.389084)
+[node name="LevelBlock36" type="Node3D" parent="Node9"]
+transform = Transform3D(1, 0, 0, 0, 1.0000143, 0, 0, 0, 1.0000143, -6.082596, -0.005621314, -21.994003)
 script = ExtResource("2_gpx5r")
 material = ExtResource("3_wwepn")
 texture_sheet = ExtResource("4_7tk53")
@@ -3206,7 +2364,66 @@ top_face = 14
 bottom_face = 12
 metadata/_custom_type_script = "uid://couiylq30apdk"
 
-[node name="LevelBlock36" type="Node3D" parent="."]
+[node name="OmniBlue8" type="OmniLight3D" parent="Node9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.220348, 0.94838977, -13.974498)
+light_color = Color(0.086109854, 0.35488355, 0.8510433, 1)
+light_energy = 3.419
+light_indirect_energy = 1.035
+shadow_enabled = true
+omni_range = 2.396
+
+[node name="OmniLight3D7" type="OmniLight3D" parent="Node9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.152826, -0.10928297, 4.0023603)
+light_color = Color(0.6710216, 0.00016422212, 0.61179, 1)
+light_energy = 1.005
+light_indirect_energy = 0.28
+shadow_enabled = true
+omni_range = 1.653
+
+[node name="OmniPurple2" type="OmniLight3D" parent="Node9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.042984, -0.21856594, 13.62768)
+light_color = Color(0.6710216, 0.00016422212, 0.61179, 1)
+light_energy = 1.005
+light_indirect_energy = 0.28
+shadow_enabled = true
+omni_range = 1.653
+
+[node name="OmniPurple3" type="OmniLight3D" parent="Node9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.597252, -0.16008615, 11.495447)
+light_color = Color(0.6710216, 0.00016422212, 0.61179, 1)
+light_energy = 1.005
+light_indirect_energy = 0.28
+shadow_enabled = true
+omni_range = 1.653
+
+[node name="OmniPurple4" type="OmniLight3D" parent="Node9"]
+transform = Transform3D(0.9999966, 0.0026179908, 0, -0.0026179908, 0.9999966, 0, 0, 0, 1, -28.149902, -0.26936913, 11.589765)
+light_color = Color(0.6710216, 0.00016422212, 0.61179, 1)
+light_energy = 1.005
+light_indirect_energy = 0.28
+shadow_enabled = true
+omni_range = 1.653
+
+[node name="OmniPurple5" type="OmniLight3D" parent="Node9"]
+transform = Transform3D(0.9999863, 0.005235964, 0, -0.005235964, 0.9999863, 0, 0, 0, 1, -19.473228, -0.04063499, 12.176075)
+light_color = Color(0.6710216, 0.00016422212, 0.61179, 1)
+light_energy = 1.005
+light_indirect_energy = 0.28
+shadow_enabled = true
+omni_range = 1.653
+
+[node name="Node5" type="Node" parent="."]
+
+[node name="LevelBlock44" type="Node3D" parent="Node5"]
+transform = Transform3D(1, 0, 0, 0, 1.0000286, 0, 0, 0, 1.0000286, -10.190655, -8.821598e-06, -24.040232)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock36" type="Node3D" parent="Node5"]
 transform = Transform3D(1, 0, 0, 0, 1.0000048, 0, 0, 0, 1.0000048, -8.106431, -1.6689318e-06, -22.059084)
 script = ExtResource("2_gpx5r")
 material = ExtResource("3_wwepn")
@@ -3215,8 +2432,8 @@ top_face = 14
 bottom_face = 12
 metadata/_custom_type_script = "uid://couiylq30apdk"
 
-[node name="LevelBlock37" type="Node3D" parent="LevelBlock36"]
-transform = Transform3D(1, 0, 0, 0, 1.0000048, 0, 0, 0, 1.0000048, 4.0856576, -1.4305132e-06, 0.029855728)
+[node name="LevelBlock37" type="Node3D" parent="Node5"]
+transform = Transform3D(1, 0, 0, 0, 1.0000095, 0, 0, 0, 1.0000095, -4.0207734, -3.0994518e-06, -22.029228)
 script = ExtResource("2_gpx5r")
 material = ExtResource("3_wwepn")
 texture_sheet = ExtResource("4_7tk53")
@@ -3226,8 +2443,18 @@ top_face = 14
 bottom_face = 12
 metadata/_custom_type_script = "uid://couiylq30apdk"
 
-[node name="LevelBlock37" type="Node3D" parent="LevelBlock36/LevelBlock37"]
-transform = Transform3D(1, 0, 0, 0, 1.0000048, 0, 0, 0, 1.0000048, -0.02021885, -1.4305131e-06, -2.0030575)
+[node name="LevelBlock38" type="Node3D" parent="Node5"]
+transform = Transform3D(1, 0, 0, 0, 1.0000095, 0, 0, 0, 1.0000095, -10.122404, -3.0994518e-06, -22.054071)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+south_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock39" type="Node3D" parent="Node5"]
+transform = Transform3D(1, 0, 0, 0, 1.0000143, 0, 0, 0, 1.0000143, -4.0409923, -4.5299785e-06, -24.032305)
 script = ExtResource("2_gpx5r")
 material = ExtResource("3_wwepn")
 texture_sheet = ExtResource("4_7tk53")
@@ -3236,45 +2463,8 @@ top_face = 14
 bottom_face = 12
 metadata/_custom_type_script = "uid://couiylq30apdk"
 
-[node name="LevelBlock37" type="Node3D" parent="LevelBlock36/LevelBlock37/LevelBlock37"]
-transform = Transform3D(1, 0, 0, 0, 1.0000048, 0, 0, 0, 1.0000048, -2.0415602, -1.4305128e-06, 0.013368607)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock37" type="Node3D" parent="LevelBlock36/LevelBlock37/LevelBlock37/LevelBlock37"]
-transform = Transform3D(1, 0, 0, 0, 1.0000048, 0, 0, 0, 1.0000048, -2.063128, -1.4305128e-06, 0.013368607)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock37" type="Node3D" parent="LevelBlock36/LevelBlock37/LevelBlock37/LevelBlock37/LevelBlock37"]
-transform = Transform3D(1, 0, 0, 0, 1.0000048, 0, 0, 0, 1.0000048, -2.0449743, -1.4305128e-06, -0.034664154)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock36" type="Node3D" parent="LevelBlock36"]
-transform = Transform3D(1, 0, 0, 0, 1.0000048, 0, 0, 0, 1.0000048, -2.015973, -1.4305132e-06, 0.005012512)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-south_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock36" type="Node3D" parent="LevelBlock36/LevelBlock36"]
-transform = Transform3D(1, 0, 0, 0, 1.0000048, 0, 0, 0, 1.0000048, -2.015973, -1.4305132e-06, 0.005012512)
+[node name="LevelBlock40" type="Node3D" parent="Node5"]
+transform = Transform3D(1, 0, 0, 0, 1.0000143, 0, 0, 0, 1.0000143, -12.138377, -4.5299785e-06, -22.049059)
 script = ExtResource("2_gpx5r")
 material = ExtResource("3_wwepn")
 texture_sheet = ExtResource("4_7tk53")
@@ -3284,8 +2474,17 @@ top_face = 14
 bottom_face = 12
 metadata/_custom_type_script = "uid://couiylq30apdk"
 
-[node name="LevelBlock36" type="Node3D" parent="LevelBlock36/LevelBlock36/LevelBlock36"]
-transform = Transform3D(1, 0, 0, 0, 1.0000048, 0, 0, 0, 1.0000048, -0.008593559, -1.4305133e-06, -2.0318146)
+[node name="LevelBlock41" type="Node3D" parent="Node5"]
+transform = Transform3D(1, 0, 0, 0, 1.0000191, 0, 0, 0, 1.0000191, -6.0825524, -5.9605118e-06, -24.018936)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock42" type="Node3D" parent="Node5"]
+transform = Transform3D(1, 0, 0, 0, 1.0000191, 0, 0, 0, 1.0000191, -12.146971, -5.960512e-06, -24.080902)
 script = ExtResource("2_gpx5r")
 material = ExtResource("3_wwepn")
 texture_sheet = ExtResource("4_7tk53")
@@ -3294,7 +2493,16 @@ top_face = 14
 bottom_face = 12
 metadata/_custom_type_script = "uid://couiylq30apdk"
 
-[node name="LevelBlock40" type="Node3D" parent="."]
+[node name="LevelBlock43" type="Node3D" parent="Node5"]
+transform = Transform3D(1, 0, 0, 0, 1.0000238, 0, 0, 0, 1.0000238, -8.14568, -7.391052e-06, -24.005568)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock45" type="Node3D" parent="Node5"]
 transform = Transform3D(1, 0, 0, 0, 1.0000334, 0, 0, 0, 1.0000334, -10.210874, -1.0252152e-05, -26.04332)
 script = ExtResource("2_gpx5r")
 material = ExtResource("3_wwepn")
@@ -3304,8 +2512,8 @@ top_face = 14
 bottom_face = 12
 metadata/_custom_type_script = "uid://couiylq30apdk"
 
-[node name="LevelBlock37" type="Node3D" parent="LevelBlock40"]
-transform = Transform3D(1, 0, 0, 0, 1.0000048, 0, 0, 0, 1.0000048, -2.0449743, -1.4305128e-06, -0.034664154)
+[node name="LevelBlock46" type="Node3D" parent="Node5"]
+transform = Transform3D(1, 0, 0, 0, 1.0000381, 0, 0, 0, 1.0000381, -12.255848, -1.1682712e-05, -26.077986)
 script = ExtResource("2_gpx5r")
 material = ExtResource("3_wwepn")
 texture_sheet = ExtResource("4_7tk53")
@@ -3315,7 +2523,7 @@ top_face = 14
 bottom_face = 12
 metadata/_custom_type_script = "uid://couiylq30apdk"
 
-[node name="LevelBlock39" type="Node3D" parent="."]
+[node name="LevelBlock47" type="Node3D" parent="Node5"]
 transform = Transform3D(1, 0, 0, 0, 1.0000286, 0, 0, 0, 1.0000286, -8.165899, -8.821598e-06, -26.008654)
 script = ExtResource("2_gpx5r")
 material = ExtResource("3_wwepn")
@@ -3325,7 +2533,7 @@ top_face = 14
 bottom_face = 12
 metadata/_custom_type_script = "uid://couiylq30apdk"
 
-[node name="LevelBlock37" type="Node3D" parent="."]
+[node name="LevelBlock48" type="Node3D" parent="Node5"]
 transform = Transform3D(1, 0, 0, 0, 1.0000238, 0, 0, 0, 1.0000238, -6.1027713, -7.391052e-06, -26.022022)
 script = ExtResource("2_gpx5r")
 material = ExtResource("3_wwepn")
@@ -3335,7 +2543,20 @@ top_face = 14
 bottom_face = 12
 metadata/_custom_type_script = "uid://couiylq30apdk"
 
-[node name="LevelBlock38" type="Node3D" parent="."]
+[node name="Node4" type="Node" parent="."]
+
+[node name="LevelBlock11" type="Node3D" parent="Node4"]
+transform = Transform3D(1.0000298, 0, 0, 0, 1.0000298, 0, 0, 0, 1, -32, 0, 14)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+south_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock38" type="Node3D" parent="Node4"]
 transform = Transform3D(1, 0, 0, 0, 1.0000191, 0, 0, 0, 1.0000191, -4.061211, -5.9605118e-06, -26.03539)
 script = ExtResource("2_gpx5r")
 material = ExtResource("3_wwepn")
@@ -3345,8 +2566,8 @@ top_face = 14
 bottom_face = 12
 metadata/_custom_type_script = "uid://couiylq30apdk"
 
-[node name="LevelBlock38" type="Node3D" parent="LevelBlock38"]
-transform = Transform3D(1, 0, 0, 0, 1.0000191, 0, 0, 0, 1.0000191, 2.000501, -5.9605118e-06, 0.013263702)
+[node name="LevelBlock39" type="Node3D" parent="Node4"]
+transform = Transform3D(1, 0, 0, 0, 1.0000381, 0, 0, 0, 1.0000381, -2.0607102, -1.1921137e-05, -26.022127)
 script = ExtResource("2_gpx5r")
 material = ExtResource("3_wwepn")
 texture_sheet = ExtResource("4_7tk53")
@@ -3356,8 +2577,8 @@ top_face = 14
 bottom_face = 12
 metadata/_custom_type_script = "uid://couiylq30apdk"
 
-[node name="LevelBlock38" type="Node3D" parent="LevelBlock38/LevelBlock38"]
-transform = Transform3D(1, 0, 0, 0, 1.0000191, 0, 0, 0, 1.0000191, 0.015315056, -5.9605127e-06, -2.077551)
+[node name="LevelBlock40" type="Node3D" parent="Node4"]
+transform = Transform3D(1, 0, 0, 0, 1.0000572, 0, 0, 0, 1.0000572, -2.0453951, -1.7881877e-05, -28.099758)
 script = ExtResource("2_gpx5r")
 material = ExtResource("3_wwepn")
 texture_sheet = ExtResource("4_7tk53")
@@ -3367,8 +2588,8 @@ top_face = 14
 bottom_face = 12
 metadata/_custom_type_script = "uid://couiylq30apdk"
 
-[node name="LevelBlock38" type="Node3D" parent="LevelBlock38/LevelBlock38/LevelBlock38"]
-transform = Transform3D(1, 0, 0, 0, 1.0000191, 0, 0, 0, 1.0000191, 0.015315056, -5.9605127e-06, -2.077551)
+[node name="LevelBlock41" type="Node3D" parent="Node4"]
+transform = Transform3D(1, 0, 0, 0, 1.0000763, 0, 0, 0, 1.0000763, -2.03008, -2.3842731e-05, -30.177427)
 script = ExtResource("2_gpx5r")
 material = ExtResource("3_wwepn")
 texture_sheet = ExtResource("4_7tk53")
@@ -3377,3 +2598,1283 @@ west_face = 0
 top_face = 14
 bottom_face = 12
 metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock8" type="Node3D" parent="Node4"]
+transform = Transform3D(1.0000074, 0, 0, 0, 1.0000074, 0, 0, 0, 1, -26, 0, 16)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+south_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock9" type="Node3D" parent="Node4"]
+transform = Transform3D(1.0000148, 0, 0, 0, 1.0000148, 0, 0, 0, 1, -28, 0, 16)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+south_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock10" type="Node3D" parent="Node4"]
+transform = Transform3D(1.0000223, 0, 0, 0, 1.0000223, 0, 0, 0, 1, -30, 0, 16)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+south_face = 0
+west_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock12" type="Node3D" parent="Node4"]
+transform = Transform3D(0.99980986, 0, 0.021326307, 0, 1.0000373, 0, -0.021327103, 0, 0.99977255, -34, 0, 14)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock13" type="Node3D" parent="Node4"]
+transform = Transform3D(1.0000448, 0, 0, 0, 1.0000448, 0, 0, 0, 1, -36, 0, 14)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock14" type="Node3D" parent="Node4"]
+transform = Transform3D(1.0000525, 0, 0, 0, 1.0000525, 0, 0, 0, 1, -34, 0, 16)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+east_face = 0
+south_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock15" type="Node3D" parent="Node4"]
+transform = Transform3D(1.0000523, 0, 0, 0, 1.0000523, 0, 0, 0, 1, -38, 0, 14)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+west_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock16" type="Node3D" parent="Node4"]
+transform = Transform3D(1.0000601, 0, 0, 0, 1.0000601, 0, 0, 0, 1, -36, 0, 15.96)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+south_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock18" type="Node3D" parent="Node4"]
+transform = Transform3D(1.0000676, 0, 0, 0, 1.0000676, 0, 0, 0, 1, -38, 0, 15.963)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+south_face = 0
+west_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock19" type="Node3D" parent="Node4"]
+transform = Transform3D(1.0000752, 0, 0, 0, 1.0000752, 0, 0, 0, 1, -34, 0, 12.033)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+east_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock20" type="Node3D" parent="Node4"]
+transform = Transform3D(1.0000829, 0, 0, 0, 1.0000829, 0, 0, 0, 1, -36, 0, 12)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock21" type="Node3D" parent="Node4"]
+transform = Transform3D(1.0000905, 0, 0, 0, 1.0000905, 0, 0, 0, 1, -38, 0, 12)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+west_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock7" type="Node3D" parent="Node4"]
+transform = Transform3D(0.99999994, 0.0012740903, 0, -0.0012740903, 0.99999994, 0, 0, 0, 1, -2.000578, 0.0072849393, -0.0018005371)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="Node6" type="Node" parent="."]
+
+[node name="LevelBlock5" type="Node3D" parent="Node6"]
+transform = Transform3D(1.000009, 0, 0, 0, 1.000009, 0, 0, 0, 1, -24, 0, 12)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 6
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock3" type="Node3D" parent="Node6"]
+transform = Transform3D(1.0000075, 0, 0, 0, 1.0000075, 0, 0, 0, 1, -19.866, 0, 12)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock4" type="Node3D" parent="Node6"]
+transform = Transform3D(1.0000082, 0, 0, 0, 1.0000082, 0, 0, 0, 1, -21.871, 0, 12)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock6" type="Node3D" parent="Node6"]
+transform = Transform3D(0.9998507, 0.017836459, 0, -0.017836459, 0.9998507, 0, 0, 0, 1, -25.88, 0, 12)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="Node8" type="Node" parent="."]
+
+[node name="LevelBlock63" type="Node3D" parent="Node8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.094398, 0, -8.093634)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+south_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock51" type="Node3D" parent="Node8"]
+transform = Transform3D(0.99995244, 0, 0.009756236, 0, 1, 0, -0.009756236, 0, 0.99995244, 21.93284, 0.004160762, -20.200287)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+south_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock43" type="Node3D" parent="Node8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.94965, 0, -22.263876)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+south_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock35" type="Node3D" parent="Node8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.823078, 0, -22.067965)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+east_face = 0
+south_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock31" type="Node3D" parent="Node8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.833733, 0.017665625, -28.217813)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+south_face = 0
+west_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock28" type="Node3D" parent="Node8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.787733, 0.017665625, -28.203814)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+south_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock29" type="Node3D" parent="Node8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.744734, 0.017665625, -28.208813)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+south_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock30" type="Node3D" parent="Node8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.698734, 0.017665625, -28.230812)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+east_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock32" type="Node3D" parent="Node8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.711735, 0.10311055, -26.176813)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+east_face = 0
+west_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock33" type="Node3D" parent="Node8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.767406, 0.07463622, -24.122389)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+east_face = 0
+west_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock34" type="Node3D" parent="Node8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.093273, 0, -10.130947)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 6
+east_face = 6
+south_face = 6
+west_face = 6
+top_face = 14
+bottom_face = 12
+flip_faces = true
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock36" type="Node3D" parent="Node8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.844173, 0, -22.100616)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+south_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock37" type="Node3D" parent="Node8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.865269, 0, -22.133268)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+south_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock38" type="Node3D" parent="Node8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.844173, 0, -22.100616)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+south_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock39" type="Node3D" parent="Node8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.865269, 0, -22.133268)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+south_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock40" type="Node3D" parent="Node8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.886364, 0, -22.16592)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+south_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock41" type="Node3D" parent="Node8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.90746, 0, -22.198572)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+south_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock42" type="Node3D" parent="Node8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.928555, 0, -22.231224)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+south_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock44" type="Node3D" parent="Node8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.970745, 0, -22.296528)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+south_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock45" type="Node3D" parent="Node8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.99184, 0, -22.32918)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+west_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock46" type="Node3D" parent="Node8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.040548, 0, -18.1128)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+south_face = 0
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock47" type="Node3D" parent="Node8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.02624, 0, -18.177013)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+south_face = 0
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock48" type="Node3D" parent="Node8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.033394, 0, -18.144907)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+south_face = 0
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock49" type="Node3D" parent="Node8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.019085, 0, -18.20912)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+south_face = 0
+west_face = 0
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock50" type="Node3D" parent="Node8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.950775, 0, -20.226563)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+south_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock52" type="Node3D" parent="Node8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.950775, 0, -20.226563)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+south_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock53" type="Node3D" parent="Node8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.97187, 0, -20.259214)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+south_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock54" type="Node3D" parent="Node8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.992966, 0, -20.291866)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+west_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock55" type="Node3D" parent="Node8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.994091, 0, -18.254553)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+east_face = 0
+west_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock56" type="Node3D" parent="Node8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.995216, 0, -16.21724)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+east_face = 0
+west_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock57" type="Node3D" parent="Node8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.091022, 0, -14.205574)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock58" type="Node3D" parent="Node8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.092148, 0, -12.168261)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock59" type="Node3D" parent="Node8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.094398, 0, -8.093634)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+east_face = 0
+south_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock60" type="Node3D" parent="Node8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.091022, 0, -14.205574)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock61" type="Node3D" parent="Node8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.092148, 0, -12.168261)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock62" type="Node3D" parent="Node8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.093273, 0, -10.130947)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock64" type="Node3D" parent="Node8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1380394, 0, 19.96615)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+east_face = 0
+south_face = 0
+west_face = 0
+top_face = 14
+bottom_face = 12
+flip_faces = true
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock23" type="Node3D" parent="Node8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8880851, 0, 20.068373)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+east_face = 0
+south_face = 0
+west_face = 0
+top_face = 14
+bottom_face = 12
+flip_faces = true
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock24" type="Node3D" parent="Node8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14732552, 0, 20.133966)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+east_face = 0
+south_face = 0
+west_face = 0
+top_face = 14
+bottom_face = 12
+flip_faces = true
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock4" type="Node3D" parent="Node8"]
+transform = Transform3D(0.99960583, 0.028061232, 0, -0.028061232, 0.99960583, 0, 0, 0, 1, -13.84, 0, 6)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+west_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock5" type="Node3D" parent="Node8"]
+transform = Transform3D(0.99929935, 0.037411153, 0, -0.037411153, 0.99929935, 0, 0, 0, 1, -13.84, 0, 8.01)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+west_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock6" type="Node3D" parent="Node8"]
+transform = Transform3D(0.999825, 0.018708866, 0, -0.018708866, 0.999825, 0, 0, 0, 1, -12, 0, 8.016)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+east_face = 0
+south_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="Node10" type="Node" parent="."]
+
+[node name="LevelBlock59" type="Node3D" parent="Node10"]
+transform = Transform3D(1, 0, 0, 0, 0.99984586, -0.017452385, 0, 0.017452385, 0.99984586, 1.961, 0, -25.855)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+east_face = 0
+west_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock57" type="Node3D" parent="Node10"]
+transform = Transform3D(1, 0, 0, 0, 0.99984485, -0.017452369, 0, 0.017452369, 0.99984485, 1.975, 0, -29.804)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+east_face = 0
+west_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock51" type="Node3D" parent="Node10"]
+transform = Transform3D(1, 0, 0, 0, 0.999841, -0.0174523, 0, 0.0174523, 0.999841, 1.94, 0, -33.81)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock25" type="Node3D" parent="Node10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0066454, -0.008369446, 7.9730735)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+east_face = 0
+south_face = 0
+west_face = 0
+top_face = 14
+bottom_face = 12
+flip_faces = true
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock43" type="Node3D" parent="Node10"]
+transform = Transform3D(1, 0, 0, 0, 0.99998826, 0, 0, 0, 0.99998826, 6.002, 0, -35.753)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+east_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock44" type="Node3D" parent="Node10"]
+transform = Transform3D(1, 0, 0, 0, 0.9999897, 0, 0, 0, 0.9999897, 1.957, 0, -35.784)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock45" type="Node3D" parent="Node10"]
+transform = Transform3D(1, 0, 0, 0, 0.999989, 0, 0, 0, 0.999989, 3.979, 0, -35.768)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock46" type="Node3D" parent="Node10"]
+transform = Transform3D(1, 0, 0, 0, 0.9999904, 0, 0, 0, 0.9999904, -0.066, 0, -35.799)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock47" type="Node3D" parent="Node10"]
+transform = Transform3D(1, 0, 0, 0, 0.99999106, 0, 0, 0, 0.9999911, -2.088, 0, -35.815)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+west_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock48" type="Node3D" parent="Node10"]
+transform = Transform3D(1, 0, 0, 0, 0.99983954, -0.017452274, 0, 0.017452274, 0.99983954, -2, 0, -33.807)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+west_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock16" type="Node3D" parent="Node10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0059702, -0.008369446, 8.0431595)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+east_face = 0
+south_face = 0
+west_face = 0
+top_face = 14
+bottom_face = 12
+flip_faces = true
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock49" type="Node3D" parent="Node10"]
+transform = Transform3D(1.0000017, 0, 0, 0, 1.000006, 0, 0, 0, 1.0000032, -3.98, 0, 14)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock23" type="Node3D" parent="Node10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.114349, 0, 10.011406)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+east_face = 0
+south_face = 0
+west_face = 0
+top_face = 14
+bottom_face = 12
+flip_faces = true
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock50" type="Node3D" parent="Node10"]
+transform = Transform3D(1, 0, 0, 0, 0.99984026, -0.017452287, 0, 0.017452287, 0.99984026, -0.096, 0, -33.808)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock52" type="Node3D" parent="Node10"]
+transform = Transform3D(1, 0, 0, 0, 0.999994, 0, 0, 0, 0.999994, 3.958, 0, -33.813)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock53" type="Node3D" parent="Node10"]
+transform = Transform3D(1, 0, 0, 0, 0.9999956, 0, 0, 0, 0.9999956, 5.975, 0, -31.802)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+east_face = 0
+south_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock54" type="Node3D" parent="Node10"]
+transform = Transform3D(1, 0, 0, 0, 0.9998425, -0.017452328, 0, 0.017452328, 0.9998425, 5.975, 0, -33.781)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+east_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock55" type="Node3D" parent="Node10"]
+transform = Transform3D(1, 0, 0, 0, 0.9999964, 0, 0, 0, 0.9999964, 3.975, 0, -31.803)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+south_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock56" type="Node3D" parent="Node10"]
+transform = Transform3D(1, 0, 0, 0, 0.9999974, 0, 0, 0, 0.9999974, 2, 0, -32)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock58" type="Node3D" parent="Node10"]
+transform = Transform3D(1, 0, 0, 0, 0.9998453, -0.017452376, 0, 0.017452376, 0.9998453, 1.968, 0, -27.804)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+east_face = 0
+west_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock60" type="Node3D" parent="Node10"]
+transform = Transform3D(1, 0, 0, 0, 0.9998464, -0.017452395, 0, 0.017452395, 0.9998464, 1.954, 0, -23.907)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+east_face = 0
+west_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock61" type="Node3D" parent="Node10"]
+transform = Transform3D(1, 0, 0, 0, 0.99984694, -0.017452404, 0, 0.017452404, 0.99984694, 1.947, 0, -21.958)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+east_face = 0
+west_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock62" type="Node3D" parent="Node10"]
+transform = Transform3D(1, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 1.9403753, 0, -20.008928)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+east_face = 0
+west_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock22" type="Node3D" parent="Node10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0208364, 0, 6.039313)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+east_face = 0
+south_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock5" type="Node3D" parent="Node10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 4.001)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="Node11" type="Node" parent="."]
+
+[node name="LevelBlock14" type="Node3D" parent="Node11"]
+transform = Transform3D(1.000005, 0, 0, 0, 1.000005, 0, 0, 0, 1, -20, 0.006, 16)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+south_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock9" type="Node3D" parent="Node11"]
+transform = Transform3D(1.0000037, 0, 0, 0, 1.0000037, 0, 0, 0, 1, -20, 0, 14)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock4" type="Node3D" parent="Node11"]
+transform = Transform3D(0.9999975, 0.00254818, 0, -0.00254818, 0.9999975, 0, 0, 0, 1, -14, 0, 10)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+east_face = 0
+west_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock3" type="Node3D" parent="Node11"]
+transform = Transform3D(0.99999917, 0.00127409, 0, -0.00127409, 0.99999917, 0, 0, 0, 1, -13.910442, 0, 4.076166)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+west_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock5" type="Node3D" parent="Node11"]
+transform = Transform3D(0.9999944, 0.003822268, 0, -0.003822268, 0.9999944, 0, 0, 0, 1, -14, 0, 12)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+east_face = 0
+west_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock6" type="Node3D" parent="Node11"]
+transform = Transform3D(0.9999893, 0.0050963503, 0, -0.0050963503, 0.9999893, 0, 0, 0, 1, -13.91, 0, 14)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+east_face = 0
+west_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock7" type="Node3D" parent="Node11"]
+transform = Transform3D(1.0000029, 0, 0, 0, 1.0000029, 0, 0, 0, 1, -18, 0, 14)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+east_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock8" type="Node3D" parent="Node11"]
+transform = Transform3D(1.0000027, 0, 0, 0, 1.0000027, 0, 0, 0, 1, -13.910442, 0, 15.968166)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+east_face = 0
+south_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock10" type="Node3D" parent="Node11"]
+transform = Transform3D(1.0000036, 0, 0, 0, 1.0000036, 0, 0, 0, 1, -15.911, 0, 15.966)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+south_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock11" type="Node3D" parent="Node11"]
+transform = Transform3D(1.0000045, 0, 0, 0, 1.0000045, 0, 0, 0, 1, -22, 0, 14)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock12" type="Node3D" parent="Node11"]
+transform = Transform3D(1.0000043, 0, 0, 0, 1.0000043, 0, 0, 0, 1, -18, 0, 16)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+south_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock13" type="Node3D" parent="Node11"]
+transform = Transform3D(1.0000052, 0, 0, 0, 1.0000052, 0, 0, 0, 1, -24, 0, 14)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock15" type="Node3D" parent="Node11"]
+transform = Transform3D(1.0000058, 0, 0, 0, 1.0000058, 0, 0, 0, 1, -22, 0, 16)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+south_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock16" type="Node3D" parent="Node11"]
+transform = Transform3D(1.000006, 0, 0, 0, 1.000006, 0, 0, 0, 1, -26, 0, 14)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock17" type="Node3D" parent="Node11"]
+transform = Transform3D(1.0000066, 0, 0, 0, 1.0000066, 0, 0, 0, 1, -24, 0, 16)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+south_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock18" type="Node3D" parent="Node11"]
+transform = Transform3D(1.0000068, 0, 0, 0, 1.0000068, 0, 0, 0, 1, -18, 0, 12)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+east_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="Node12" type="Node" parent="."]
+
+[node name="LevelBlock3" type="Node3D" parent="Node12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+south_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock11" type="Node3D" parent="Node12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+east_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock4" type="Node3D" parent="Node12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 0)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+south_face = 0
+west_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock5" type="Node3D" parent="Node12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 4)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+south_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock6" type="Node3D" parent="Node12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.9960003, 0, 4)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+south_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock7" type="Node3D" parent="Node12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9920006, 0, 4)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+south_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="Node13" type="Node" parent="."]
+
+[node name="LevelBlock29" type="Node3D" parent="Node13"]
+transform = Transform3D(1, 0, 0, 0, 0.9999976, -0.00218166, 0, 0.00218166, 0.9999976, 0, 0, -8)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+east_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock30" type="Node3D" parent="Node13"]
+transform = Transform3D(1, 0, 0, 0, 0.9999976, -0.00218166, 0, 0.00218166, 0.9999976, -2, 0, -8)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+south_face = 0
+west_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock31" type="Node3D" parent="Node13"]
+transform = Transform3D(1, 0, 0, 0, 0.99999046, -0.0043633096, 0, 0.0043633096, 0.99999046, -2, -0.00436332, -6.000005)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+east_face = 0
+south_face = 0
+west_face = 0
+top_face = 14
+bottom_face = 12
+flip_faces = true
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock32" type="Node3D" parent="Node13"]
+transform = Transform3D(1, 0, 0, 0, 0.99997866, -0.00654494, 0, 0.00654494, 0.99997866, 2, -0.00436332, -6.000005)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+north_face = 0
+east_face = 0
+south_face = 0
+west_face = 0
+top_face = 14
+bottom_face = 12
+flip_faces = true
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock43" type="Node3D" parent="Node13"]
+transform = Transform3D(1, 0, 0, 0, 0.9998475, -0.017452408, 0, 0.017452408, 0.9998475, 2, 0.017453073, -14.001924)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+east_face = 0
+west_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock42" type="Node3D" parent="Node13"]
+transform = Transform3D(1, 0, 0, 0, 0.9996569, -0.026176944, 0, 0.026176944, 0.9996569, 2, 0.05235789, -16.00162)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+east_face = 0
+west_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock50" type="Node3D" parent="Node13"]
+transform = Transform3D(0.9998941, 0.014542784, 0.0009555114, -0.014557215, 0.9997432, 0.017433438, -0.000701735, -0.017445484, 0.9998485, 3.9589834, -0.1021201, 13.994815)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock48" type="Node3D" parent="Node13"]
+transform = Transform3D(0.99989444, 0.014542801, 0.000955512, -0.014557221, 0.9997444, 0.01743345, -0.00070173526, -0.017445505, 0.9998491, 1.9591953, -0.07300567, 13.996219)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock49" type="Node3D" parent="Node13"]
+transform = Transform3D(0.99957585, 0.029063625, 0.0021643075, -0.029121384, 0.9989706, 0.03484585, -0.0011493318, -0.03489405, 0.99939215, 3.9183893, -0.16889271, 15.988138)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock51" type="Node3D" parent="Node13"]
+transform = Transform3D(0.9998948, 0.014542819, 0.0009555126, -0.014557227, 0.9997456, 0.01743346, -0.0007017355, -0.017445525, 0.9998497, -0.040593624, -0.04389123, 13.9976225)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock53" type="Node3D" parent="Node13"]
+transform = Transform3D(0.99957657, 0.029063696, 0.0021643103, -0.029121406, 0.998973, 0.034845896, -0.0011493327, -0.03489413, 0.99939334, -0.07991481, -0.052407153, 15.992735)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock44" type="Node3D" parent="Node13"]
+transform = Transform3D(1, 0, 0, 0, 1.0000024, 0, 0, 0, 1.0000024, -8.053421, -4.7683716e-07, -18.020226)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+east_face = 0
+west_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="LevelBlock36" type="Node3D" parent="Node13"]
+transform = Transform3D(1, 0, 0, 0, 1.0000036, 0, 0, 0, 1.0000036, -8.087124, -9.536749e-07, -20.040455)
+script = ExtResource("2_gpx5r")
+material = ExtResource("3_wwepn")
+texture_sheet = ExtResource("4_7tk53")
+east_face = 0
+west_face = 0
+top_face = 14
+bottom_face = 12
+metadata/_custom_type_script = "uid://couiylq30apdk"
+
+[node name="Chest Key2" parent="." instance=ExtResource("10_kqbma")]
+transform = Transform3D(-0.69478226, 0, 0.08530883, 0, 0.7, 0, -0.08530883, 0, -0.69478226, -21.64872, 0.049770355, 14.077515)
+item_type = "Chest Key"
+item_name = "Chest Key"
+item_texture = ExtResource("11_3miru")
+item_effect = "Key"
+item_description = "A key only for opening chests"

@@ -8,7 +8,7 @@
 
 [node name="3DDialogue" type="Node3D"]
 script = ExtResource("1_n4g4u")
-dialogue_text = Array[String](["Hello World!", "This is all I have to say!", ""])
+dialogue_text = Array[String]([""])
 
 [node name="Area3D" type="Area3D" parent="."]
 
