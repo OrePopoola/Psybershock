@@ -18,9 +18,9 @@ var enemy_ego: int = 100   # Killer's ego to break
 func _ready() -> void:
 	#print("Screwdriver :" + str(screwdriver))
 	Global.reset_inventory()
-	Global.artifact_1 = true
-	Global.artifact_2 = true
-	Global.artifact_3 = true
+	#Global.artifact_1 = true
+	#Global.artifact_2 = true
+	#Global.artifact_3 = true
 	
 
 	if Global.artifact_1:

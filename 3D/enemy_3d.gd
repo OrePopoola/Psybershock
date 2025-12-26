@@ -19,8 +19,9 @@ var is_moving: bool = false
 var last_direction_change_time: float = 0.0
 
 @export var grid_size: float = 2
+@export var attack_range: float = 1.5
 @export var move_speed: float = 3
-@export var detection_range: float = 2
+@export var detection_range: float =0.2
 @export var gravity: float = 9.8
 @export var attack_cooldown: float = 3
 @export var stab_animation_name: String = "stabbing"
@@ -72,7 +73,7 @@ func _physics_process(delta: float) -> void:
 	var distance = abs(player_pos.x - enemy_pos.x) + abs(player_pos.z - enemy_pos.z)
 
 	# ---- ATTACK ----
-	if distance <= grid_size + 0.05:          # adjacent cell
+	if distance <= attack_range + 0.05:          # adjacent cell
 		attack_player()
 		return
 

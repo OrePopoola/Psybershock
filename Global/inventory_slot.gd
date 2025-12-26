@@ -198,6 +198,6 @@ func _on_description_button_pressed() -> void:
 		dialogue.dialogue_text[0] = ""
 		dialogue.dialogue_text[0] = description
 		print("Description :x" + str(description))
-	
+		Global.player = get_tree().get_first_node_in_group("Player")
 		dialogue.start_dialogue(Global.player)
 	

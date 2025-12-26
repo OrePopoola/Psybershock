@@ -706,7 +706,7 @@ eastwest = false
 northsouth = true
 
 [node name="Locked Door" parent="Blocks3" instance=ExtResource("8_4puer")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0379028, -0.0052626156, 26.078472)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1001835, -0.0052626156, 26.078468)
 opened_text = Array[String](["You opened this already."])
 key_item_type = "Key"
 key_item_name = "Iron Key"
@@ -1520,7 +1520,6 @@ detection_range = 0.25
 
 [node name="Enemy3D5" parent="." instance=ExtResource("13_1kda3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.88797903, 14.041544)
-detection_range = 0.5
 
 [node name="Node7" type="Node" parent="."]
 
@@ -2223,13 +2222,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.75494, -0.9193067, -30.130
 detection_range = 0.25
 attack_cooldown = 2.0
 
+[node name="3DDialog" parent="." instance=ExtResource("7_7tk53")]
+transform = Transform3D(1.4894961, -0.0014858041, -0.003276484, 0.0014880799, 1.4894993, 0.0010332062, 0.0032754517, -0.0010364769, 1.4894962, -2.1544497, -1.5882816, -33.75095)
+dialogue_text = Array[String](["The smell of ruined comic books invades the air"])
+
 [node name="3DDialogue2" parent="." instance=ExtResource("7_7tk53")]
 transform = Transform3D(1.6549988, -0.00082576287, -0.001820126, 0.000826395, 1.6549997, 0.00057445816, 0.0018198391, -0.0005753666, 1.6549989, -0.012272598, -1.8133028, 5.9305954)
 dialogue_text = Array[String](["This door requires a different metal of key..."])
-
-[node name="3DDialog" parent="3DDialogue2" instance=ExtResource("7_7tk53")]
-transform = Transform3D(0.8999996, -0.00044905583, -0.0009897974, 0.00044939958, 0.9000001, 0.00031239414, 0.0009896416, -0.00031288824, 0.89999956, -1.3206629, 0.14494586, -23.975277)
-dialogue_text = Array[String](["The smell of ruined comic books invades the air"])
 
 [node name="explorer" parent="." instance=ExtResource("1_88kdb")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.29019403, 1.8459387)
