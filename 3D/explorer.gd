@@ -29,7 +29,6 @@ var grid_size = 1.0
 
 var max_health = 50
 var health = 50
-
 # ------------------------------------------------------------------
 # Public API – called from InventorySlot when the Equip button is pressed
 # ------------------------------------------------------------------

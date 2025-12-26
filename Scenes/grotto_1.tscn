@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://d1wmu8v80h3xp"]
+[gd_scene load_steps=18 format=3 uid="uid://d1wmu8v80h3xp"]
 
 [ext_resource type="PackedScene" uid="uid://bj6bvh86phvhe" path="res://3D/explorer.tscn" id="1_88kdb"]
 [ext_resource type="Script" uid="uid://couiylq30apdk" path="res://addons/level_block/level_block_node.gd" id="2_gpx5r"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://c20no0ka1vjie" path="res://3D/illusory_door.tscn" id="11_gg3r6"]
 [ext_resource type="Texture2D" uid="uid://krmdpy4rbovo" path="res://Assets/3D/desertExample.png" id="12_gg3r6"]
 [ext_resource type="PackedScene" uid="uid://ccdt4o87ffvmc" path="res://3D/enemy_3d.tscn" id="13_1kda3"]
+[ext_resource type="PackedScene" uid="uid://brr2u7igv2r0d" path="res://NPC/tobias.tscn" id="15_qq4w8"]
 
 [sub_resource type="Environment" id="Environment_kqbma"]
 background_mode = 1
@@ -413,7 +414,7 @@ metadata/_custom_type_script = "uid://couiylq30apdk"
 
 [node name="3DDialogue" parent="." instance=ExtResource("7_7tk53")]
 transform = Transform3D(0.99999976, -0.0002495229, -0.0005498655, 0.00024961843, 0.99999994, 0.00017362091, 0.00054982206, -0.00017375812, 0.9999998, 0.015243292, -1.2220693, 3.8975897)
-dialogue_text = Array[String](["Welcome to Grotto One Press R to talk, and F to interact", " Press I to open your inventory, and finally Press J to close any player dialogue", "Also: Q/E to turn, A/D to move right and left", "Its full of bugs, but you have to start somewhere"])
+dialogue_text = Array[String](["Welcome to Grotto One Press R to talk, and F to interact", " Press I to open your inventory, and ", " Press J to close any player dialogue", "Also: A/D to turn, Q/E to move right and left", "Its full of bugs, but you have to start somewhere"])
 
 [node name="LevelBlock48" type="Node3D" parent="."]
 transform = Transform3D(0.99957705, 0.029063733, 0.0021643117, -0.02912142, 0.9989743, 0.03484592, -0.0011493333, -0.03489418, 0.99939394, -4.0782204, 0.06407845, 15.997333)
@@ -709,7 +710,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0379028, -0.0052626156, 26
 opened_text = Array[String](["You opened this already."])
 key_item_type = "Key"
 key_item_name = "Iron Key"
-key_item_texture = ExtResource("11_3miru")
+key_item_texture = ExtResource("2_t4aeu")
+key_item_effect = "Key"
 north_face = -1
 south_face = 3
 east_face = -1
@@ -2058,14 +2060,15 @@ metadata/_custom_type_script = "uid://couiylq30apdk"
 [node name="Artifact Chest2" parent="Node2" instance=ExtResource("9_kqbma")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.681396, -0.5313587, 13.818722)
 reward_data = {
+"artifact_num": 2,
 "damage": 0,
-"description": "A group of friends smiling together. A young tobias can be seen on the right",
-"effect": "\"\"",
-"name": "Photo of Friends",
+"description": "Tobias' latest murder weapon, used on 5 guards after giving an autograph to each.",
+"effect": "Artifact",
+"name": "Bloodstained Screwdriver",
 "quantity": 1,
 "scene": "\"\"",
 "swing_style": "\"\"",
-"texture": "res://Assets/Art/Artifacts/Artifact_1_2.png",
+"texture": "res://Assets/Art/equipment/screwdriver.png",
 "type": "Artifact"
 }
 key_item_type = "Chest Key"
@@ -2075,26 +2078,10 @@ key_item_effect = "Key"
 [node name="Artifact Chest" parent="Node2" instance=ExtResource("9_kqbma")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.920975, -0.5581436, -6.000016)
 reward_data = {
+"artifact_num": 1,
 "damage": 0,
 "description": "A group of friends smiling together. A young tobias can be seen on the right",
-"effect": "\"\"",
-"name": "Photo of Friends",
-"quantity": 1,
-"scene": "\"\"",
-"swing_style": "\"\"",
-"texture": "res://Assets/Art/Artifacts/Artifact_1_2.png",
-"type": "Artifact"
-}
-key_item_type = "Chest Key"
-key_item_name = "Chest Key"
-key_item_effect = "Key"
-
-[node name="Artifact Chest" parent="Node2/Artifact Chest" instance=ExtResource("9_kqbma")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.90746, -0.0930779, -17.791718)
-reward_data = {
-"damage": 0,
-"description": "A group of friends smiling together. A young tobias can be seen on the right",
-"effect": "\"\"",
+"effect": "Artifact",
 "name": "Photo of Friends",
 "quantity": 1,
 "scene": "\"\"",
@@ -2113,6 +2100,24 @@ item_name = "Door Key"
 item_texture = ExtResource("11_3miru")
 item_effect = "Opens Doors"
 item_description = "A dirty, goblin sweat covered key"
+
+[node name="Artifact Chest3" parent="Node2" instance=ExtResource("9_kqbma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.986485, -0.6512215, -23.791733)
+reward_data = {
+"artifact_num": 3,
+"damage": 0,
+"description": "Tobias. Body Count: 300. Grew up poor in the slums of New Turkey. \\n Escapes every jail he has been put in '\\n' by charming the guards. '\\n' Used a series of novellas about each escape to amass a fortune of 400 billion dollars. Treat every word from his mouth with caution.",
+"effect": "Artifact",
+"name": "Case Notes",
+"quantity": 1,
+"scene": "\"\"",
+"swing_style": "\"\"",
+"texture": "res://Assets/Art/Artifacts/Case Log.png",
+"type": "Artifact"
+}
+key_item_type = "Chest Key"
+key_item_name = "Chest Key"
+key_item_effect = "Key"
 
 [node name="Orichalcum Blade" parent="." groups=["Pickup"] instance=ExtResource("6_wwepn")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 32.798153, -0.33619368, -10.126497)
@@ -2227,7 +2232,7 @@ transform = Transform3D(0.8999996, -0.00044905583, -0.0009897974, 0.00044939958,
 dialogue_text = Array[String](["The smell of ruined comic books invades the air"])
 
 [node name="explorer" parent="." instance=ExtResource("1_88kdb")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.29019403, -1.8374305)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.29019403, 1.8459387)
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="explorer"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.132045, 0.143327, 0.09938864)
@@ -3878,3 +3883,6 @@ item_name = "Chest Key"
 item_texture = ExtResource("11_3miru")
 item_effect = "Key"
 item_description = "A key only for opening chests"
+
+[node name="Tobias" parent="." instance=ExtResource("15_qq4w8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07374072, -0.19443214, 15.8772)

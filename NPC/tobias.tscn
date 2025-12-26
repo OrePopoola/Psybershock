@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://brr2u7igv2r0d"]
+
+[ext_resource type="Script" uid="uid://ukt52ad7h1w2" path="res://NPC/tobias.gd" id="1_nmy6m"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_whie2"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_nmy6m"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1ot8c"]
+
+[node name="Tobias" type="Node3D"]
+script = ExtResource("1_nmy6m")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("CapsuleShape3D_whie2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("CapsuleMesh_nmy6m")
+skeleton = NodePath("../..")
+
+[node name="Area3D" type="Area3D" parent="StaticBody3D"]
+transform = Transform3D(2.33, 0, 0, 0, 2.33, 0, 0, 0, 2.33, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D/Area3D"]
+transform = Transform3D(1.245, 0, 0, 0, 1.245, 0, 0, 0, 1.245, 0, 0, 0)
+shape = SubResource("BoxShape3D_1ot8c")
+
+[connection signal="body_entered" from="StaticBody3D/Area3D" to="." method="_on_area_3d_body_entered"]

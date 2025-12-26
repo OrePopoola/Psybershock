@@ -88,14 +88,13 @@ grow_horizontal = 0
 grow_vertical = 0
 color = Color(0.192157, 0.376471, 0.176471, 1)
 
-[node name="Label" type="Label" parent="DialogueUI/ColorRect"]
+[node name="Label" type="RichTextLabel" parent="DialogueUI/ColorRect"]
 layout_mode = 0
 offset_left = 20.0
 offset_top = 11.0
 offset_right = 836.0
 offset_bottom = 105.0
-theme_override_fonts/font = ExtResource("2_q0xqt")
-theme_override_font_sizes/font_size = 30
+bbcode_enabled = true
 text = "Press E to advance Text"
 
 [node name="InventoryUI" type="CanvasLayer" parent="."]

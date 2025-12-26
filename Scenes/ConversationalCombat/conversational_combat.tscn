@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bifs473fm4tgd"]
+[gd_scene load_steps=11 format=3 uid="uid://bifs473fm4tgd"]
 
 [ext_resource type="Script" uid="uid://ci7358xnimi6e" path="res://Scenes/ConversationalCombat/conversational_combat.gd" id="1_lyh4j"]
 [ext_resource type="PackedScene" uid="uid://c16mt3qs6iq3f" path="res://Player/inventory_ui.tscn" id="1_sn660"]
@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://bovat2846wx1q" path="res://UI/conversation_log.tscn" id="5_mi5jt"]
 [ext_resource type="Script" uid="uid://cbturdqq18biw" path="res://Scenes/ConversationalCombat/node.gd" id="5_ugwn1"]
 [ext_resource type="PackedScene" uid="uid://cgeedqhohwa5g" path="res://Global/inventory_item_3d.tscn" id="6_mi5jt"]
+[ext_resource type="Texture2D" uid="uid://66doh3d7oasp" path="res://Assets/Art/Artifacts/Case Log.png" id="8_xengq"]
+[ext_resource type="Texture2D" uid="uid://bcu8fpqie6yte" path="res://Assets/Art/Artifacts/Artifact_1_2.png" id="9_gcbb1"]
+[ext_resource type="Script" uid="uid://brye6gb1tsr66" path="res://Scenes/ConversationalCombat/conversational_player.gd" id="10_re7ju"]
 
 [node name="Conversational Combat" type="Node2D"]
 script = ExtResource("1_lyh4j")
@@ -141,7 +144,7 @@ text = "Craft"
 
 [node name="Bloody screwdriver" parent="TurnManager" instance=ExtResource("6_mi5jt")]
 visible = false
-item_description = "A screwdriver drowned in blood"
+item_description = "Tobias' latest murder weapon, used on 5 guards after giving an autograph to each."
 
 [node name="Attack Button" type="Button" parent="TurnManager"]
 visible = false
@@ -152,6 +155,50 @@ offset_bottom = 414.0
 theme_override_fonts/font = ExtResource("2_85cmc")
 theme_override_font_sizes/font_size = 31
 text = "Attack"
+
+[node name="Case Log" parent="TurnManager" instance=ExtResource("6_mi5jt")]
+visible = false
+item_name = "Case Log"
+item_texture = ExtResource("8_xengq")
+item_description = "Tobias. Body Count: 300. Grew up poor in the slums of New Turkey. Escapes every jail he has been put in by charming the guards. Used a series of novellas about each escape to amass a fortune of 400 billion dollars. Treat every word from his mouth with caution."
+
+[node name="Photo of Friends" parent="TurnManager" instance=ExtResource("6_mi5jt")]
+visible = false
+item_name = "Photo of Friends"
+item_texture = ExtResource("9_gcbb1")
+item_description = "A group of friends smiling together. A young tobias can be seen on the right"
+
+[node name="Player" type="Control" parent="." groups=["Player"]]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("10_re7ju")
+
+[node name="DialogueUI" type="CanvasLayer" parent="Player" groups=["Player"]]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Player/DialogueUI" groups=["Player"]]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1151.0
+offset_top = -283.0
+offset_right = -186.0
+offset_bottom = -164.0
+grow_horizontal = 0
+grow_vertical = 0
+color = Color(0.192157, 0.376471, 0.176471, 1)
+
+[node name="Label" type="RichTextLabel" parent="Player/DialogueUI/ColorRect"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 11.0
+offset_right = 836.0
+offset_bottom = 105.0
+bbcode_enabled = true
 
 [connection signal="button_down" from="TurnManager/Craft Button" to="TurnManager" method="_on_craft_button_button_down"]
 [connection signal="button_down" from="TurnManager/Attack Button" to="TurnManager" method="_on_attack_button_button_down"]

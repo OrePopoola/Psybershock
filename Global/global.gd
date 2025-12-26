@@ -20,6 +20,9 @@ var player_node = null
 var hotbar_size = 4
 var hotbar_inventory = []
 
+var artifact_1 = false
+var artifact_2 = false
+var artifact_3 = false
 
 func _ready():
 	Global.set_player_reference(player)
@@ -30,6 +33,9 @@ func _ready():
 func get_input():
 	var input_direction = Input.get_vector("Move Left","Move Right","Move Up","Move Down")	
 	
+func reset_inventory():
+	Inventory = []
+	Inventory.resize(15)
 func add_item(item, to_hotbar = false):
 	var added_to_hotbar = false
 	# add to hotbar

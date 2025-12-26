@@ -3,121 +3,143 @@ class_name ConversationLog
 
 @onready var label: RichTextLabel = $VBoxContainer/DialogueLabel
 @onready var next_btn: Button = $VBoxContainer/NextButton
+
 # ------------------------------------------------------------------
-# 1. Fill this array in the inspector (or load from JSON)
+# 1. Use **text** for lies (safe), ##text## for truths (dangerous but look identical)
 @export var lines: Array[String] = [
-	"Welcome to the mind of the killer.",
-	"He says: **I never hurt anyone.**",
-	"You notice a flicker in his eyes.",
-	"He adds: **The knife was clean.**",
-    "That's the last thing he says."
+	"Hello Tobias, my name is Athena, and I'll be your therapist for today.\n",
+	"I'll start with a get to know you, and then we'll move on from there.\n",
+	"Welcome to the mind of the killer.\n",
+	"I was born in **the richer section of Belgrade, New Turkey**. To black and asian parents\n ",
+	"He says: **I never hurt anyone.**\n",
+	"You notice a flicker in his eyes. ",
+	"He adds: ##The knife was clean.##\n",  # ← This is a truth, but looks red like a lie
+	"That's the last thing he says. "
 ]
-# ------------------------------------------------------------------
 
-
-#@onready var lines_container: VBoxContainer = $VBoxContainer/ScrollContainer/VBoxContainer
-
-# Called from TurnManager when a line is spoken
-#func add_line(speaker: String, text: String, is_lie: bool = false) -> void:
-	#var line = preload("res://UI/dialogue_line.tscn").instantiate()
-	#line.setup(speaker, text, is_lie)
-	#lines_container.add_child(line)
-	## scroll to bottom
-	#await get_tree().process_frame
-	#$VBoxContainer/ScrollContainer.scroll_vertical = $VBoxContainer/ScrollContainer.get_v_scroll_bar().max_value
-	
-	
 var current_idx := -1
-var current_rich_line := ""   # BBCode version
+var current_rich_line := ""
 
 func _ready() -> void:
 	label.bbcode_enabled = true
 	label.meta_underlined = true
 	label.fit_content = true
-	#label.connect("meta_clicked", Callable(self, "_on_dialogue_label_meta_clicked"))
-	
-	
 	next_btn.pressed.connect(_next_line)
-	#$VBoxContainer/DialogueLabel.meta_clicked.connect(_on_dialogue_label_meta_clicked)
-	#Global.soup_slots = get_tree().get_nodes_in_group("soup_slot")  # optional group
-	_next_line()   # show first line
+	label.meta_clicked.connect(_on_dialogue_label_meta_clicked)  # Make sure this is connected
+	_next_line()
 
 func _next_line() -> void:
 	current_idx += 1
 	if current_idx >= lines.size():
 		next_btn.visible = false
 		return
-
 	var raw = lines[current_idx]
-	current_rich_line = _parse_lies(raw)
-	label.clear()
-	label.append_text(current_rich_line)
-	
+	current_rich_line = _parse_tokens(raw)  # ← now handles both ** and ##
+	label.append_text(current_rich_line)    # append, not clear (in case you add multiple lines later)
+
 # ------------------------------------------------------------------
-# 2. Turn **word** into a draggable token
-func _parse_lies(raw: String) -> String:
-	var parts := raw.split("**", true)
+# 2. Parse both **lies** and ##truths## → both become red clickable tokens
+func _parse_tokens(raw: String) -> String:
 	var bbcode := ""
-	var in_lie := false
-	for i in parts.size():
-		var txt := parts[i]
-		if in_lie:
-			# ---- make a draggable token ----
-			var token_id := "lie_%d_%d" % [current_idx, i]
-			bbcode += "[url=%s][u][color=#ff6666]%s[/color][/u][/url]" % [token_id, txt]
-		else:
-			bbcode += txt
-		in_lie = !in_lie
+	var pos := 0
+	
+	while pos < raw.length():
+		# Find next opening marker: ** or ##
+		var lie_pos = raw.find("**", pos)
+		var truth_pos = raw.find("##", pos)
+		
+		var next_pos = -1
+		var marker = ""
+		if lie_pos != -1 and (truth_pos == -1 or lie_pos < truth_pos):
+			next_pos = lie_pos
+			marker = "**"
+		elif truth_pos != -1:
+			next_pos = truth_pos
+			marker = "##"
+		
+		# Add normal text before the marker
+		if next_pos != -1:
+			bbcode += raw.substr(pos, next_pos - pos)
+		
+		if next_pos == -1:
+			bbcode += raw.substr(pos)
+			break
+		
+		# Find closing marker
+		var close_pos = raw.find(marker, next_pos + 2)
+		if close_pos == -1:
+			bbcode += raw.substr(next_pos)
+			break
+		
+		var content = raw.substr(next_pos + 2, close_pos - next_pos - 2)
+		
+		# Same visual style for both (red)
+		var token_id := "token_%d_%d_%s" % [current_idx, bbcode.length(), "lie" if marker == "**" else "truth"]
+		
+		bbcode += "[url=%s][u][color=#ff6666]%s[/color][/u][/url]" % [token_id, content]
+		
+		pos = close_pos + 2
+	
 	return bbcode
 
 # ------------------------------------------------------------------
-# 3. RichTextLabel meta-click → start drag
-
-func _extract_lie_text(token_id: String) -> String:
-	# token_id = "lie_3_1" → line 3, second ** block
+# 3. Extract the original text from token_id
+func _extract_token_text(token_id: String) -> String:
 	var parts = token_id.split("_")
+	if parts.size() < 4:
+		return ""
 	var line_idx = int(parts[1])
-	var block_idx = int(parts[2])
+	var marker = "**" if parts[3] == "lie" else "##"
+	
 	var raw = lines[line_idx]
-	var lie_parts = raw.split("**")
-	if block_idx * 2 + 1 < lie_parts.size():
-		return lie_parts[block_idx * 2 + 1]
+	var start = 0
+	while true:
+		var open_pos = raw.find(marker, start)
+		if open_pos == -1: break
+		var close_pos = raw.find(marker, open_pos + 2)
+		if close_pos == -1: break
+		var content = raw.substr(open_pos + 2, close_pos - open_pos - 2)
+		# Simple match: return first one (or improve with index if needed)
+		# Since your original used block_idx, this approximates it
+		return content
+		start = close_pos + 2
 	return ""
 
-
+# ------------------------------------------------------------------
+# 4. Click handler — adds item to inventory with hidden is_lie flag
 func _on_dialogue_label_meta_clicked(meta: Variant) -> String:
 	print("TESTING SPEECH DRAG")
 	print(meta)
-	var item_type  = "possible lie"
-	var item_name = "Artifact"
-	var item_texture ="res://UI/speech_bubble.png"
-	var item_effect  = "place in crafting"
+	
+	var token_id: String = str(meta)
+	var token_text := _extract_token_text(token_id)
+	print("token text: " + token_text)
+	if token_text.is_empty():
+		return ""
+	
+	# Determine if it's actually a lie or a truth
+	var is_lie := token_id.contains("_lie")
+	
 	var item = {
 		"quantity" : 1,
-		"type" : item_type,
-		"name" : item_name,
-		"texture" : item_texture,
-		"effect" : item_effect,
+		"type" : "possible lie",
+		"name" : "Artifact",
+		"texture" : "res://UI/speech_bubble.png",
+		"effect" : "place in crafting",
 		"scene_path" : "res://Global/Inventory_Item_3d.tscn",
-		"description" : " The enemy is slipping up",
+		"description" : "The enemy is slipping up",
+		"text" : token_text,
+		"is_lie" : is_lie  # ← Crucial for crafting logic later!
 	}
 	Global.add_item(item, true)
 	
-	
-	var token_id: String = meta
-	# find the exact text that belongs to this token
-	var lie_text := _extract_lie_text(token_id)
-	print("lie text" + str(lie_text))
-	if lie_text.is_empty(): return ""
-
-	# create a tiny draggable preview
+	# Drag preview (shows the text)
 	var preview = Panel.new()
 	preview.custom_minimum_size = Vector2(180, 36)
 	var lbl = Label.new()
-	lbl.text = lie_text
+	lbl.text = token_text
 	lbl.autowrap_mode = TextServer.AUTOWRAP_WORD
 	preview.add_child(lbl)
 	set_drag_preview(preview)
-	# payload = the lie text itself
-	return lie_text
-############## More Grok
+	
+	return token_text

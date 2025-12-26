@@ -75,6 +75,13 @@ func _process(delta: float) -> void:
 		#gate3D.unlocked = true
 		print("adding reward!")
 		Global.add_item(reward_data)
+		if reward_data["type"] == "Artifact":
+			if reward_data["artifact_num"] == 1:
+				Global.artifact_1 = true
+			elif reward_data["artifact_num"] == 2:
+				Global.artifact_2 = true
+			elif reward_data["artifact_num"] == 3:
+				Global.artifact_3 = true
 		#Global.equipped_weapon = reward_data
 		print(key_data)
 		Global.remove_item(key_item_name,key_item_effect)
