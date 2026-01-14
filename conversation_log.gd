@@ -7,16 +7,20 @@ class_name ConversationLog
 # ------------------------------------------------------------------
 # 1. Use **text** for lies (safe), ##text## for truths (dangerous but look identical)
 @export var lines: Array[String] = [
-	"Hello Tobias, my name is Athena, and I'll be your therapist for today.\n",
+	"Athena: Hello Tobias, my name is Athena, and I'll be your therapist for today.\n",
 	"I'll start with a get to know you, and then we'll move on from there.\n",
-	"Welcome to the mind of the killer.\n",
-	"I was born in **the richer section of Belgrade, New Turkey**. To black and asian parents\n ",
-	"He says: **I never hurt anyone.**\n",
-	"You notice a flicker in his eyes. ",
-	"He adds: ##The knife was clean.##\n",  # ← This is a truth, but looks red like a lie
-	"That's the last thing he says. "
+	"Tell me about yourself.\n",
+	"Tobias: Well, I was born in **the richer section of Belgrade, New Turkey**. To black and asian parents\n ",
+	"Despite my upbringing, I grew up tough and alone, I don't have any memories **of friends that I treasure**\n",
+	"He says: **I never and have never hurt anyone.** Pacifism is at the core of my style,my conceit\n",
+	"What you probabally won't find in your Case Notes is that I was a frontline protester at the Ankaran University Shootings\n",
+	"Athena: You would've been 16 years old then\n",
+	"Tobias: Which is why it is so crucial for me to tell you",
+	"You notice a flicker in his eyes. \n",
+	"I don't really even need a therapist, but I do need a friend.\n",  # ← This is a truth, but looks red like a lie
+	"Athena: I want you to know that everything is confidential. And that I want you to feel comfortable ",
+	"telling the whole truth to me",
 ]
-
 var current_idx := -1
 var current_rich_line := ""
 

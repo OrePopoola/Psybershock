@@ -6,8 +6,9 @@
 size = Vector2(20.194, 20)
 
 [node name="Camera Module" type="Camera2D"]
-scale = Vector2(0.987675, 1.01943)
+scale = Vector2(1.038, 1.044)
 enabled = false
+zoom = Vector2(0.755, 0.82)
 script = ExtResource("1_8xmom")
 
 [node name="Area2D" type="Area2D" parent="."]

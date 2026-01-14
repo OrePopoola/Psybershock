@@ -226,15 +226,6 @@ top_face = 14
 bottom_face = 12
 metadata/_custom_type_script = "uid://couiylq30apdk"
 
-[node name="LevelBlock19" type="Node3D" parent="Blocks"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.015124)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
 [node name="LevelBlock20" type="Node3D" parent="Blocks"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.081923, 0, 1.972023)
 script = ExtResource("2_gpx5r")
@@ -414,7 +405,7 @@ metadata/_custom_type_script = "uid://couiylq30apdk"
 
 [node name="3DDialogue" parent="." instance=ExtResource("7_7tk53")]
 transform = Transform3D(0.99999976, -0.0002495229, -0.0005498655, 0.00024961843, 0.99999994, 0.00017362091, 0.00054982206, -0.00017375812, 0.9999998, 0.015243292, -1.2220693, 3.8975897)
-dialogue_text = Array[String](["Welcome to Grotto One Press R to talk, and F to interact", " Press I to open your inventory, and ", " Press J to close any player dialogue", "Also: A/D to turn, Q/E to move right and left", "Its full of bugs, but you have to start somewhere"])
+dialogue_text = Array[String](["Welcome to Grotto One. Press R to talk, and F to interact. Press I to open your inventory, and ", " Press J to close any player dialogue.Also: A/D to turn, Q/E to move right and left", "Its full of bugs, but you have to start somewhere."])
 
 [node name="LevelBlock48" type="Node3D" parent="."]
 transform = Transform3D(0.99957705, 0.029063733, 0.0021643117, -0.02912142, 0.9989743, 0.03484592, -0.0011493333, -0.03489418, 0.99939394, -4.0782204, 0.06407845, 15.997333)
@@ -1469,17 +1460,6 @@ top_face = 14
 bottom_face = 12
 metadata/_custom_type_script = "uid://couiylq30apdk"
 
-[node name="LevelBlock50" type="Node3D" parent="Desert/Node"]
-transform = Transform3D(1, 0, 0, 0, 1.0000043, 0, 0, 0, 1.0000043, 10, 0, -23.465048)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-north_face = 0
-east_face = 0
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
 [node name="LevelBlock4" type="Node3D" parent="Desert/Node"]
 transform = Transform3D(1.000007, 0.0017453434, 0, -0.0017453433, 1.0000072, 0, 0, 0, 1, -27.766, 0, 12)
 script = ExtResource("2_gpx5r")
@@ -2105,7 +2085,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.986485, -0.6512215, -23.7
 reward_data = {
 "artifact_num": 3,
 "damage": 0,
-"description": "Tobias. Body Count: 300. Grew up poor in the slums of New Turkey. \\n Escapes every jail he has been put in '\\n' by charming the guards. '\\n' Used a series of novellas about each escape to amass a fortune of 400 billion dollars. Treat every word from his mouth with caution.",
+"description": "Tobias. Body Count: 300. Grew up poor in the slums of New Turkey.  Escapes every jail he has been put in by charming the guards.  Used a series of novellas about each escape to amass a fortune of 400 billion dollars. Treat every word from his mouth with caution.",
 "effect": "Artifact",
 "name": "Case Notes",
 "quantity": 1,
@@ -2177,15 +2157,6 @@ metadata/_custom_type_script = "uid://couiylq30apdk"
 
 [node name="LevelBlock31" type="Node3D" parent="Node3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.725, 0, -30.232)
-script = ExtResource("2_gpx5r")
-material = ExtResource("3_wwepn")
-texture_sheet = ExtResource("4_7tk53")
-top_face = 14
-bottom_face = 12
-metadata/_custom_type_script = "uid://couiylq30apdk"
-
-[node name="LevelBlock31" type="Node3D" parent="Node3/LevelBlock31"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.725082, 0.49945402, -30.377306)
 script = ExtResource("2_gpx5r")
 material = ExtResource("3_wwepn")
 texture_sheet = ExtResource("4_7tk53")

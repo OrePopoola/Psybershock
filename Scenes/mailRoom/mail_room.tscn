@@ -25,7 +25,7 @@ texture = ExtResource("1_f3bls")
 
 [node name="Screwdriver" parent="." instance=ExtResource("2_ailff")]
 position = Vector2(8, 36)
-scale = Vector2(1.5, 1.5)
+scale = Vector2(0.4, 0.4)
 item_type = "tool"
 item_name = "Screwdriver"
 item_texture = ExtResource("2_tv5yn")

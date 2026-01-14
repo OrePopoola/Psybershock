@@ -108,6 +108,7 @@ inventoryItem = NodePath("../Crowbar")
 
 [node name="Crowbar2" parent="." instance=ExtResource("5_vfjxi")]
 position = Vector2(152, 99)
+scale = Vector2(0.1, 0.1)
 item_type = "Tool"
 item_name = "Crowbar"
 item_texture = ExtResource("6_asy8f")
@@ -119,6 +120,7 @@ dialogue_text = Array[String](["I cant get past this trapdoor", "Maybe I could j
 
 [node name="Crowbar" parent="." instance=ExtResource("5_vfjxi")]
 position = Vector2(336, 176)
+scale = Vector2(0.1, 0.1)
 item_type = "Tool"
 item_name = "Crowbar"
 item_texture = ExtResource("6_asy8f")

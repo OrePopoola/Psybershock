@@ -47,6 +47,7 @@ scale = Vector2(2.55, 2.55)
 
 [node name="Crowbar" parent="Athenas room" instance=ExtResource("3_hgppx")]
 position = Vector2(94.6636, 52.4362)
+scale = Vector2(0.1, 0.1)
 item_type = "Tool"
 item_name = "Crowbar"
 item_texture = ExtResource("4_jfien")
@@ -60,18 +61,18 @@ zoom = Vector2(3.46, 2.93)
 [node name="Camera Module" parent="." instance=ExtResource("3_una2b")]
 position = Vector2(397, 163)
 scale = Vector2(0.535, 0.427)
-zoom = Vector2(3.075, 3.6)
+zoom = Vector2(1.91, 2.27)
 
 [node name="Camera Module2" parent="." instance=ExtResource("3_una2b")]
-position = Vector2(-263, 205)
-scale = Vector2(0.549, 0.41)
+position = Vector2(-245, 175.00002)
+scale = Vector2(0.569, 0.41)
 enabled = true
-zoom = Vector2(3.135, 4.135)
+zoom = Vector2(1.835, 2.185)
 
 [node name="Camera Module3" parent="." instance=ExtResource("3_una2b")]
 position = Vector2(910, 207)
 scale = Vector2(0.295, 0.38)
-zoom = Vector2(4.785, 4.19)
+zoom = Vector2(3.385, 2.585)
 
 [node name="Camera Module4" parent="." instance=ExtResource("3_una2b")]
 position = Vector2(905, 429)
