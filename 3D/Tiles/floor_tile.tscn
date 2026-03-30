@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://duw61qj5fnk1n"]
+
+[ext_resource type="Script" uid="uid://couiylq30apdk" path="res://addons/level_block/level_block_node.gd" id="1_y1gc8"]
+[ext_resource type="Material" uid="uid://c4avtsmp1f3gc" path="res://addons/level_block/default_material.tres" id="2_p1luo"]
+[ext_resource type="Texture2D" uid="uid://2ipekk1juofp" path="res://Assets/3D/example2.png" id="3_s4p86"]
+
+[node name="Node3D" type="Node3D" unique_id=1554293565]
+
+[node name="LevelBlock" type="Node3D" parent="." unique_id=803556284]
+script = ExtResource("1_y1gc8")
+material = ExtResource("2_p1luo")
+texture_sheet = ExtResource("3_s4p86")
+north_face = 0
+bottom_face = 14
+metadata/_custom_type_script = "uid://couiylq30apdk"

@@ -34,7 +34,7 @@ rotation = 3.14159
 scale = Vector2(1.04018, 11.129)
 
 [node name="twinChoices" parent="." instance=ExtResource("8_d3o22")]
-position = Vector2(554, 632)
+position = Vector2(529, 625)
 scale = Vector2(1.515, 1.62)
 
 [node name="mailRoom" parent="." instance=ExtResource("9_4v4m4")]
@@ -52,6 +52,7 @@ item_type = "Tool"
 item_name = "Crowbar"
 item_texture = ExtResource("4_jfien")
 item_effect = "Sparkle"
+item_description = null
 
 [node name="Camera Module7" parent="." instance=ExtResource("3_una2b")]
 position = Vector2(76, 616)
@@ -85,17 +86,17 @@ scale = Vector2(0.334, 0.322)
 zoom = Vector2(4.565, 4.125)
 
 [node name="Camera Module6" parent="." instance=ExtResource("3_una2b")]
-position = Vector2(549, 646)
+position = Vector2(524, 639)
 scale = Vector2(0.312, 0.539)
 zoom = Vector2(4.935, 3.365)
 
 [node name="Gravity switch2" parent="." instance=ExtResource("4_hgppx")]
-position = Vector2(342, 639)
+position = Vector2(317, 632)
 rotation = 3.14159
 scale = Vector2(2.06, 8.176)
 
 [node name="Teleporter1" type="Area2D" parent="."]
-position = Vector2(505, 682.69)
+position = Vector2(480, 675.69)
 rotation = -3.14159
 scale = Vector2(1, 6.265)
 script = ExtResource("6_yts3s")
@@ -108,7 +109,7 @@ scale = Vector2(0.175, 0.175)
 texture = ExtResource("7_c2q6u")
 
 [node name="Teleporter2" type="Area2D" parent="."]
-position = Vector2(289, 622)
+position = Vector2(264, 615)
 rotation = -3.14159
 scale = Vector2(0.535337, 6.32113)
 

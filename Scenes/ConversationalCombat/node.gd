@@ -18,9 +18,9 @@ var enemy_ego: int = 100   # Killer's ego to break
 func _ready() -> void:
 	#print("Screwdriver :" + str(screwdriver))
 	Global.reset_inventory()
-	#Global.artifact_1 = true
-	#Global.artifact_2 = true
-	#Global.artifact_3 = true
+	Global.artifact_1 = true
+	Global.artifact_2 = true
+	Global.artifact_3 = true
 	
 
 	if Global.artifact_1:
@@ -49,7 +49,7 @@ func next_turn() -> void:
 			#TODO: detect inaccuracies in player attack and punish player
 			print("Enemy Turn")
 			if player_ego > 0:
-				player_ego -= 33
+				player_ego -= 40
 				current_state = State.PLAYER_TURN
 				#add time delay
 				next_turn()
@@ -130,10 +130,11 @@ func _process(delta: float) -> void:
 	if enemy_ego < 0:
 		enemy_ego = 999
 		print(" You have failed, you lack the neccesary evidence to defeat me!")
+		# change textbox
 		player_ego = 1
 #
 func _on_attack_button_button_down() -> void:
-		enemy_ego -= 30
+		enemy_ego -= 40
 		craft_button.visible = true
 		attack_button.visible = false
 		

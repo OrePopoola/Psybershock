@@ -91,6 +91,7 @@ func set_empty():
 	quantity_label.text = ""
 func set_item(new_item):
 	item = new_item
+	
 	description = item["description"] # FEED THIS INTO DIALOGUE
 	print("Description:" + str(description))
 	if new_item["texture"] is not Texture:

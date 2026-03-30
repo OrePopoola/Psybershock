@@ -167,7 +167,7 @@ shape = SubResource("SegmentShape2D_h0rdu")
 [node name="Dialogue" parent="." instance=ExtResource("12_xillq")]
 position = Vector2(57, -7)
 scale = Vector2(2.17563, 0.912025)
-dialogue_text = Array[String](["Press R to advance dialogue", "And press E to interact!"])
+dialogue_text = Array[String](["Press R to advance dialogue", "And press F to interact!"])
 
 [connection signal="area_entered" from="Scene/AnimatedFurniture/playerDetector" to="Scene/AnimatedFurniture" method="_on_player_detector_area_entered"]
 [connection signal="body_entered" from="Scene/AnimatedFurniture/playerDetector" to="Scene/AnimatedFurniture" method="_on_player_detector_body_entered"]

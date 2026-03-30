@@ -1,0 +1,90 @@
+[gd_scene load_steps=10 format=3 uid="uid://mbno5vkx82eb"]
+
+[ext_resource type="PackedScene" uid="uid://img02bbm4ymo" path="res://Scenes/stairRoom/stairRoom.tscn" id="1_co15c"]
+[ext_resource type="PackedScene" uid="uid://dgdpm7dgu2fu2" path="res://Assets/Rooms/Aquarium/aquariumRoom.tscn" id="2_dms2d"]
+[ext_resource type="PackedScene" uid="uid://blo6ai1rp6jps" path="res://Mechanics/gravity_switch.tscn" id="3_a3ek3"]
+[ext_resource type="PackedScene" uid="uid://pan8ofujera" path="res://Scenes/mailRoom/mail_room.tscn" id="5_vod8a"]
+[ext_resource type="PackedScene" uid="uid://bcciikwr1i5ae" path="res://Scenes/bedroom.tscn" id="6_wef8x"]
+[ext_resource type="PackedScene" uid="uid://c0r8t8osv5jft" path="res://Global/Inventory_Item.tscn" id="7_iglgs"]
+[ext_resource type="Texture2D" uid="uid://bs37o4d4uuh5n" path="res://Assets/Art/equipment/crowbar.png" id="8_a4cxk"]
+[ext_resource type="PackedScene" uid="uid://b0k2g3y57yr65" path="res://Scenes/camera/camera_module.tscn" id="9_ewxmo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c2q6u"]
+size = Vector2(54.5, 14.602)
+
+[node name="bedroomTest" type="Node2D"]
+
+[node name="stairRoom" parent="." instance=ExtResource("1_co15c")]
+position = Vector2(698, 76)
+scale = Vector2(2.195, 2.195)
+
+[node name="aquarium" parent="." instance=ExtResource("2_dms2d")]
+position = Vector2(28, 9)
+scale = Vector2(2.435, 2.435)
+
+[node name="Gravity switch" parent="." instance=ExtResource("3_a3ek3")]
+position = Vector2(90, 181)
+rotation = 3.14159
+scale = Vector2(1.04018, 11.129)
+
+[node name="mailRoom" parent="." instance=ExtResource("5_vod8a")]
+position = Vector2(445.56287, 653.2877)
+scale = Vector2(1.98, 1.975)
+
+[node name="Athenas room" parent="." instance=ExtResource("6_wef8x")]
+position = Vector2(-415, 294)
+scale = Vector2(2.55, 2.55)
+
+[node name="Crowbar" parent="Athenas room" instance=ExtResource("7_iglgs")]
+position = Vector2(235.29413, 73.725494)
+scale = Vector2(0.1, 0.1)
+item_type = "Tool"
+item_name = "Crowbar"
+item_texture = ExtResource("8_a4cxk")
+item_effect = "Sparkle"
+item_description = null
+
+[node name="Camera Module7" parent="." instance=ExtResource("9_ewxmo")]
+position = Vector2(434.60788, 670.2877)
+scale = Vector2(0.459, 0.587)
+zoom = Vector2(3.46, 2.93)
+
+[node name="Camera Module" parent="." instance=ExtResource("9_ewxmo")]
+position = Vector2(397, 163)
+scale = Vector2(0.535, 0.427)
+zoom = Vector2(1.91, 2.27)
+
+[node name="Camera Module2" parent="." instance=ExtResource("9_ewxmo")]
+position = Vector2(-245, 175.00002)
+scale = Vector2(0.569, 0.41)
+enabled = true
+zoom = Vector2(1.835, 2.185)
+
+[node name="Camera Module3" parent="." instance=ExtResource("9_ewxmo")]
+position = Vector2(910, 207)
+scale = Vector2(0.295, 0.38)
+zoom = Vector2(3.385, 2.585)
+
+[node name="Camera Module4" parent="." instance=ExtResource("9_ewxmo")]
+position = Vector2(905, 429)
+scale = Vector2(0.314, 0.334)
+zoom = Vector2(4.9, 4.085)
+
+[node name="Camera Module5" parent="." instance=ExtResource("9_ewxmo")]
+position = Vector2(909, 641)
+scale = Vector2(0.334, 0.322)
+zoom = Vector2(4.565, 4.125)
+
+[node name="Gravity switch2" parent="." instance=ExtResource("3_a3ek3")]
+position = Vector2(675.6079, 686.2877)
+rotation = 3.14159
+scale = Vector2(2.06, 8.176)
+
+[node name="Teleporter2" type="Area2D" parent="."]
+position = Vector2(622.6078, 669.2877)
+rotation = -3.14159
+scale = Vector2(0.535337, 6.32113)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporter2"]
+position = Vector2(-99.003, -0.949184)
+shape = SubResource("RectangleShape2D_c2q6u")

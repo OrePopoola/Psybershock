@@ -16,17 +16,20 @@ layout_mode = 0
 offset_right = 274.0
 offset_bottom = 645.0
 
-[node name="DialogueLabel" type="RichTextLabel" parent="VBoxContainer"]
-layout_mode = 2
-
 [node name="NextButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Next"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
-layout_mode = 2
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 31.0
+offset_right = 282.0
+offset_bottom = 644.0
 
-[node name="LinesContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
+[node name="DialogueLabel" type="RichTextLabel" parent="ScrollContainer"]
+custom_minimum_size = Vector2(275, 100)
 layout_mode = 2
+size_flags_vertical = 3
 
-[connection signal="meta_clicked" from="VBoxContainer/DialogueLabel" to="." method="_on_dialogue_label_meta_clicked"]
+[connection signal="meta_clicked" from="ScrollContainer/DialogueLabel" to="." method="_on_dialogue_label_meta_clicked"]

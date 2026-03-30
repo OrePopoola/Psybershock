@@ -1,0 +1,151 @@
+[gd_scene format=3 uid="uid://dp0lqvbrh0fec"]
+
+[ext_resource type="MeshLibrary" uid="uid://cm281r1nm45e4" path="res://3D/Tiles/scene_map.tres" id="1_erxwv"]
+[ext_resource type="Texture2D" uid="uid://bkly3gsx5jy5g" path="res://addons/level_block/example2.png" id="2_vltwv"]
+
+[sub_resource type="GDScript" id="GDScript_e0g62"]
+script/source = "extends GridMap
+
+const FloorScene = preload(\"res://3D/Tiles/floor_tile.tscn\")
+
+func _ready() -> void:
+	var floor_cells = get_cells_with_item(0)           # ← renamed
+	replace_tiles_with_scenes(floor_cells, FloorScene)
+
+
+# Renamed to avoid conflict with built-in get_used_cells_by_item()
+func get_cells_with_item(item_id: int) -> Array[Vector3i]:
+	var result: Array[Vector3i] = []
+	for cell in get_used_cells():
+		if get_cell_item(cell) == item_id:
+			result.append(cell)
+	return result
+
+
+func replace_tiles_with_scenes(cells: Array[Vector3i], scene: PackedScene) -> void:
+	for cell in cells:
+		set_cell_item(cell, -1)
+		
+		var instance = scene.instantiate()
+		instance.position = map_to_local(cell)
+		
+		# Optional tiny offset if your floor model isn't centered at origin
+		# instance.position += Vector3(0, 0.01, 0)   # prevent z-fighting if needed
+		
+		add_child(instance)
+"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pa85r"]
+albedo_texture = ExtResource("2_vltwv")
+
+[sub_resource type="BoxMesh" id="BoxMesh_nse32"]
+material = SubResource("StandardMaterial3D_pa85r")
+
+[sub_resource type="GDScript" id="GDScript_erxwv"]
+script/source = "extends Camera3D
+
+@export var speed: float = 20.0
+@export var min_speed: float = 1.0
+@export var max_speed: float = 200.0
+@export var sprint_multiplier: float = 5.0
+@export var mouse_sensitivity: float = 0.003
+
+var yaw: float = 0.0
+var pitch: float = 0.0
+
+func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed(&\"ui_cancel\"):
+		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		else:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		return
+	
+	if Input.get_mouse_mode() != Input.MOUSE_MODE_CAPTURED:
+		return
+	
+	if event is InputEventMouseMotion:
+		yaw -= event.relative.x * mouse_sensitivity
+		pitch -= event.relative.y * mouse_sensitivity
+		pitch = clamp(pitch, -PI / 2 + 0.001, PI / 2 - 0.001)
+	
+	if event is InputEventMouseButton:
+		var multiplier: float = 1.0
+		match event.button_index:
+			MOUSE_BUTTON_WHEEL_UP:
+				multiplier = 1.1
+			MOUSE_BUTTON_WHEEL_DOWN:
+				multiplier = 1.0 / 1.1
+		if multiplier != 1.0:
+			speed = clamp(speed * multiplier, min_speed, max_speed)
+
+func _physics_process(delta: float) -> void:
+	if Input.get_mouse_mode() != Input.MOUSE_MODE_CAPTURED:
+		return
+	
+	# Apply rotation
+	rotation.y = yaw
+	rotation.x = pitch
+	
+	# Raw WASD input (camera-relative horizontal)
+	var input_dir := Vector3.ZERO
+	var forward := -transform.basis.z
+	var right := transform.basis.x
+	
+	if Input.is_key_pressed(KEY_W):
+		input_dir += forward
+	if Input.is_key_pressed(KEY_S):
+		input_dir -= forward
+	if Input.is_key_pressed(KEY_A):
+		input_dir -= right
+	if Input.is_key_pressed(KEY_D):
+		input_dir += right
+	
+	input_dir = input_dir.normalized()
+	
+	# Raw vertical input (world-relative)
+	var v_input := float(Input.is_key_pressed(KEY_SPACE)) - float(Input.is_key_pressed(KEY_CTRL))
+	
+	# Combined direction
+	var direction := Vector3(input_dir.x, v_input, input_dir.z).normalized()
+	
+	# Speed with sprint
+	var current_speed := speed
+	if Input.is_key_pressed(KEY_SHIFT):
+		current_speed *= sprint_multiplier
+	
+	# Move
+	position += direction * current_speed * delta
+"
+
+[node name="SceneMapGrotto" type="Node3D" unique_id=1917497028]
+
+[node name="GridMap" type="GridMap" parent="." unique_id=976198869]
+mesh_library = ExtResource("1_erxwv")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(65534, 1, 0, 65535, 1, 0, 0, 1, 0, 1, 1, 0, 2, 1, 0, 2, 2, 0, 1, 2, 0, 0, 2, 0, 65535, 2, 0, 65534, 2, 0, 65534, 3, 0, 65535, 3, 0, 0, 3, 0, 1, 3, 0, 2, 3, 0)
+}
+script = SubResource("GDScript_e0g62")
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="floor" type="MeshInstance3D" parent="." unique_id=1218034652]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.73418695, 0, 0)
+mesh = SubResource("BoxMesh_nse32")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1800436742]
+skeleton = NodePath("../floor")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=1656195818]
+skeleton = NodePath("../MeshInstance3D2")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=51784049]
+transform = Transform3D(1, 0, 0, 0, 0.91913533, 0.3939419, 0, -0.3939419, 0.91913533, 0, 1.879533, 4.723642)
+script = SubResource("GDScript_erxwv")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Camera3D" unique_id=314833548]
+light_color = Color(0.9098039, 0, 0.3137255, 1)
+light_energy = 2.794

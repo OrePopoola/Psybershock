@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bifs473fm4tgd"]
+[gd_scene format=3 uid="uid://bifs473fm4tgd"]
 
 [ext_resource type="Script" uid="uid://ci7358xnimi6e" path="res://Scenes/ConversationalCombat/conversational_combat.gd" id="1_lyh4j"]
 [ext_resource type="PackedScene" uid="uid://c16mt3qs6iq3f" path="res://Player/inventory_ui.tscn" id="1_sn660"]
@@ -11,25 +11,25 @@
 [ext_resource type="Texture2D" uid="uid://bcu8fpqie6yte" path="res://Assets/Art/Artifacts/Artifact_1_2.png" id="9_gcbb1"]
 [ext_resource type="Script" uid="uid://brye6gb1tsr66" path="res://Scenes/ConversationalCombat/conversational_player.gd" id="10_re7ju"]
 
-[node name="Conversational Combat" type="Node2D"]
+[node name="Conversational Combat" type="Node2D" unique_id=2088225185]
 script = ExtResource("1_lyh4j")
 
-[node name="UI" type="Control" parent="."]
+[node name="UI" type="Control" parent="." unique_id=925012569]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="UI"]
+[node name="CanvasLayer" type="CanvasLayer" parent="UI" unique_id=1139311224]
 
-[node name="InventoryBackground" type="ColorRect" parent="UI/CanvasLayer"]
+[node name="InventoryBackground" type="ColorRect" parent="UI/CanvasLayer" unique_id=1446712960]
 offset_left = 849.0
 offset_top = 3.0
 offset_right = 1152.0
 offset_bottom = 647.0
 color = Color(0.34002143, 0.24820253, 0.10801863, 1)
 
-[node name="Inventory_Ui" parent="UI/CanvasLayer/InventoryBackground" instance=ExtResource("1_sn660")]
+[node name="Inventory_Ui" parent="UI/CanvasLayer/InventoryBackground" unique_id=1896094348 instance=ExtResource("1_sn660")]
 layout_mode = 0
 offset_left = -62.0
 offset_top = 63.0
@@ -37,7 +37,7 @@ offset_right = -22.0
 offset_bottom = 103.0
 scale = Vector2(0.5, 0.5)
 
-[node name="Label" type="Label" parent="UI/CanvasLayer/InventoryBackground"]
+[node name="Label" type="Label" parent="UI/CanvasLayer/InventoryBackground" unique_id=260478501]
 layout_mode = 0
 offset_left = 72.0
 offset_top = 12.0
@@ -48,14 +48,14 @@ theme_override_font_sizes/font_size = 41
 text = "Inventory"
 horizontal_alignment = 1
 
-[node name="CraftingArea" type="ColorRect" parent="UI/CanvasLayer"]
+[node name="CraftingArea" type="ColorRect" parent="UI/CanvasLayer" unique_id=2102083863]
 offset_left = 327.0
 offset_top = 418.0
 offset_right = 849.0
 offset_bottom = 651.0
 color = Color(0.30527, 0.041507185, 0.4452312, 1)
 
-[node name="Inventory_Hotbar" parent="UI/CanvasLayer/CraftingArea" instance=ExtResource("4_51x5w")]
+[node name="Inventory_Hotbar" parent="UI/CanvasLayer/CraftingArea" unique_id=1761484821 instance=ExtResource("4_51x5w")]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.95300007
@@ -66,17 +66,18 @@ offset_right = -11.83597
 offset_bottom = 26.0
 scale = Vector2(0.8, 0.8)
 
-[node name="LogBackground" type="ColorRect" parent="UI/CanvasLayer"]
+[node name="LogBackground" type="ColorRect" parent="UI/CanvasLayer" unique_id=594939403]
 offset_left = 4.0
 offset_top = 4.0
 offset_right = 321.0
 offset_bottom = 648.0
 color = Color(0.34002143, 0.24820253, 0.10801863, 1)
 
-[node name="ConversationLog" parent="UI/CanvasLayer/LogBackground" instance=ExtResource("5_mi5jt")]
+[node name="ConversationLog" parent="UI/CanvasLayer/LogBackground" unique_id=42461201 instance=ExtResource("5_mi5jt")]
 layout_mode = 1
+offset_bottom = -53.0
 
-[node name="Label" type="Label" parent="UI/CanvasLayer/LogBackground"]
+[node name="Label" type="Label" parent="UI/CanvasLayer/LogBackground" unique_id=692157218]
 visible = false
 layout_mode = 0
 offset_left = -4.0
@@ -86,14 +87,14 @@ offset_bottom = 661.0
 text = "A: I don't trust a single thing you've said.
 T: Are you here to fix me, or to insult me?"
 
-[node name="enemyPortrait" type="ColorRect" parent="UI"]
+[node name="enemyPortrait" type="ColorRect" parent="UI" unique_id=897196770]
 layout_mode = 0
 offset_left = 694.0
 offset_right = 851.0
 offset_bottom = 156.0
 color = Color(0.21568628, 0.14901961, 0.07450981, 1)
 
-[node name="Label" type="Label" parent="UI/enemyPortrait"]
+[node name="Label" type="Label" parent="UI/enemyPortrait" unique_id=1430237781]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 160.0
@@ -101,7 +102,7 @@ offset_right = 117.0
 offset_bottom = 183.0
 text = "Player Health: "
 
-[node name="playerPortrait" type="ColorRect" parent="UI"]
+[node name="playerPortrait" type="ColorRect" parent="UI" unique_id=1458218323]
 layout_mode = 0
 offset_left = 326.0
 offset_top = 1.0
@@ -109,31 +110,31 @@ offset_right = 483.0
 offset_bottom = 157.0
 color = Color(0.21159282, 0.2991521, 0.090058975, 1)
 
-[node name="Label" type="Label" parent="UI/playerPortrait"]
+[node name="Label" type="Label" parent="UI/playerPortrait" unique_id=678808048]
 layout_mode = 0
 offset_top = 158.0
 offset_right = 40.0
 offset_bottom = 181.0
 text = "Player Health: "
 
-[node name="Control" type="Control" parent="UI"]
+[node name="Control" type="Control" parent="UI" unique_id=1539314521]
 anchors_preset = 0
 offset_left = 849.0
 offset_top = 3.0
 offset_right = 849.0
 offset_bottom = 647.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI" unique_id=2124705938]
 layout_mode = 0
 offset_left = 849.0
 offset_top = 3.0
 offset_right = 1148.0
 offset_bottom = 647.0
 
-[node name="TurnManager" type="Node" parent="."]
+[node name="TurnManager" type="Node" parent="." unique_id=1510653312]
 script = ExtResource("5_ugwn1")
 
-[node name="Craft Button" type="Button" parent="TurnManager"]
+[node name="Craft Button" type="Button" parent="TurnManager" unique_id=1523568061]
 offset_left = 512.0
 offset_top = 314.0
 offset_right = 659.0
@@ -142,11 +143,11 @@ theme_override_fonts/font = ExtResource("2_85cmc")
 theme_override_font_sizes/font_size = 31
 text = "Craft"
 
-[node name="Bloody screwdriver" parent="TurnManager" instance=ExtResource("6_mi5jt")]
+[node name="Bloody screwdriver" parent="TurnManager" unique_id=1073870118 instance=ExtResource("6_mi5jt")]
 visible = false
 item_description = "Tobias' latest murder weapon, used on 5 guards after giving an autograph to each."
 
-[node name="Attack Button" type="Button" parent="TurnManager"]
+[node name="Attack Button" type="Button" parent="TurnManager" unique_id=1092162305]
 visible = false
 offset_left = 339.0
 offset_top = 310.0
@@ -156,29 +157,29 @@ theme_override_fonts/font = ExtResource("2_85cmc")
 theme_override_font_sizes/font_size = 31
 text = "Attack"
 
-[node name="Case Log" parent="TurnManager" instance=ExtResource("6_mi5jt")]
+[node name="Case Log" parent="TurnManager" unique_id=1246843053 instance=ExtResource("6_mi5jt")]
 visible = false
 item_name = "Case Log"
 item_texture = ExtResource("8_xengq")
 item_description = "Tobias. Body Count: 300. Grew up poor in the slums of New Turkey. Escapes every jail he has been put in by charming the guards. Used a series of novellas about each escape to amass a fortune of 400 billion dollars. Treat every word from his mouth with caution."
 
-[node name="Photo of Friends" parent="TurnManager" instance=ExtResource("6_mi5jt")]
+[node name="Photo of Friends" parent="TurnManager" unique_id=2054659955 instance=ExtResource("6_mi5jt")]
 visible = false
 item_name = "Photo of Friends"
 item_texture = ExtResource("9_gcbb1")
 item_description = "A group of friends smiling together. A young tobias can be seen on the right"
 
-[node name="Player" type="Control" parent="." groups=["Player"]]
+[node name="Player" type="Control" parent="." unique_id=1656115777 groups=["Player"]]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("10_re7ju")
 
-[node name="DialogueUI" type="CanvasLayer" parent="Player" groups=["Player"]]
+[node name="DialogueUI" type="CanvasLayer" parent="Player" unique_id=85785185 groups=["Player"]]
 visible = false
 
-[node name="ColorRect" type="ColorRect" parent="Player/DialogueUI" groups=["Player"]]
+[node name="ColorRect" type="ColorRect" parent="Player/DialogueUI" unique_id=575889630 groups=["Player"]]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -192,7 +193,7 @@ grow_horizontal = 0
 grow_vertical = 0
 color = Color(0.192157, 0.376471, 0.176471, 1)
 
-[node name="Label" type="RichTextLabel" parent="Player/DialogueUI/ColorRect"]
+[node name="Label" type="RichTextLabel" parent="Player/DialogueUI/ColorRect" unique_id=1667958502]
 layout_mode = 0
 offset_left = 20.0
 offset_top = 11.0

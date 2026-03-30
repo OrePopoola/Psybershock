@@ -8,6 +8,7 @@ extends Node2D
 @export var item_name = ""
 @export var item_texture: Texture
 @export var item_effect = ""
+@export var item_description = ""
 var scene_path: String =  "res://Global/Inventory_Item.tscn"
 
 var player_in_range = false
@@ -36,6 +37,7 @@ func pickup_item():
 		"texture" : item_texture,
 		"effect" : item_effect,
 		"scene_path" : scene_path,
+		"description" : item_description,
 	}
 	if Global.player_node:
 		

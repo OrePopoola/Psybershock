@@ -1,7 +1,7 @@
 extends Control
 class_name ConversationLog
 
-@onready var label: RichTextLabel = $VBoxContainer/DialogueLabel
+@onready var label: RichTextLabel = $ScrollContainer/DialogueLabel
 @onready var next_btn: Button = $VBoxContainer/NextButton
 
 # ------------------------------------------------------------------
@@ -14,8 +14,8 @@ class_name ConversationLog
 	"Despite my upbringing, I grew up tough and alone, I don't have any memories **of friends that I treasure**\n",
 	"He says: **I never and have never hurt anyone.** Pacifism is at the core of my style,my conceit\n",
 	"What you probabally won't find in your Case Notes is that I was a frontline protester at the Ankaran University Shootings\n",
-	"Athena: You would've been 16 years old then\n",
-	"Tobias: Which is why it is so crucial for me to tell you",
+	"Athena: You would've been 16 years old then.\n",
+	"Tobias: Which is why it is so crucial for me to tell you.\n",
 	"You notice a flicker in his eyes. \n",
 	"I don't really even need a therapist, but I do need a friend.\n",  # ← This is a truth, but looks red like a lie
 	"Athena: I want you to know that everything is confidential. And that I want you to feel comfortable ",
@@ -27,6 +27,7 @@ var current_rich_line := ""
 func _ready() -> void:
 	label.bbcode_enabled = true
 	label.meta_underlined = true
+	label.scroll_active = true
 	label.fit_content = true
 	next_btn.pressed.connect(_next_line)
 	label.meta_clicked.connect(_on_dialogue_label_meta_clicked)  # Make sure this is connected

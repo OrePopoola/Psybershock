@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfeuc5ir4ni6m"
-path="res://.godot/imported/athena_climb.png-2efda324c21db2e5a34140dbccd28ab9.ctex"
+uid="uid://iig0fjv2jfdc"
+path="res://.godot/imported/pipe_background.png-3b3a3dc5fc40c02a4721dbb4beaea600.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/athena_anim/athena_climb.png"
-dest_files=["res://.godot/imported/athena_climb.png-2efda324c21db2e5a34140dbccd28ab9.ctex"]
+source_file="res://Assets/Art/pipe_background.png"
+dest_files=["res://.godot/imported/pipe_background.png-3b3a3dc5fc40c02a4721dbb4beaea600.ctex"]
 
 [params]
 
